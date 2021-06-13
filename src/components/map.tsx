@@ -8,18 +8,15 @@ import {
 import Leaflet from 'leaflet';
 import React, { useCallback, useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
-/*
 import {
   FireDeptCrisis,
   FireDeptFire,
   FireDeptOther,
   FireDeptRescue,
 } from './layers/FireDeptLayers';
-import { LatLngTuple } from 'leaflet';
 import { ExpandControl } from './controls/ExpandControl';
 import { LocateControl } from './controls/LocateControl';
 import { GitHubControl } from './controls/GitHubControl';
-*/
 
 const MapInitializer = () => {
   const map = useMap();
@@ -93,7 +90,6 @@ const MapEventHandler = () => {
   return null;
 };
 
-/*
 const FireDept = () => {
   return (
     <>
@@ -104,7 +100,6 @@ const FireDept = () => {
     </>
   );
 };
-*/
 
 const Map = () => {
   useEffect(() => {
@@ -122,13 +117,9 @@ const Map = () => {
     >
       <MapInitializer />
       <MapEventHandler />
-      {/**
       <GitHubControl position='bottomleft' />
       <ExpandControl position='bottomright' />
       <LocateControl position='bottomright' />
-        <FireDept />
-       * 
-       */}
       <LayersControl position='bottomright'>
         <LayersControl.BaseLayer checked name='OpenStreetMap'>
           <TileLayer
@@ -142,6 +133,7 @@ const Map = () => {
             url='https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png'
           />
         </LayersControl.BaseLayer>
+        <FireDept />
       </LayersControl>
     </MapContainer>
   );
