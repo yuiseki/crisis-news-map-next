@@ -29,13 +29,13 @@ const MapInitializer = () => {
     // center
     const lat = localStorage.getItem('leaflet-center-lat');
     const lng = localStorage.getItem('leaflet-center-lng');
-    if (lat === undefined || lat === undefined) {
+    if (!lat || !lng || lat === '0' || lng === '0') {
       return;
     }
     setCenter([Number(lat), Number(lng)]);
     // zoom
     const zoom = localStorage.getItem('leaflet-zoom');
-    if (zoom === undefined) {
+    if (!zoom || zoom === '0') {
       return;
     }
     setZoom(Number(zoom));
