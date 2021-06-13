@@ -41,6 +41,8 @@ const MapInitializer = () => {
     setZoom(Number(zoom));
   }, []);
   useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(center, zoom);
     // @ts-ignore
     map.setView(center, zoom);
   }, [center, zoom]);
