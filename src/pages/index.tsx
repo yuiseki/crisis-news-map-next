@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import tw, { css } from 'twin.macro';
 import React from 'react';
 import { Follow, Share } from 'react-twitter-widgets';
+import { useRouter } from 'next/dist/client/router';
 
 const container = css`
   ${tw`h-screen mx-auto m-0 p-0`}
@@ -15,6 +16,12 @@ const Map = dynamic(
 );
 
 export const Home: React.VFC = () => {
+  const { isFallback } = useRouter();
+
+  if (isFallback) {
+    return <></>;
+  }
+
   return (
     <div className='map' css={container}>
       <Follow username='yuiseki_' />
