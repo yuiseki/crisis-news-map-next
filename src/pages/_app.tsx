@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import { GlobalStyles, css } from 'twin.macro'
-import { Global } from '@emotion/react'
-import { AppProps } from 'next/app'
+import Head from 'next/head';
+import { GlobalStyles, css } from 'twin.macro';
+import { Global } from '@emotion/react';
+import { AppProps } from 'next/app';
 
 const globalStyles = css`
   html,
@@ -15,20 +15,36 @@ const globalStyles = css`
   * {
     box-sizing: border-box;
   }
-`
+
+  iframe#twitter-widget-0 {
+    z-index: 1000;
+    position: absolute !important;
+    left: 64px !important;
+    bottom: 10px !important;
+  }
+
+  iframe#twitter-widget-1 {
+    z-index: 1000;
+    position: absolute !important;
+    left: 64px !important;
+    bottom: 50px !important;
+  }
+`;
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
-      <title>
-        Nextjs App with TypeScript, ESlint, Jest, Emotion, Tailwind and Twin
-      </title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>全国災害情報地図</title>
+      <link rel='icon' href='/favicon.ico' />
+      <link
+        href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css'
+        rel='stylesheet'
+      ></link>
     </Head>
     <GlobalStyles />
     <Global styles={globalStyles} />
     <Component {...pageProps} />
   </>
-)
+);
 
-export default App
+export default App;
