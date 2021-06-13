@@ -23,13 +23,11 @@ const MarkerLayer: React.VFC<MarkerLayerProps> = ({
   const overlays = JSON.parse(
     localStorage.getItem('leaflet-selected-overlays')
   );
-  // eslint-disable-next-line no-console
-  console.log(overlays);
   return (
     <LayersControl.Overlay
       key={id}
       name={title}
-      checked={overlays ? overlays.indexOf(title) > -1 : false}
+      checked={overlays ? overlays.indexOf(title) > -1 : true}
     >
       <LayerGroup>
         {markers.map((marker) => {
