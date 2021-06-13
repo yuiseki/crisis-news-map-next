@@ -19,13 +19,6 @@ import { GitHubControl } from './controls/GitHubControl';
 import { LatLngTuple } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
-Leaflet.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'images/marker-icon-2x.png',
-  iconUrl: 'images/marker-icon.png',
-  shadowUrl: 'images/marker-shadow.png',
-});
-
 const MapInitializer = () => {
   const map = useMap();
   const [center, setCenter] = useState<LatLngTuple>([
@@ -110,6 +103,14 @@ const FireDept = () => {
 };
 
 const Map = () => {
+  useEffect(() => {
+    delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
+    Leaflet.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'images/marker-icon-2x.png',
+      iconUrl: 'images/marker-icon.png',
+      shadowUrl: 'images/marker-shadow.png',
+    });
+  }, []);
   return (
     <MapContainer
       scrollWheelZoom={true}
