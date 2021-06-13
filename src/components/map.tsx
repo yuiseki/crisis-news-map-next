@@ -1,6 +1,12 @@
-import { LayersControl, MapContainer, TileLayer } from 'react-leaflet';
+import {
+  LayersControl,
+  MapContainer,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from 'react-leaflet';
 import Leaflet from 'leaflet';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 /*
 import {
@@ -13,13 +19,11 @@ import { LatLngTuple } from 'leaflet';
 import { ExpandControl } from './controls/ExpandControl';
 import { LocateControl } from './controls/LocateControl';
 import { GitHubControl } from './controls/GitHubControl';
+*/
 
 const MapInitializer = () => {
   const map = useMap();
-  const [center, setCenter] = useState<LatLngTuple>([
-    36.57142382346277,
-    132.31701507110336,
-  ]);
+  const [center, setCenter] = useState([36.57142382346277, 132.31701507110336]);
   const [zoom, setZoom] = useState(6);
   useEffect(() => {
     // center
@@ -37,6 +41,7 @@ const MapInitializer = () => {
     setZoom(Number(zoom));
   }, []);
   useEffect(() => {
+    // @ts-ignore
     map.setView(center, zoom);
   }, [center, zoom]);
   return null;
@@ -86,6 +91,7 @@ const MapEventHandler = () => {
   return null;
 };
 
+/*
 const FireDept = () => {
   return (
     <>
@@ -112,9 +118,9 @@ const Map = () => {
       scrollWheelZoom={true}
       style={{ height: '100%', width: '100%' }}
     >
-      {/**
       <MapInitializer />
       <MapEventHandler />
+      {/**
       <GitHubControl position='bottomleft' />
       <ExpandControl position='bottomright' />
       <LocateControl position='bottomright' />
