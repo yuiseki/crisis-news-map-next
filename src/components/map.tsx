@@ -65,6 +65,8 @@ const MapEventHandler = () => {
     let selectedOverlays = JSON.parse(
       localStorage.getItem('leaflet-selected-overlays')
     );
+    // eslint-disable-next-line no-console
+    console.log(selectedOverlays);
     if (selectedOverlays === null) {
       selectedOverlays = [];
     }
