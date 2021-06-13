@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "lightyen.tailwindcss-intellisense-twin",
+    "ms-vscode.typescript-javascript-grammar"
+  ]
+}

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-3xpbj7-container"
+  >
+    <main>
+      <h1
+        class="css-1ok47la-Home"
+      >
+        Nextjs App with TypeScript, ESlint, Jest, Emotion, Tailwind and Twin
+      </h1>
+    </main>
+  </div>
+</DocumentFragment>
+`;
