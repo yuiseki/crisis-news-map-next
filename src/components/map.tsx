@@ -90,7 +90,6 @@ const MapEventHandler = () => {
   return null;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const FireDept = () => {
   return (
     <>
@@ -134,9 +133,7 @@ const Map = () => {
             url='https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png'
           />
         </LayersControl.BaseLayer>
-        {
-          // <FireDept />
-        }
+        <FireDept />
       </LayersControl>
     </MapContainer>
   );
