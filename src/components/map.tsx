@@ -114,8 +114,8 @@ const Map = () => {
       <MapInitializer />
       <MapEventHandler />
       <GitHubControl position='bottomleft' />
-      <ExpandControl position='bottomright' />
-      <LocateControl position='bottomright' />
+      <ExpandControl position='topleft' />
+      <LocateControl position='topleft' />
       <LayersControl position='bottomright'>
         <LayersControl.BaseLayer checked name='OpenStreetMap'>
           <TileLayer

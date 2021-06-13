@@ -21,8 +21,8 @@ Leaflet.Control.LocateControl = Leaflet.Control.extend({
     container.onclick = function () {
       map.locate({
         setView: 'true',
-        maxZoom: 10,
       });
+      map.setZoom(6);
     };
     return container;
   },
