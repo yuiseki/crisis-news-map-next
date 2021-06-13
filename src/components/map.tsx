@@ -6,7 +6,6 @@ import {
   useMapEvents,
 } from 'react-leaflet';
 import Leaflet from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   FireDeptCrisis,
@@ -18,6 +17,7 @@ import { ExpandControl } from './controls/ExpandControl';
 import { LocateControl } from './controls/LocateControl';
 import { GitHubControl } from './controls/GitHubControl';
 import { LatLngTuple } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
 Leaflet.Icon.Default.mergeOptions({
