@@ -12,7 +12,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
-    "postinstall": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images"
+    "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images"
   },
   "husky": {
     "hooks": {
