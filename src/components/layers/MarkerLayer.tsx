@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import Leaflet from 'leaflet';
 import { LayersControl, Marker, Popup, LayerGroup } from 'react-leaflet';
@@ -21,13 +20,9 @@ const MarkerLayer: React.VFC<MarkerLayerProps> = ({
   title,
   markers,
 }: MarkerLayerProps) => {
-  const [overlays, setOverlays] = useState([]);
-  useEffect(() => {
-    const selectedOverlays = JSON.parse(
-      localStorage.getItem('leaflet-selected-overlays')
-    );
-    setOverlays(selectedOverlays);
-  }, []);
+  const overlays = JSON.parse(
+    localStorage.getItem('leaflet-selected-overlays')
+  );
   return (
     <LayersControl.Overlay
       key={id}
