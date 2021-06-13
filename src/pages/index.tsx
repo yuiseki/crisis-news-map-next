@@ -9,11 +9,12 @@ const container = css`
   ${tw`h-screen mx-auto m-0 p-0`}
 `;
 
+const Map = dynamic(
+  () => import('../components/map'), // replace '@components/map' with your component's location
+  { ssr: false } // This line is important. It's what prevents server-side render
+);
+
 export const Home: React.VFC = () => {
-  const Map = dynamic(
-    () => import('../components/map'), // replace '@components/map' with your component's location
-    { ssr: false } // This line is important. It's what prevents server-side render
-  );
   return (
     <div className='map' css={container}>
       <Follow username='yuiseki_' />
