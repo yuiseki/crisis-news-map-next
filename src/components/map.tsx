@@ -119,7 +119,7 @@ const Map = () => {
       <GitHubControl position='bottomleft' />
       <ExpandControl position='topleft' />
       <LocateControl position='topleft' />
-      <LayersControl position='bottomright'>
+      <LayersControl position='topright'>
         <LayersControl.BaseLayer checked name='OpenStreetMap'>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
