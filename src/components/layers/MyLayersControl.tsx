@@ -11,12 +11,14 @@ import { JapanCityOverlayLayer } from './GeoJSONLayers/JapanCityOverlayLayer';
 export const MyLayersControl = () => {
   return (
     <LayersControl position='topright'>
-      <OSMBaseLayer />
-      <GSIBaseLayer />
-      <NowcastOverlayLayer />
-      <GsiReliefOverlayLayer />
+      <h2>地図</h2>
       <JapanPrefOverlayLayer />
       <JapanCityOverlayLayer />
+      <OSMBaseLayer />
+      <GSIBaseLayer />
+      <hr />
+      <NowcastOverlayLayer />
+      <GsiReliefOverlayLayer />
       <FireDeptLayers />
     </LayersControl>
   );
