@@ -5,6 +5,8 @@ import { GSIBaseLayer } from './tiles/GSIBaseLayer';
 import { GsiReliefOverlayLayer } from './tiles/GsiReliefOverlayLayer';
 import { NowcastOverlayLayer } from './tiles/NowcastOverlayLayer';
 import { OSMBaseLayer } from './tiles/OSMBaseLayer';
+import { JapanPrefOverlayLayer } from './tiles/JapanPrefOverlayLayer';
+import { JapanCityOverlayLayer } from './tiles/JapanCityOverlayLayer';
 
 export const MyLayersControl = () => {
   return (
@@ -13,6 +15,8 @@ export const MyLayersControl = () => {
       <GSIBaseLayer />
       <NowcastOverlayLayer />
       <GsiReliefOverlayLayer />
+      <JapanPrefOverlayLayer />
+      <JapanCityOverlayLayer />
       <FireDeptLayers />
     </LayersControl>
   );
