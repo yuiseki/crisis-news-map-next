@@ -7,6 +7,7 @@ import { NowcastOverlayLayer } from './OverlayLayers/NowcastOverlayLayer';
 import { OSMBaseLayer } from './BaseLayers/OSMBaseLayer';
 import { JapanPrefOverlayLayer } from './GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from './GeoJSONLayers/JapanCityOverlayLayer';
+import { RainViewerOverlayLayer } from './OverlayLayers/RainViewerOverlayLayer';
 
 export const MyLayersControl = () => {
   return (
@@ -18,6 +19,7 @@ export const MyLayersControl = () => {
       <GSIBaseLayer />
       <hr />
       <NowcastOverlayLayer />
+      <RainViewerOverlayLayer />
       <GsiReliefOverlayLayer />
       <FireDeptLayers />
     </LayersControl>
