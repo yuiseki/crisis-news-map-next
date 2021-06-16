@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
-import MarkerLayer from './MarkerLayer';
+import AbstractMarkerLayer from './AbstractMarkerLayer';
 
 interface AbstractFireDeptProps {
   id: string;
@@ -34,7 +34,7 @@ const AbstractFireDept = ({
       setMarkers(newMarkers);
     }
   }, [data]);
-  return <MarkerLayer id={id} title={title} markers={markers} />;
+  return <AbstractMarkerLayer id={id} title={title} markers={markers} />;
 };
 
 const FireDeptCrisis = () => {
@@ -81,7 +81,7 @@ const FireDeptOther = () => {
   );
 };
 
-export const FireDeptOverlay = () => {
+export const FireDeptLayers = () => {
   return (
     <>
       <FireDeptCrisis />

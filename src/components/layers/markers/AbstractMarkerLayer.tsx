@@ -9,17 +9,17 @@ interface MarkerProps {
   id: string;
   icon: string;
 }
-interface MarkerLayerProps {
+interface AbstractMarkerLayerProps {
   id: string;
   title: string;
   markers: MarkerProps[];
 }
 
-const MarkerLayer: React.VFC<MarkerLayerProps> = ({
+const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
   id,
   title,
   markers,
-}: MarkerLayerProps) => {
+}: AbstractMarkerLayerProps) => {
   const overlays = JSON.parse(
     localStorage.getItem('leaflet-selected-overlays')
   );
@@ -49,4 +49,4 @@ const MarkerLayer: React.VFC<MarkerLayerProps> = ({
   );
 };
 
-export default MarkerLayer;
+export default AbstractMarkerLayer;
