@@ -1,101 +1,11 @@
-import {
-  LayersControl,
-  MapContainer,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from 'react-leaflet';
+import { MapContainer } from 'react-leaflet';
 import Leaflet from 'leaflet';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
-import {
-  FireDeptCrisis,
-  FireDeptFire,
-  FireDeptOther,
-  FireDeptRescue,
-} from './layers/FireDeptLayers';
-import { ExpandControl } from './controls/ExpandControl';
-import { LocateControl } from './controls/LocateControl';
-import { GitHubControl } from './controls/GitHubControl';
-
-const MapInitializer = () => {
-  const map = useMap();
-  const [center, setCenter] = useState([36.57142382346277, 132.31701507110336]);
-  const [zoom, setZoom] = useState(6);
-  useEffect(() => {
-    // center
-    const lat = localStorage.getItem('leaflet-center-lat');
-    const lng = localStorage.getItem('leaflet-center-lng');
-    if (!lat || !lng || lat === '0' || lng === '0') {
-      return;
-    }
-    setCenter([Number(lat), Number(lng)]);
-    // zoom
-    const zoom = localStorage.getItem('leaflet-zoom');
-    if (!zoom || zoom === '0') {
-      return;
-    }
-    setZoom(Number(zoom));
-  }, []);
-  useEffect(() => {
-    // @ts-ignore
-    map.setView(center, zoom);
-  }, [center, zoom]);
-  return null;
-};
-
-const MapEventHandler = () => {
-  const saveMapState = useCallback((map) => {
-    const center = map.getCenter();
-    localStorage.setItem('leaflet-center-lat', center.lat);
-    localStorage.setItem('leaflet-center-lng', center.lng);
-    localStorage.setItem('leaflet-zoom', map.getZoom());
-  }, []);
-  const saveOverlayState = useCallback((event) => {
-    let selectedOverlays = JSON.parse(
-      localStorage.getItem('leaflet-selected-overlays')
-    );
-    if (selectedOverlays === null) {
-      selectedOverlays = [];
-    }
-    switch (event.type) {
-      case 'overlayadd':
-        if (selectedOverlays.indexOf(event.name) === -1) {
-          selectedOverlays.push(event.name);
-        }
-        break;
-      case 'overlayremove':
-        if (selectedOverlays.indexOf(event.name) > -1) {
-          selectedOverlays.splice(selectedOverlays.indexOf(event.name), 1);
-        }
-        break;
-      default:
-        break;
-    }
-    localStorage.setItem(
-      'leaflet-selected-overlays',
-      JSON.stringify(selectedOverlays)
-    );
-  }, []);
-  const map = useMapEvents({
-    dragend: () => saveMapState(map),
-    zoomend: () => saveMapState(map),
-    overlayadd: (e) => saveOverlayState(e),
-    overlayremove: (e) => saveOverlayState(e),
-  });
-  return null;
-};
-
-const FireDept = () => {
-  return (
-    <>
-      <FireDeptCrisis />
-      <FireDeptFire />
-      <FireDeptRescue />
-      <FireDeptOther />
-    </>
-  );
-};
+import { MapInitializer } from './handler/MapInitializer';
+import { MapEventHandler } from './handler/MapEventHandler';
+import { AdditionalControls } from './controls/AdditionalControls';
+import { MyLayersControl } from './layers/MyLayersControl';
 
 const Map = () => {
   useEffect(() => {
@@ -106,9 +16,6 @@ const Map = () => {
       shadowUrl: 'images/marker-shadow.png',
     });
   }, []);
-  const time = '20210613112000';
-  const baseTime = time;
-  const validTime = time;
   return (
     <MapContainer
       scrollWheelZoom={true}
@@ -116,36 +23,8 @@ const Map = () => {
     >
       <MapInitializer />
       <MapEventHandler />
-      <GitHubControl position='bottomleft' />
-      <ExpandControl position='topleft' />
-      <LocateControl position='topleft' />
-      <LayersControl position='topright'>
-        <LayersControl.BaseLayer checked name='OpenStreetMap'>
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          />
-        </LayersControl.BaseLayer>
-        <LayersControl.Overlay name='ナウキャスト'>
-          <TileLayer
-            attribution='<a href="https://maps.gsi.go.jp/development/ichiran.html#relief">国土地理院色別標高図</a>'
-            url={
-              'https://www.jma.go.jp/bosai/jmatile/data/nowc/' +
-              baseTime +
-              '/none/' +
-              validTime +
-              '/surf/hrpns/{z}/{x}/{y}.png'
-            }
-          />
-        </LayersControl.Overlay>
-        <LayersControl.Overlay name='国土地理院色別標高図'>
-          <TileLayer
-            attribution='<a href="https://maps.gsi.go.jp/development/ichiran.html#relief">国土地理院色別標高図</a>'
-            url='https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png'
-          />
-        </LayersControl.Overlay>
-        <FireDept />
-      </LayersControl>
+      <AdditionalControls />
+      <MyLayersControl />
     </MapContainer>
   );
 };

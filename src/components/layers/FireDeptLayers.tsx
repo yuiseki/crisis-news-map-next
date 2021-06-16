@@ -8,6 +8,7 @@ interface AbstractFireDeptProps {
   category: string;
   icon: string;
 }
+
 const AbstractFireDept = ({
   id,
   title,
@@ -36,7 +37,7 @@ const AbstractFireDept = ({
   return <MarkerLayer id={id} title={title} markers={markers} />;
 };
 
-export const FireDeptCrisis = () => {
+const FireDeptCrisis = () => {
   return (
     <AbstractFireDept
       id='fire-dept-crisis'
@@ -47,7 +48,7 @@ export const FireDeptCrisis = () => {
   );
 };
 
-export const FireDeptFire = () => {
+const FireDeptFire = () => {
   return (
     <AbstractFireDept
       id='fire-dept-fire'
@@ -58,7 +59,7 @@ export const FireDeptFire = () => {
   );
 };
 
-export const FireDeptRescue = () => {
+const FireDeptRescue = () => {
   return (
     <AbstractFireDept
       id='fire-dept-rescue'
@@ -69,7 +70,7 @@ export const FireDeptRescue = () => {
   );
 };
 
-export const FireDeptOther = () => {
+const FireDeptOther = () => {
   return (
     <AbstractFireDept
       id='fire-dept-other'
@@ -77,5 +78,16 @@ export const FireDeptOther = () => {
       category='other'
       icon='/images/caution.png'
     />
+  );
+};
+
+export const FireDeptOverlay = () => {
+  return (
+    <>
+      <FireDeptCrisis />
+      <FireDeptFire />
+      <FireDeptRescue />
+      <FireDeptOther />
+    </>
   );
 };
