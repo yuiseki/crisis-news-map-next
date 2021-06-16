@@ -15,8 +15,8 @@ Leaflet.Control.LocateControl = Leaflet.Control.extend({
     container.style.verticalAlign = 'middle';
     container.style.backgroundColor = 'white';
     container.style.cursor = 'pointer';
-    container.style.width = '30px';
-    container.style.height = '30px';
+    container.style.width = '34px';
+    container.style.height = '34px';
 
     container.onclick = function () {
       map.locate({

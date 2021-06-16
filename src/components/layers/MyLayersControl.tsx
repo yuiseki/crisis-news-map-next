@@ -1,12 +1,12 @@
 import React from 'react';
 import { LayersControl } from 'react-leaflet';
-import { FireDeptLayers } from './markers/FireDeptMarkerLayers';
-import { GSIBaseLayer } from './tiles/GSIBaseLayer';
-import { GsiReliefOverlayLayer } from './tiles/GsiReliefOverlayLayer';
-import { NowcastOverlayLayer } from './tiles/NowcastOverlayLayer';
-import { OSMBaseLayer } from './tiles/OSMBaseLayer';
-import { JapanPrefOverlayLayer } from './tiles/JapanPrefOverlayLayer';
-import { JapanCityOverlayLayer } from './tiles/JapanCityOverlayLayer';
+import { FireDeptLayers } from './MarkerLayers/FireDeptMarkerLayers';
+import { GSIBaseLayer } from './BaseLayers/GSIBaseLayer';
+import { GsiReliefOverlayLayer } from './OverlayLayers/GsiReliefOverlayLayer';
+import { NowcastOverlayLayer } from './OverlayLayers/NowcastOverlayLayer';
+import { OSMBaseLayer } from './BaseLayers/OSMBaseLayer';
+import { JapanPrefOverlayLayer } from './GeoJSONLayers/JapanPrefOverlayLayer';
+import { JapanCityOverlayLayer } from './GeoJSONLayers/JapanCityOverlayLayer';
 
 export const MyLayersControl = () => {
   return (
