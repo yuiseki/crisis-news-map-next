@@ -15,20 +15,6 @@ const globalStyles = css`
   * {
     box-sizing: border-box;
   }
-
-  iframe#twitter-widget-0 {
-    z-index: 1000;
-    position: absolute !important;
-    left: 64px !important;
-    bottom: 10px !important;
-  }
-
-  iframe#twitter-widget-1 {
-    z-index: 1000;
-    position: absolute !important;
-    left: 64px !important;
-    bottom: 50px !important;
-  }
 `;
 
 const App = ({ Component, pageProps }: AppProps) => (

@@ -9,14 +9,14 @@ Leaflet.Control.GitHubControl = Leaflet.Control.extend({
       'leaflet-bar leaflet-control leaflet-control-custom'
     );
     container.innerHTML = '<i class="fab fa-github"></i>';
-    container.style.fontSize = '28px';
+    container.style.fontSize = '32px';
     container.style.textAlign = 'center';
     container.style.display = 'table-cell';
     container.style.verticalAlign = 'middle';
     container.style.backgroundColor = 'white';
     container.style.cursor = 'pointer';
-    container.style.width = '40px';
-    container.style.height = '40px';
+    container.style.width = '48px';
+    container.style.height = '48px';
 
     container.onclick = function () {
       const url = 'https://github.com/yuiseki/crisis-news-map-next';

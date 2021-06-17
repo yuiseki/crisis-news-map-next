@@ -6,6 +6,20 @@ import { Follow, Share } from 'react-twitter-widgets';
 
 const container = css`
   ${tw`h-screen mx-auto m-0 p-0`}
+
+  iframe#twitter-widget-0 {
+    z-index: 1000;
+    position: absolute !important;
+    left: 64px !important;
+    bottom: 10px !important;
+  }
+
+  iframe#twitter-widget-1 {
+    z-index: 1000;
+    position: absolute !important;
+    left: 64px !important;
+    bottom: 36px !important;
+  }
 `;
 
 const CrisisMap = dynamic(() => import('../components/CrisisMap'), {
