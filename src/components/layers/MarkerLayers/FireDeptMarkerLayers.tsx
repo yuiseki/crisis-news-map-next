@@ -26,7 +26,7 @@ const AbstractFireDept = ({
         .map((marker) => {
           return {
             center: [marker.lat, marker.long],
-            text: marker.detail + ' ' + marker.division,
+            popupContent: marker.detail + ' ' + marker.division,
             id: marker.id,
             icon: icon,
           };

@@ -5,7 +5,7 @@ import { LatLngTuple } from 'leaflet';
 
 interface MarkerProps {
   center: LatLngTuple;
-  text: string;
+  popupContent: string;
   id: string;
   icon: string;
 }
@@ -32,8 +32,8 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
       <LayerGroup>
         {markers.map((marker) => {
           const iconMarkup = renderToStaticMarkup(
-            <div style={{ width: 40, height: 40 }}>
-              <img src={marker.icon} width={40} height={40} />
+            <div style={{ width: 30, height: 30 }}>
+              <img src={marker.icon} width={30} height={30} />
             </div>
           );
           const markerIcon = new Leaflet.DivIcon({
@@ -42,7 +42,7 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
           });
           return (
             <Marker key={marker.id} position={marker.center} icon={markerIcon}>
-              <Popup>{marker.text}</Popup>
+              <Popup>{marker.popupContent}</Popup>
             </Marker>
           );
         })}
