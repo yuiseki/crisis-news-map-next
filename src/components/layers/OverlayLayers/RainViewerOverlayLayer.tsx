@@ -23,6 +23,7 @@ export const RainViewerOverlayLayer = () => {
           name='RainViewer'
           attribution='RainViewer'
           url={url}
+          opacity={0.8}
         />
       )}
     </>

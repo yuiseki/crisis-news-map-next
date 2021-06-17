@@ -28,6 +28,8 @@ export const NowcastOverlayLayer = () => {
           name='高解像度降水ナウキャスト'
           attribution='ナウキャスト'
           url={url}
+          maxNativeZoom={10}
+          opacity={0.5}
         />
       )}
     </>

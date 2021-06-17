@@ -4,9 +4,12 @@ import { useMapEvents } from 'react-leaflet';
 export const MapEventHandler = () => {
   const saveMapState = useCallback((map) => {
     const center = map.getCenter();
+    const zoom = map.getZoom();
+    // eslint-disable-next-line no-console
+    console.log(center, zoom);
     localStorage.setItem('leaflet-center-lat', center.lat);
     localStorage.setItem('leaflet-center-lng', center.lng);
-    localStorage.setItem('leaflet-zoom', map.getZoom());
+    localStorage.setItem('leaflet-zoom', zoom);
   }, []);
   const saveOverlayState = useCallback((event) => {
     let selectedOverlays = JSON.parse(
