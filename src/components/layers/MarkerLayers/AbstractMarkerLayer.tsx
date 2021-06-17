@@ -32,7 +32,9 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
       <LayerGroup>
         {markers.map((marker) => {
           const iconMarkup = renderToStaticMarkup(
-            <img src={marker.icon} width={40} height={40} />
+            <div style={{ width: 40, height: 40 }}>
+              <img src={marker.icon} width={40} height={40} />
+            </div>
           );
           const markerIcon = new Leaflet.DivIcon({
             html: iconMarkup,
