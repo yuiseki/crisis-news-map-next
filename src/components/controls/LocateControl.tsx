@@ -19,10 +19,11 @@ Leaflet.Control.LocateControl = Leaflet.Control.extend({
     container.style.height = '34px';
 
     container.onclick = function () {
-      map.locate({
-        setView: 'true',
-      });
-      map.setZoom(6);
+      map
+        .locate({
+          setView: 'true',
+        })
+        .setZoom(17);
     };
     return container;
   },
