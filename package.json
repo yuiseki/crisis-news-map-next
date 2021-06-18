@@ -38,7 +38,7 @@
     "@emotion/styled": "^11.3.0",
     "@react-leaflet/core": "^1.1.0",
     "leaflet": "^1.7.1",
-    "next": "latest",
+    "next": "11.0.0",
     "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
