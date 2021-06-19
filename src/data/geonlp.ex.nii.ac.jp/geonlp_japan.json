@@ -1,0 +1,91 @@
+{
+  "country":
+    {
+      "index":
+        {
+          "filename": "geonlp_world_country_20130912_u.csv",
+          "name_idx": 4,
+          "lat_idx":  9,
+          "long_idx": 10
+        },
+      "data": {}
+    },
+  "pref":
+    {
+      "index":
+        {
+          "filename": "geonlp_japan_pref_20140115_u.csv",
+          "name_idx": 6,
+          "lat_idx":  12,
+          "long_idx": 11
+        },
+      "data": {}
+    },
+  "city":
+    {
+      "index":
+        {
+          "filename": "geonlp_japan_city_20140310_u.csv",
+          "name_idx": 4,
+          "lat_idx":  12,
+          "long_idx": 11,
+          "hyperpref": 8
+        },
+      "data": {}
+    },
+  "river":
+    {
+      "index":
+        {
+          "filename": "geonlp_japan_river_20130912_u.csv",
+          "name_idx": 2,
+          "lat_idx":  6,
+          "long_idx": 7
+        },
+      "data": {}
+    },
+  "mountain":
+    {
+      "index":
+        {
+          "filename": "geonlp_japan_mountain_20130914_u.csv",
+          "name_idx": 4,
+          "lat_idx":  12,
+          "long_idx": 11
+        },
+      "data": {}
+    },
+  "station":
+    {
+      "index":
+        {
+          "filename": "geonlp_japan_station_20130912_u.csv",
+          "name_idx": 2,
+          "lat_idx":  8,
+          "long_idx": 9
+        },
+      "data": {}
+    },
+  "airport":
+    {
+      "index":
+        {
+          "filename": "geonlp_japan_airport_20130912_u.csv",
+          "name_idx": 6,
+          "lat_idx":  10,
+          "long_idx": 11
+        },
+      "data": {}
+    },
+  "police":
+    {
+      "index":
+        {
+          "filename": "kitamoto_police_20130918_u.csv",
+          "name_idx": 2,
+          "lat_idx":  3,
+          "long_idx": 4
+        },
+      "data": {}
+    }
+}

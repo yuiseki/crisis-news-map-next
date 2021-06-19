@@ -1,0 +1,376 @@
+[
+  {
+    "unit": "防衛省 自衛隊",
+    "twitter": "ModJapan_jp"
+  },
+  {
+    "unit": "防衛省 自衛隊(災害対策)",
+    "twitter": "ModJapan_saigai"
+  },
+  {
+    "unit": "陸上総隊司令部",
+    "twitter": "jgsdf_gcc_pao"
+  },
+
+
+  {
+    "unit": "北部方面隊",
+    "twitter": "northernarmy_pr"
+  },
+    {
+      "unit": "第二師団",
+      "hyperunit": "北部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "旭川地方協力本部",
+        "hyperunit": "第二師団",
+        "twitter": null
+      },
+    {
+      "unit": "第五旅団",
+      "hyperunit": "北部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "帯広地方協力本部",
+        "hyperunit": "第五旅団",
+        "twitter": "hq1obihiropco"
+      },
+    {
+      "unit": "第七師団",
+      "hyperunit": "北部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "函館地方協力本部",
+        "hyperunit": "第七師団",
+        "twitter": null
+      },
+    {
+      "unit": "第十一旅団",
+      "hyperunit": "北部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "札幌地方協力本部",
+        "hyperunit": "第十一旅団",
+        "twitter": "sapporo_PCO"
+      },
+
+
+  {
+    "unit": "東北方面隊",
+    "twitter": "NeaAdminpr"
+  },
+    {
+      "unit": "第六師団",
+      "hyperunit": "東北方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "山形地方協力本部",
+        "hyperunit": "第六師団",
+        "twitter": "yamagata_pco"
+      },
+      {
+        "unit": "宮城地方協力本部",
+        "hyperunit": "第六師団",
+        "twitter": "miyagipco"
+      },
+      {
+        "unit": "福島地方協力本部",
+        "hyperunit": "第六師団",
+        "twitter": "Fukushimapco"
+      },
+    {
+      "unit": "第九師団",
+      "hyperunit": "東北方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "青森地方協力本部",
+        "hyperunit": "第九師団",
+        "twitter": "aomori_PCO"
+      },
+      {
+        "unit": "岩手地方協力本部",
+        "hyperunit": "第九師団",
+        "twitter": "iwate_pco"
+      },
+      {
+        "unit": "秋田地方協力本部",
+        "hyperunit": "第九師団",
+        "twitter": "jieitaiakitapco"
+      },
+
+
+  {
+    "unit": "東部方面隊",
+    "twitter": "JGSDF_EA_PR"
+  },
+    {
+      "unit": "第一師団",
+      "hyperunit": "東部方面隊",
+      "twitter": "1D_nerima"
+    },
+      {
+        "unit": "東京地方協力本部",
+        "hyperunit": "第一師団",
+        "twitter": "tokyo_pco"
+      },
+    {
+      "unit": "第十二旅団",
+      "hyperunit": "東部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "新潟地方協力本部",
+        "hyperunit": "第十二旅団",
+        "twitter": "niigata_pco"
+      },
+      {
+        "unit": "栃木地方協力本部",
+        "hyperunit": "第十二旅団",
+        "twitter": "tochigi_pco"
+      },
+      {
+        "unit": "群馬地方協力本部",
+        "hyperunit": "第十二旅団",
+        "twitter": "gunma_pco"
+      },
+      {
+        "unit": "長野地方協力本部",
+        "hyperunit": "第十二旅団",
+        "twitter": "pconagano"
+      },
+    {
+      "unit": "東部方面混成団",
+      "hyperunit": "東部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "茨城地方協力本部",
+        "hyperunit": "東部方面混成団",
+        "twitter": null
+      },
+      {
+        "unit": "千葉地方協力本部",
+        "hyperunit": "東部方面混成団",
+        "twitter": "chiba_pco"
+      },
+      {
+        "unit": "埼玉地方協力本部",
+        "hyperunit": "東部方面混成団",
+        "twitter": "saitamapco"
+      },
+      {
+        "unit": "神奈川地方協力本部",
+        "hyperunit": "東部方面混成団",
+        "twitter": "kanagawa_pco"
+      },
+      {
+        "unit": "山梨地方協力本部",
+        "hyperunit": "東部方面混成団",
+        "twitter": "yamanashi_pco"
+      },
+      {
+        "unit": "静岡地方協力本部",
+        "hyperunit": "東部方面混成団",
+        "twitter": "shizuoka_pco"
+      },
+
+
+  {
+    "unit": "中部方面隊",
+    "twitter": "JGSDF_MA_pr"
+  },
+    {
+      "unit": "第十師団",
+      "hyperunit": "中部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "富山地方協力本部",
+        "hyperunit": "第十師団",
+        "twitter": "toyama_pco"
+      },
+      {
+        "unit": "石川地方協力本部",
+        "hyperunit": "第十師団",
+        "twitter": "ishikawa_pco"
+      },
+      {
+        "unit": "福井地方協力本部",
+        "hyperunit": "第十師団",
+        "twitter": "fukui_pco"
+      },
+      {
+        "unit": "岐阜地方協力本部",
+        "hyperunit": "第十師団",
+        "twitter": "gifupco"
+      },
+      {
+        "unit": "愛知地方協力本部",
+        "hyperunit": "第十師団",
+        "twitter": null
+      },
+      {
+        "unit": "三重地方協力本部",
+        "hyperunit": "第十師団",
+        "twitter": "mie_pco"
+      },
+    {
+      "unit": "第三師団",
+      "hyperunit": "中部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "滋賀地方協力本部",
+        "hyperunit": "第三師団",
+        "twitter": "shigapco"
+      },
+      {
+        "unit": "京都地方協力本部",
+        "hyperunit": "第三師団",
+        "twitter": "kyotopco"
+      },
+      {
+        "unit": "兵庫地方協力本部",
+        "hyperunit": "第三師団",
+        "twitter": "pco_hyogo"
+      },
+      {
+        "unit": "奈良地方協力本部",
+        "hyperunit": "第三師団",
+        "twitter": "narapco"
+      },
+      {
+        "unit": "大阪地方協力本部",
+        "hyperunit": "第三師団",
+        "twitter": "osaka_pco"
+      },
+      {
+        "unit": "和歌山地方協力本部",
+        "hyperunit": "第三師団",
+        "twitter": "wakayama_pco"
+      },
+    {
+      "unit": "第十三旅団",
+      "hyperunit": "中部方面隊",
+      "twitter": "13b_jgsdf"
+    },
+      {
+        "unit": "鳥取地方協力本部",
+        "hyperunit": "第十三旅団",
+        "twitter": "tottoripcojsdf"
+      },
+      {
+        "unit": "島根地方協力本部",
+        "hyperunit": "第十三旅団",
+        "twitter": "shimane_pco"
+      },
+      {
+        "unit": "山口地方協力本部",
+        "hyperunit": "第十三旅団",
+        "twitter": "yamaguchi_pco"
+      },
+      {
+        "unit": "岡山地方協力本部",
+        "hyperunit": "第十三旅団",
+        "twitter": "okayamaPCO"
+      },
+      {
+        "unit": "広島地方協力本部",
+        "hyperunit": "第十三旅団",
+        "twitter": null
+      },
+    {
+      "unit": "第十四旅団",
+      "hyperunit": "中部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "香川",
+        "hyperunit": "第十四旅団",
+        "twitter": null
+      },
+      {
+        "unit": "愛媛",
+        "hyperunit": "第十四旅団",
+        "twitter": "ehime_pco"
+      },
+      {
+        "unit": "徳島",
+        "hyperunit": "第十四旅団",
+        "twitter": "tokushima_pco"
+      },
+      {
+        "unit": "高知",
+        "hyperunit": "第十四旅団",
+        "twitter": "pco_kochi"
+      },
+
+
+  {
+    "unit": "西部方面隊",
+    "twitter": "JGSDF_WA_pr"
+  },
+    {
+      "unit": "第四師団",
+      "hyperunit": "西部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "大分地方協力本部",
+        "hyperunit": "第四師団",
+        "twitter": "oita_pco"
+      },
+      {
+        "unit": "福岡地方協力本部",
+        "hyperunit": "第四師団",
+        "twitter": "fukuoka_PCO"
+      },
+      {
+        "unit": "滋賀地方協力本部",
+        "hyperunit": "第四師団",
+        "twitter": "saga_pco"
+      },
+      {
+        "unit": "長崎地方協力本部",
+        "hyperunit": "第四師団",
+        "twitter": "nagasakichihon"
+      },
+    {
+      "unit": "第八師団",
+      "hyperunit": "西部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "宮崎地方協力本部",
+        "hyperunit": "第八師団",
+        "twitter": "miyazaki_pco"
+      },
+      {
+        "unit": "熊本地方協力本部",
+        "hyperunit": "第八師団",
+        "twitter": "kumamotopco"
+      },
+      {
+        "unit": "鹿児島地方協力本部",
+        "hyperunit": "第八師団",
+        "twitter": "kagoshima_pco"
+      },
+    {
+      "unit": "第十五旅団",
+      "hyperunit": "西部方面隊",
+      "twitter": null
+    },
+      {
+        "unit": "沖縄地方協力本部",
+        "hyperunit": "第十五旅団",
+        "twitter": null
+      }
+
+
+  ]
