@@ -4,7 +4,7 @@ import { RiverLevel } from '~/models/RiverLevel';
 import prefList from '../data/k.river.go.jp/pref.json';
 import cityList from '../data/k.river.go.jp/twn.json';
 
-const crawlRiverLevel = async () => {
+const crawl = async () => {
   await dbConnect();
   for (const pref of prefList.prefs) {
     // eslint-disable-next-line no-console
@@ -19,7 +19,7 @@ const crawlRiverLevel = async () => {
       '.json';
     const res = await fetch(url);
     const json = await res.json();
-    const riverLevels = await convertRiverLevelJson(json);
+    const riverLevels = await convertJson(json);
     for await (const riverLevel of riverLevels) {
       const query = {
         code: riverLevel.code,
@@ -33,7 +33,7 @@ const crawlRiverLevel = async () => {
   process.exit(0);
 };
 
-const convertRiverLevelJson = async (json: any) => {
+const convertJson = async (json: any) => {
   const riverLevels = [];
   for (const riverLevel of json.obss) {
     riverLevel.observedAt = new Date(Date.parse(riverLevel.obsTime));
@@ -64,5 +64,5 @@ const convertRiverLevelJson = async (json: any) => {
 };
 
 (async () => {
-  await crawlRiverLevel();
+  await crawl();
 })();

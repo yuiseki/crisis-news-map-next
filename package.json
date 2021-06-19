@@ -13,7 +13,8 @@
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
     "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images",
-    "job-river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts"
+    "job-river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
+    "job-dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts"
   },
   "husky": {
     "hooks": {
@@ -38,6 +39,7 @@
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.3.0",
     "@react-leaflet/core": "^1.1.0",
+    "csv-parse": "^4.16.0",
     "dotenv": "^10.0.0",
     "leaflet": "^1.7.1",
     "mongoose": "^5.12.14",

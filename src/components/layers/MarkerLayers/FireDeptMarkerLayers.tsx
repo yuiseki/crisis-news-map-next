@@ -15,23 +15,27 @@ const AbstractFireDept = ({
   category,
   icon,
 }: AbstractFireDeptProps) => {
-  const { data } = useSWR('/api/firedept');
+  const { data } = useSWR('/api/dispatch');
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
     if (data) {
       const newMarkers = data
         .filter((marker) => {
-          return marker.category === category;
+          return (
+            marker.category === category && marker.latitude && marker.longitude
+          );
         })
         .map((marker) => {
           return {
-            center: [marker.lat, marker.long],
+            center: [marker.latitude, marker.longitude],
             popupContent: marker.detail + ' ' + marker.division,
-            id: marker.id,
+            id: marker.id ?? Math.random(),
             icon: icon,
           };
         });
-      setMarkers(newMarkers);
+      if (newMarkers.length > 0) {
+        setMarkers(newMarkers);
+      }
     }
   }, [data]);
   return <AbstractMarkerLayer id={id} title={title} markers={markers} />;

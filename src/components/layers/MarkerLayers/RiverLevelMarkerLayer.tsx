@@ -22,7 +22,7 @@ export const RiverLevelLayer = () => {
         return {
           center: [marker.latitude, marker.longitude],
           popupContent: content,
-          id: marker.id,
+          id: marker.code,
           icon: '/images/flood.png',
         };
       });
