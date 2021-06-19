@@ -49,7 +49,8 @@
     "react-twitter-widgets": "^1.10.0",
     "swr": "^0.5.6",
     "ts-node": "^10.0.0",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.3.2"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
@@ -78,7 +79,6 @@
     "postcss": "^8.2.13",
     "prettier": "^2.0.2",
     "tailwindcss": "^2.1.2",
-    "twin.macro": "^2.4.1",
-    "typescript": "^4.3.2"
+    "twin.macro": "^2.4.1"
   }
 }
