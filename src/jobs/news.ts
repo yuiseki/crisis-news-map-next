@@ -26,7 +26,7 @@ const crawl = async () => {
       // eslint-disable-next-line no-console
       console.log(url);
       try {
-        const res = await fetch(url, { timeout: 2000 });
+        const res = await fetch(url, { timeout: 1000 });
         const html = await res.text();
         const ogp = await parseHTML(url, html);
         const news: INews = await convertOGP(ogp);
@@ -44,7 +44,7 @@ const crawl = async () => {
       } catch (e) {
         console.error(e);
       } finally {
-        await sleep(2000);
+        await sleep(1000);
       }
     }
   }

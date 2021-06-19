@@ -14,6 +14,7 @@ import { RainViewerOverlayLayer } from './layers/OverlayLayers/RainViewerOverlay
 import { GsiReliefOverlayLayer } from './layers/OverlayLayers/GsiReliefOverlayLayer';
 import { FireDeptLayers } from './layers/MarkerLayers/FireDeptMarkerLayers';
 import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
+import { NewsMarkerLayers } from './layers/MarkerLayers/NewsMarkerLayers';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -46,6 +47,7 @@ const CrisisMap = () => {
         </Pane>
         <Pane name='marker-overlay' style={{ zIndex: 700 }}>
           <FireDeptLayers />
+          <NewsMarkerLayers />
           <RiverLevelLayer />
         </Pane>
       </LayersControl>
