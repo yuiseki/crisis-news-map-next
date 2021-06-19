@@ -2,6 +2,7 @@ import { LayersControl, MapContainer, Pane } from 'react-leaflet';
 import Leaflet from 'leaflet';
 import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from './handler/MapInitializer';
 import { MapEventHandler } from './handler/MapEventHandler';
 import { AdditionalControls } from './controls/AdditionalControls';

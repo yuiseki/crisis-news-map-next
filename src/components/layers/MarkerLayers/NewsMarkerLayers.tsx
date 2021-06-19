@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
-import AbstractMarkerLayer from './AbstractMarkerLayer';
+import tw from 'twin.macro';
+import AbstractMarkerClusterLayer from './AbstractMarkerClusterLayer';
 
 interface AbstractNewsProps {
   id: string;
@@ -21,9 +22,17 @@ const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
           );
         })
         .map((marker) => {
+          const content = (
+            <>
+              <b css={tw`text-xl`}>{marker.ogTitle}</b>
+              {marker.ogImage && <img src={marker.ogImage} />}
+              <br />
+              {marker.ogDesc}
+            </>
+          );
           return {
             center: [marker.latitude, marker.longitude],
-            popupContent: marker.ogTitle + ' ' + marker.ogDesc,
+            popupContent: content,
             id: marker.url ?? Math.random(),
             icon: icon,
           };
@@ -33,7 +42,7 @@ const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
       }
     }
   }, [data]);
-  return <AbstractMarkerLayer id={id} title={title} markers={markers} />;
+  return <AbstractMarkerClusterLayer id={id} title={title} markers={markers} />;
 };
 
 const NewsCrisis = () => {
