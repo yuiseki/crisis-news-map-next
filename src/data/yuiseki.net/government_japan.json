@@ -30,72 +30,72 @@
     "touch_icon": null,
     "twitter": "CAO_BOUSAI"
   },
-    {
-      "classification": "行政機関",
-      "hyperorg": "内閣",
-      "name": "復興庁",
-      "domain": "www.reconstruction.go.jp",
-      "query": "reconstruction.go.jp",
-      "url": "https://www.reconstruction.go.jp/",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "fukkocho_JAPAN"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "内閣府",
-      "name": "公正取引委員会",
-      "domain": "www.jftc.go.jp",
-      "query": "jftc.go.jp",
-      "url": "https://www.jftc.go.jp/",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "jftc"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "内閣府",
-      "name": "日本学術会議",
-      "domain": "www.scj.go.jp",
-      "query": "scj.go.jp",
-      "url": "http://www.scj.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "scj_info"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "内閣府",
-      "name": "警察庁",
-      "domain": "www.npa.go.jp",
-      "query": "npa.go.jp",
-      "url": "http://www.npa.go.jp/",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "NPA_KOHO"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "内閣府",
-      "name": "金融庁",
-      "domain": "www.fsa.go.jp",
-      "query": "fsa.go.jp",
-      "url": "https://www.fsa.go.jp/",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "fsa_JAPAN"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "内閣府",
-      "name": "消費者庁",
-      "domain": "www.caa.go.jp",
-      "query": "caa.go.jp",
-      "url": "https://www.caa.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "caa_shohishacho"
-    },
+  {
+    "classification": "行政機関",
+    "hyperorg": "内閣",
+    "name": "復興庁",
+    "domain": "www.reconstruction.go.jp",
+    "query": "reconstruction.go.jp",
+    "url": "https://www.reconstruction.go.jp/",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "fukkocho_JAPAN"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "内閣府",
+    "name": "公正取引委員会",
+    "domain": "www.jftc.go.jp",
+    "query": "jftc.go.jp",
+    "url": "https://www.jftc.go.jp/",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "jftc"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "内閣府",
+    "name": "日本学術会議",
+    "domain": "www.scj.go.jp",
+    "query": "scj.go.jp",
+    "url": "http://www.scj.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "scj_info"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "内閣府",
+    "name": "警察庁",
+    "domain": "www.npa.go.jp",
+    "query": "npa.go.jp",
+    "url": "http://www.npa.go.jp/",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "NPA_KOHO"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "内閣府",
+    "name": "金融庁",
+    "domain": "www.fsa.go.jp",
+    "query": "fsa.go.jp",
+    "url": "https://www.fsa.go.jp/",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "fsa_JAPAN"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "内閣府",
+    "name": "消費者庁",
+    "domain": "www.caa.go.jp",
+    "query": "caa.go.jp",
+    "url": "https://www.caa.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "caa_shohishacho"
+  },
   {
     "classification": "行政機関",
     "hyperorg": "内閣",
@@ -107,17 +107,17 @@
     "touch_icon": null,
     "twitter": "MIC_JAPAN"
   },
-    {
-      "classification": "政府",
-      "hyperorg": "総務省",
-      "name": "消防庁",
-      "domain": "www.fdma.go.jp",
-      "query": "fdma.go.jp",
-      "url": "https://www.fdma.go.jp/",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "MLIT_JAPAN"
-    },
+  {
+    "classification": "政府",
+    "hyperorg": "総務省",
+    "name": "消防庁",
+    "domain": "www.fdma.go.jp",
+    "query": "fdma.go.jp",
+    "url": "https://www.fdma.go.jp/",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "MLIT_JAPAN"
+  },
   {
     "classification": "行政機関",
     "hyperorg": "内閣",
@@ -151,17 +151,17 @@
     "touch_icon": null,
     "twitter": "MOF_Japan"
   },
-    {
-      "classification": "行政機関",
-      "hyperorg": "財務省",
-      "name": "国税庁",
-      "domain": "www.nta.go.jp",
-      "query": "nta.go.jp",
-      "url": "https://www.nta.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "NTA_Japan"
-    },
+  {
+    "classification": "行政機関",
+    "hyperorg": "財務省",
+    "name": "国税庁",
+    "domain": "www.nta.go.jp",
+    "query": "nta.go.jp",
+    "url": "https://www.nta.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "NTA_Japan"
+  },
   {
     "classification": "行政機関",
     "hyperorg": "内閣",
@@ -173,17 +173,17 @@
     "touch_icon": null,
     "twitter": "mextjapan"
   },
-    {
-      "classification": "行政機関",
-      "hyperorg": "文部科学省",
-      "name": "文化庁",
-      "domain": "www.bunka.go.jp",
-      "query": "bunka.go.jp",
-      "url": "http://www.bunka.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "prmag_bunka"
-    },
+  {
+    "classification": "行政機関",
+    "hyperorg": "文部科学省",
+    "name": "文化庁",
+    "domain": "www.bunka.go.jp",
+    "query": "bunka.go.jp",
+    "url": "http://www.bunka.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "prmag_bunka"
+  },
   {
     "classification": "行政機関",
     "hyperorg": "内閣",
@@ -217,28 +217,28 @@
     "touch_icon": null,
     "twitter": "MHLWitter"
   },
-    {
-      "classification": "行政機関",
-      "hyperorg": "経済産業省",
-      "name": "特許庁",
-      "domain": "www.jpo.go.jp",
-      "query": "jpo.go.jp",
-      "url": "https://www.jpo.go.jp/index.html",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "jpo_NIPPON"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "経済産業省",
-      "name": "中小企業庁",
-      "domain": "www.chusho.meti.go.jp",
-      "query": "chusho.meti.go.jp",
-      "url": "https://www.chusho.meti.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "meti_chusho"
-    },
+  {
+    "classification": "行政機関",
+    "hyperorg": "経済産業省",
+    "name": "特許庁",
+    "domain": "www.jpo.go.jp",
+    "query": "jpo.go.jp",
+    "url": "https://www.jpo.go.jp/index.html",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "jpo_NIPPON"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "経済産業省",
+    "name": "中小企業庁",
+    "domain": "www.chusho.meti.go.jp",
+    "query": "chusho.meti.go.jp",
+    "url": "https://www.chusho.meti.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "meti_chusho"
+  },
   {
     "classification": "行政機関",
     "name": "国土交通省",
@@ -249,49 +249,49 @@
     "touch_icon": null,
     "twitter": "MLIT_JAPAN"
   },
-    {
-      "classification": "行政機関",
-      "hyperorg": "国土交通省",
-      "name": "国土地理院",
-      "domain": "www.gsi.go.jp",
-      "query": "gsi.go.jp",
-      "url": "https://www.gsi.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "gsi_chiriin"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "国土交通省",
-      "name": "観光庁",
-      "domain": "mlit.go.jp",
-      "query": "mlit.go.jp/kankocho/",
-      "url": "http://www.mlit.go.jp/kankocho/",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "Kanko_Jpn"
-    },
-    {
-      "classification": "行政機関",
-      "name": "気象庁",
-      "domain": "www.jma.go.jp",
-      "query": "jma.go.jp",
-      "url": "https://www.jma.go.jp/jma/index.html",
-      "favicon": "https://www.jma.go.jp/favicon.ico",
-      "touch_icon": null,
-      "twitter": "JMA_kishou"
-    },
-    {
-      "classification": "行政機関",
-      "hyperorg": "国土交通省",
-      "name": "海上保安庁",
-      "domain": "www.kaiho.mlit.go.jp",
-      "query": "kaiho.mlit.go.jp",
-      "url": "https://www.kaiho.mlit.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "JCG_koho"
-    },
+  {
+    "classification": "行政機関",
+    "hyperorg": "国土交通省",
+    "name": "国土地理院",
+    "domain": "www.gsi.go.jp",
+    "query": "gsi.go.jp",
+    "url": "https://www.gsi.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "gsi_chiriin"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "国土交通省",
+    "name": "観光庁",
+    "domain": "mlit.go.jp",
+    "query": "mlit.go.jp/kankocho/",
+    "url": "http://www.mlit.go.jp/kankocho/",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "Kanko_Jpn"
+  },
+  {
+    "classification": "行政機関",
+    "name": "気象庁",
+    "domain": "www.jma.go.jp",
+    "query": "jma.go.jp",
+    "url": "https://www.jma.go.jp/jma/index.html",
+    "favicon": "https://www.jma.go.jp/favicon.ico",
+    "touch_icon": null,
+    "twitter": "JMA_kishou"
+  },
+  {
+    "classification": "行政機関",
+    "hyperorg": "国土交通省",
+    "name": "海上保安庁",
+    "domain": "www.kaiho.mlit.go.jp",
+    "query": "kaiho.mlit.go.jp",
+    "url": "https://www.kaiho.mlit.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "JCG_koho"
+  },
   {
     "classification": "行政機関",
     "hyperorg": "内閣",
@@ -303,17 +303,17 @@
     "touch_icon": null,
     "twitter": "Kankyo_Jpn"
   },
-    {
-      "classification": "行政機関",
-      "hyperorg": "環境省",
-      "name": "原子力規制委員会",
-      "domain": "www.nsr.go.jp",
-      "query": "nsr.go.jp",
-      "url": "https://www.nsr.go.jp",
-      "favicon": null,
-      "touch_icon": null,
-      "twitter": "gensiryokukisei"
-    },
+  {
+    "classification": "行政機関",
+    "hyperorg": "環境省",
+    "name": "原子力規制委員会",
+    "domain": "www.nsr.go.jp",
+    "query": "nsr.go.jp",
+    "url": "https://www.nsr.go.jp",
+    "favicon": null,
+    "touch_icon": null,
+    "twitter": "gensiryokukisei"
+  },
   {
     "classification": "行政機関",
     "name": "防衛省",
