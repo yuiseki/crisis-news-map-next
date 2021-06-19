@@ -6,8 +6,8 @@ const CrisisMap = dynamic(() => import('../components/CrisisMap'), {
   ssr: false,
 });
 
-export const CrisisMapView: React.VFC = () => {
+export const Home: React.VFC = () => {
   return <CrisisMap />;
 };
 
-export default CrisisMapView;
+export default Home;
