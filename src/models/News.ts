@@ -1,4 +1,4 @@
-import mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 interface INews {
   url: string;
