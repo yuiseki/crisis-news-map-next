@@ -45,7 +45,7 @@ const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
   return <AbstractMarkerClusterLayer id={id} title={title} markers={markers} />;
 };
 
-const NewsCrisis = () => {
+export const NewsCrisis = () => {
   return (
     <AbstractNews
       id='news-crisis'
@@ -56,7 +56,7 @@ const NewsCrisis = () => {
   );
 };
 
-const NewsVirus = () => {
+export const NewsVirus = () => {
   return (
     <AbstractNews
       id='news-virus'

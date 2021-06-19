@@ -10,7 +10,7 @@ import { OSMBaseLayer } from './layers/BaseLayers/OSMBaseLayer';
 import { GSIBaseLayer } from './layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLayer';
-import { NewsMarkerLayers } from './layers/MarkerLayers/NewsMarkerLayers';
+import { NewsVirus } from './layers/MarkerLayers/NewsMarkerLayers';
 import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from './CommonMapStyle';
 import { LinkControl } from './controls/LinkControl';
@@ -44,7 +44,7 @@ const CrisisMap = () => {
             <JapanCityOverlayLayer />
           </Pane>
           <Pane name='marker-overlay' style={{ zIndex: 700 }}>
-            <NewsMarkerLayers />
+            <NewsVirus />
           </Pane>
         </LayersControl>
       </MapContainer>
