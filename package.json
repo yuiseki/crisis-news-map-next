@@ -38,6 +38,7 @@
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.3.0",
     "@react-leaflet/core": "^1.1.0",
+    "dotenv": "^10.0.0",
     "leaflet": "^1.7.1",
     "mongoose": "^5.12.14",
     "next": "11.0.0",

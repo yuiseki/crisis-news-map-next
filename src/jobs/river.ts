@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { dbConnect } from '../lib/dbConnect';
-import RiverLevel from '~/models/RiverLevel';
+import { RiverLevel } from '~/models/RiverLevel';
 import prefList from '../data/k.river.go.jp/pref.json';
 import cityList from '../data/k.river.go.jp/twn.json';
 import { exit } from 'node:process';

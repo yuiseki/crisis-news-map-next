@@ -49,6 +49,6 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const RiverLevel = mongoose.model<IRiverLevelModel>('RiverLevel', schema);
-
-export default RiverLevel;
+export const RiverLevel =
+  mongoose.models.RiverLevel ||
+  mongoose.model<IRiverLevelModel>('RiverLevel', schema);

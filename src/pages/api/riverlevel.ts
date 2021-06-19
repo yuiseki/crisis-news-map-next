@@ -1,10 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import fetch from 'node-fetch';
+import { dbConnect } from '~/lib/dbConnect';
+import { RiverLevel } from '~/models/RiverLevel';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const apiRes = await fetch('https://crisis.yuiseki.net/riverlevel');
-  const json = await apiRes.json();
-  res.status(200).json(json);
+  await dbConnect();
+  const riverLevels = await RiverLevel.find({ isFlood: true }, null, {
+    sort: { updatedAt: 1 },
+  });
+  res.status(200).json(riverLevels);
 };
 
 export default handler;
