@@ -44,7 +44,7 @@ const crawl = async () => {
       } catch (e) {
         console.error(e);
       } finally {
-        sleep(2000);
+        await sleep(2000);
       }
     }
   }
