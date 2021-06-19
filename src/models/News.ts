@@ -1,32 +1,51 @@
 import mongoose from 'mongoose';
 
-interface INews {
+export interface INews {
   url: string;
   title: string;
-  og_title: string;
-  og_desc: string;
-  og_image: string;
-  og_url: string;
+  ogTitle: string;
+  ogDesc: string;
+  ogImage: string;
+  ogUrl: string;
   category: string;
-  place_country: string;
-  place_pref: string;
-  place_city: string;
-  place_river: string;
-  place_mountain: string;
-  place_station: string;
-  place_airport: string;
-  place_police: string;
-  lat: number;
-  lng: number;
-  geohash: string;
+  // place
+  placeCountry: string;
+  placePref: string;
+  placeCity: string;
+  placeRiver: string;
+  placeMountain: string;
+  placeStation: string;
+  placeAirport: string;
+  placePolice: string;
+  // gps
+  latitude: number;
+  longitude: number;
 }
 
 interface INewsModel extends INews, mongoose.Document {}
 
-const newsSchema = new mongoose.Schema({
-  url: String,
-  enurl: String,
-  html: String,
-});
+const schema = new mongoose.Schema(
+  {
+    url: String,
+    title: String,
+    ogTitle: String,
+    ogDesc: String,
+    ogImage: String,
+    ogUrl: String,
+    category: String,
+    placeCountry: String,
+    placePref: String,
+    placeCity: String,
+    placeRiver: String,
+    placeMountain: String,
+    placeStation: String,
+    placeAirport: String,
+    placePolice: String,
+    latitude: Number,
+    longitude: Number,
+  },
+  { timestamps: true }
+);
 
-export const News = mongoose.model<INewsModel>('News', newsSchema);
+export const News =
+  mongoose.models.News || mongoose.model<INewsModel>('News', schema);

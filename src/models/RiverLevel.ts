@@ -6,20 +6,22 @@ interface IRiverLevel {
   obsTime: string;
   point: number;
   level: number;
-  latitude: number;
-  longitude: number;
   townCode: string;
   prefCode: string;
   over: number;
   startLevel: number;
   warnLevel: number;
   fladLevel: number;
+  isFlood: boolean;
+  category: string;
   observedAt: Date;
+  // place
   placeCountry: string;
   placePref: string;
   placeRiver: string;
-  isFlood: boolean;
-  category: string;
+  // gps
+  latitude: number;
+  longitude: number;
 }
 
 interface IRiverLevelModel extends IRiverLevel, mongoose.Document {}

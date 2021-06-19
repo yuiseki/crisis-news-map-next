@@ -6,14 +6,16 @@ interface IDispatch {
   unit: string;
   detail: string;
   division: string;
-  latitude: number;
-  longitude: number;
-  placeCity: string;
-  placeCountry: string;
-  placePref: string;
   status: string;
   time_str: string;
   observedAt: Date;
+  // place
+  placeCity: string;
+  placeCountry: string;
+  placePref: string;
+  // gps
+  latitude: number;
+  longitude: number;
 }
 
 interface IDispatchModel extends IDispatch, mongoose.Document {}

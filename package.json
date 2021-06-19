@@ -14,7 +14,8 @@
     "test-all": "yarn lint && yarn type-check && yarn test",
     "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images",
     "job-river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
-    "job-dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts"
+    "job-dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
+    "job-news": "ts-node --files -r tsconfig-paths/register src/jobs/news.ts"
   },
   "husky": {
     "hooks": {
@@ -39,6 +40,7 @@
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.3.0",
     "@react-leaflet/core": "^1.1.0",
+    "cheerio": "^1.0.0-rc.10",
     "csv-parse": "^4.16.0",
     "dotenv": "^10.0.0",
     "leaflet": "^1.7.1",
@@ -49,6 +51,7 @@
     "react-dom": "^17.0.1",
     "react-leaflet": "^3.2.0",
     "react-twitter-widgets": "^1.10.0",
+    "rss-parser": "^3.12.0",
     "swr": "^0.5.6",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.9.0",
