@@ -2,6 +2,7 @@ import { LayersControl, MapContainer, Pane } from 'react-leaflet';
 import Leaflet from 'leaflet';
 import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
+import { Follow, Share } from 'react-twitter-widgets';
 import { MapInitializer } from './handler/MapInitializer';
 import { MapEventHandler } from './handler/MapEventHandler';
 import { AdditionalControls } from './controls/AdditionalControls';
@@ -15,6 +16,8 @@ import { GsiReliefOverlayLayer } from './layers/OverlayLayers/GsiReliefOverlayLa
 import { FireDeptLayers } from './layers/MarkerLayers/FireDeptMarkerLayers';
 import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
 import { NewsMarkerLayers } from './layers/MarkerLayers/NewsMarkerLayers';
+import { LinkControl } from './controls/LinkControl';
+import { CommonMapStyle } from './CommonMapStyle';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -26,32 +29,37 @@ const CrisisMap = () => {
     });
   }, []);
   return (
-    <MapContainer
-      scrollWheelZoom={true}
-      style={{ height: '100%', width: '100%' }}
-    >
-      <MapInitializer />
-      <MapEventHandler />
-      <AdditionalControls />
-      <LayersControl position='topright'>
-        <OSMBaseLayer />
-        <GSIBaseLayer />
-        <GsiReliefOverlayLayer />
-        <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
-          <JapanPrefOverlayLayer />
-          <JapanCityOverlayLayer />
-        </Pane>
-        <Pane name='rain-overlay' style={{ zIndex: 600 }}>
-          <NowcastOverlayLayer />
-          <RainViewerOverlayLayer />
-        </Pane>
-        <Pane name='marker-overlay' style={{ zIndex: 700 }}>
-          <FireDeptLayers />
-          <NewsMarkerLayers />
-          <RiverLevelLayer />
-        </Pane>
-      </LayersControl>
-    </MapContainer>
+    <div className='map' css={CommonMapStyle}>
+      <Follow username='yuiseki_' />
+      <Share url='https://crisis.yuiseki.net/' />
+      <LinkControl path='/covid19' title='新型コロナウイルス情報地図' />
+      <MapContainer
+        scrollWheelZoom={true}
+        style={{ height: '100%', width: '100%' }}
+      >
+        <MapInitializer />
+        <MapEventHandler />
+        <AdditionalControls />
+        <LayersControl position='topright'>
+          <OSMBaseLayer />
+          <GSIBaseLayer />
+          <GsiReliefOverlayLayer />
+          <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
+            <JapanPrefOverlayLayer />
+            <JapanCityOverlayLayer />
+          </Pane>
+          <Pane name='rain-overlay' style={{ zIndex: 600 }}>
+            <NowcastOverlayLayer />
+            <RainViewerOverlayLayer />
+          </Pane>
+          <Pane name='marker-overlay' style={{ zIndex: 700 }}>
+            <FireDeptLayers />
+            <NewsMarkerLayers />
+            <RiverLevelLayer />
+          </Pane>
+        </LayersControl>
+      </MapContainer>
+    </div>
   );
 };
 
