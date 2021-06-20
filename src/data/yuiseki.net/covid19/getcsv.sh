@@ -1,0 +1,1 @@
+wget 'https://docs.google.com/spreadsheets/d/14V79UF2fBibIpnEoezJ41eKTmR-ESC_tOXwj49dIFNA/gviz/tq?tqx=out:csv' -O vaccine.csv

@@ -14,6 +14,7 @@ import { NewsVirus } from './layers/MarkerLayers/NewsMarkerLayers';
 import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from './CommonMapStyle';
 import { LinkControl } from './controls/LinkControl';
+import { Covid19VaccinePieChartLayer } from './layers/PieChartLayers/Covid19VaccinePieChartLayer';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -42,6 +43,9 @@ const CrisisMap = () => {
           <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
             <JapanPrefOverlayLayer />
             <JapanCityOverlayLayer />
+          </Pane>
+          <Pane name='pie-chart-overlay' style={{ zIndex: 600 }}>
+            <Covid19VaccinePieChartLayer />
           </Pane>
           <Pane name='marker-overlay' style={{ zIndex: 700 }}>
             <NewsVirus />

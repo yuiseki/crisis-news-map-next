@@ -1,9 +1,9 @@
+import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import Leaflet from 'leaflet';
+import { LatLngTuple } from 'leaflet';
 import { LayersControl, Marker, Popup, LayerGroup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { LatLngTuple } from 'leaflet';
-import React from 'react';
 
 interface MarkerProps {
   center: LatLngTuple;
