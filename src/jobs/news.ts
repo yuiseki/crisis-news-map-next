@@ -16,44 +16,54 @@ const crawl = async () => {
   await dbConnect();
   for (const massMedia of massMediaList) {
     // eslint-disable-next-line no-console
-    console.log(massMedia.name + ': ' + massMedia.feed);
-    if (massMedia.feed === null) {
-      continue;
+    console.log(massMedia.name);
+    if (massMedia.feed !== null) {
+      await fetchFeedArticles(massMedia.feed);
     }
-    let feed = { items: [] };
-    try {
-      feed = await parser.parseURL(massMedia.feed);
-    } catch (e) {
-      console.error(e);
-    }
-    for await (const item of feed.items) {
-      const url = item.link;
-      // eslint-disable-next-line no-console
-      console.log(url);
-      try {
-        const res = await fetch(url, { timeout: 1000 });
-        const html = await res.text();
-        const ogp = await parseHTML(url, html);
-        const news: INews = await convertOGP(ogp);
-        if (news.placeCountry !== '日本') {
-          continue;
-        }
-        // eslint-disable-next-line no-console
-        console.log(news);
-        const query = {
-          url: news.url,
-        };
-        await News.findOneAndUpdate(query, news, {
-          upsert: true,
-        });
-      } catch (e) {
-        console.error(e);
-      } finally {
-        await sleep(1000);
-      }
+    if (massMedia.domain !== null) {
+      await fetchFeedArticles(
+        `https://b.hatena.ne.jp/site/${massMedia.domain}/?sort=eid&mode=rss`
+      );
     }
   }
   process.exit(0);
+};
+
+const fetchFeedArticles = async (feedUrl) => {
+  // eslint-disable-next-line no-console
+  console.log(feedUrl);
+  let feed = { items: [] };
+  try {
+    feed = await parser.parseURL(feedUrl);
+  } catch (e) {
+    console.error(e);
+  }
+  for await (const item of feed.items) {
+    const url = item.link;
+    // eslint-disable-next-line no-console
+    console.log(url);
+    try {
+      const res = await fetch(url, { timeout: 2000 });
+      const html = await res.text();
+      const ogp = await parseHTML(url, html);
+      const news: INews = await convertOGP(ogp);
+      if (news.placeCountry !== '日本') {
+        continue;
+      }
+      // eslint-disable-next-line no-console
+      console.log(news);
+      const query = {
+        url: news.url,
+      };
+      await News.findOneAndUpdate(query, news, {
+        upsert: true,
+      });
+    } catch (e) {
+      console.error(e);
+    } finally {
+      await sleep(1000);
+    }
+  }
 };
 
 const parseHTML = async (url: string, html: string) => {
