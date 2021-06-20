@@ -5,15 +5,22 @@ import { News } from '~/models/News';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   const category = req.query.category;
-  let condition = {};
-  if (category) {
-    condition = { category: category };
+  const hasLocation = req.query.hasLocation;
+  const condition = {};
+  if (hasLocation === 'true') {
+    Object.assign(condition, {
+      longitude: { $ne: null },
+      latitude: { $ne: null },
+    });
   }
-  const riverLevels = await News.find(condition, null, {
+  if (category) {
+    Object.assign(condition, { category: category });
+  }
+  const json = await News.find(condition, null, {
     sort: { updatedAt: 1 },
     limit: 200,
   });
-  res.status(200).json(riverLevels);
+  res.status(200).json(json);
 };
 
 export default handler;
