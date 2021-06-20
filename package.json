@@ -15,7 +15,7 @@
     "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images",
     "job-river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
     "job-dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
-    "job-news": "ts-node --files -r tsconfig-paths/register src/jobs/news.ts"
+    "job-massmedia": "ts-node --files -r tsconfig-paths/register src/jobs/massmedia.ts"
   },
   "husky": {
     "hooks": {

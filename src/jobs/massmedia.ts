@@ -47,7 +47,7 @@ const fetchFeedArticles = async (feedUrl) => {
       const html = await res.text();
       const ogp = await parseHTML(url, html);
       const news: INews = await convertOGP(ogp);
-      if (news.placeCountry !== '日本') {
+      if (news.placeCountry !== '日本' && news.category !== 'poverty') {
         continue;
       }
       // eslint-disable-next-line no-console
