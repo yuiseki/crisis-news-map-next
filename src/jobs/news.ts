@@ -20,7 +20,12 @@ const crawl = async () => {
     if (massMedia.feed === null) {
       continue;
     }
-    const feed = await parser.parseURL(massMedia.feed);
+    let feed = { items: [] };
+    try {
+      feed = await parser.parseURL(massMedia.feed);
+    } catch (e) {
+      console.error(e);
+    }
     for await (const item of feed.items) {
       const url = item.link;
       // eslint-disable-next-line no-console
