@@ -32,7 +32,7 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
       checked={overlays ? overlays.indexOf(title) > -1 : true}
     >
       <LayerGroup>
-        <MarkerClusterGroup>
+        <MarkerClusterGroup clusterPane='marker-overlay'>
           {markers.map((marker) => {
             const iconMarkup = renderToStaticMarkup(
               <div style={{ width: 30, height: 30 }}>

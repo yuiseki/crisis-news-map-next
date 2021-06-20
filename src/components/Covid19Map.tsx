@@ -15,6 +15,7 @@ import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from './CommonMapStyle';
 import { LinkControl } from './controls/LinkControl';
 import { Covid19VaccinePieChartLayer } from './layers/PieChartLayers/Covid19VaccinePieChartLayer';
+import Head from 'next/head';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -26,33 +27,38 @@ const CrisisMap = () => {
     });
   }, []);
   return (
-    <div className='map' css={CommonMapStyle}>
-      <Follow username='yuiseki_' />
-      <Share url='https://crisis.yuiseki.net/' />
-      <LinkControl path='/' title='全国災害情報地図' />
-      <MapContainer
-        scrollWheelZoom={true}
-        style={{ height: '100%', width: '100%' }}
-      >
-        <MapInitializer />
-        <MapEventHandler />
-        <AdditionalControls />
-        <LayersControl position='topright'>
-          <OSMBaseLayer />
-          <GSIBaseLayer />
-          <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
-            <JapanPrefOverlayLayer />
-            <JapanCityOverlayLayer />
-          </Pane>
-          <Pane name='pie-chart-overlay' style={{ zIndex: 600 }}>
-            <Covid19VaccinePieChartLayer />
-          </Pane>
-          <Pane name='marker-overlay' style={{ zIndex: 700 }}>
-            <NewsVirus />
-          </Pane>
-        </LayersControl>
-      </MapContainer>
-    </div>
+    <>
+      <Head>
+        <title>全国新型コロナウイルス情報地図</title>
+      </Head>
+      <div className='map' css={CommonMapStyle}>
+        <Follow username='yuiseki_' />
+        <Share url={window.location.href} />
+        <LinkControl path='/' title='全国災害情報地図' />
+        <MapContainer
+          scrollWheelZoom={true}
+          style={{ height: '100%', width: '100%' }}
+        >
+          <MapInitializer />
+          <MapEventHandler />
+          <AdditionalControls />
+          <LayersControl position='topright'>
+            <OSMBaseLayer />
+            <GSIBaseLayer />
+            <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
+              <JapanPrefOverlayLayer />
+              <JapanCityOverlayLayer />
+            </Pane>
+            <Pane name='pie-chart-overlay' style={{ zIndex: 600 }}>
+              <Covid19VaccinePieChartLayer />
+            </Pane>
+            <Pane name='marker-overlay' style={{ zIndex: 700 }}>
+              <NewsVirus />
+            </Pane>
+          </LayersControl>
+        </MapContainer>
+      </div>
+    </>
   );
 };
 

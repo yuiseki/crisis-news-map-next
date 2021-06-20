@@ -31,4 +31,8 @@ export const CommonMapStyle = css`
     width: auto !important;
     display: inline-block;
   }
+
+  .leaflet-popup {
+    z-index: 10000;
+  }
 `;
