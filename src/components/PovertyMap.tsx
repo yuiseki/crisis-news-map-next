@@ -28,7 +28,7 @@ const CrisisMap = () => {
   return (
     <>
       <Head>
-        <title>全国貧困情報地図</title>
+        <title>全世界貧困情報地図</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
         <Follow username='yuiseki_' />
