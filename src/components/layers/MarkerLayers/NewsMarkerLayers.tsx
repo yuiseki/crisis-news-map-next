@@ -11,7 +11,8 @@ interface AbstractNewsProps {
 }
 
 const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
-  const { data } = useSWR('/api/news');
+  const url = `/api/news?category=${category}`;
+  const { data } = useSWR(url);
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
     if (data) {

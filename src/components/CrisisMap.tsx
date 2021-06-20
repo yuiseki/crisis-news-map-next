@@ -16,7 +16,7 @@ import { RainViewerOverlayLayer } from './layers/OverlayLayers/RainViewerOverlay
 import { GsiReliefOverlayLayer } from './layers/OverlayLayers/GsiReliefOverlayLayer';
 import { FireDeptLayers } from './layers/MarkerLayers/FireDeptMarkerLayers';
 import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
-import { NewsMarkerLayers } from './layers/MarkerLayers/NewsMarkerLayers';
+import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
 import { LinkControl } from './controls/LinkControl';
 import { CommonMapStyle } from './CommonMapStyle';
 
@@ -55,7 +55,7 @@ const CrisisMap = () => {
           </Pane>
           <Pane name='marker-overlay' style={{ zIndex: 700 }}>
             <FireDeptLayers />
-            <NewsMarkerLayers />
+            <NewsCrisis />
             <RiverLevelLayer />
           </Pane>
         </LayersControl>
