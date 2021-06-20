@@ -11,7 +11,7 @@ interface AbstractNewsProps {
 }
 
 const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
-  const url = `/api/news?category=${category}`;
+  const url = `/api/news?hasLocation=true&category=${category}`;
   const { data } = useSWR(url);
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
@@ -68,11 +68,24 @@ export const NewsVirus = () => {
   );
 };
 
-export const NewsMarkerLayers = () => {
+export const NewsChild = () => {
   return (
-    <>
-      <NewsCrisis />
-      <NewsVirus />
-    </>
+    <AbstractNews
+      id='news-child'
+      title='児童虐待ニュース'
+      category='children'
+      icon='/images/news_icon.png'
+    />
+  );
+};
+
+export const NewsPoverty = () => {
+  return (
+    <AbstractNews
+      id='news-poverty'
+      title='貧困ニュース'
+      category='poverty'
+      icon='/images/news_icon.png'
+    />
   );
 };
