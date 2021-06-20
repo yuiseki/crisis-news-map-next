@@ -6,9 +6,6 @@
     "query": "asahi.com",
     "url": "https://www.asahi.com/",
     "feed": "http://rss.asahi.com/rss/asahi/newsheadlines.rdf",
-    "json": null,
-    "favicon": "https://www.asahi.com/favicon.ico",
-    "touch_icon": "https://www.asahi.com/logo_icon.png",
     "twitter": "asahi"
   },
   {
@@ -18,9 +15,6 @@
     "query": "sankei.com",
     "url": "https://www.sankei.com/",
     "feed": "https://assets.wor.jp/rss/rdf/sankei/affairs.rdf",
-    "json": null,
-    "favicon": "https://www.sankei.com/favicon.ico",
-    "touch_icon": "https://www.sankei.com/apple-touch-icon.png",
     "twitter": "Sankei_news"
   },
   {
@@ -30,9 +24,6 @@
     "query": "nikkei.com",
     "url": "https://www.nikkei.com/",
     "feed": "https://assets.wor.jp/rss/rdf/nikkei/news.rdf",
-    "json": null,
-    "favicon": "https://www.nikkei.com/favicon.ico",
-    "touch_icon": "https://www.nikkei.com/.resources/static/app/icons/favicon-180.png",
     "twitter": "nikkei"
   },
   {
@@ -42,9 +33,6 @@
     "query": "mainichi.com",
     "url": "https://mainichi.jp",
     "feed": "https://mainichi.jp/rss/etc/mainichi-flash.rss",
-    "json": null,
-    "favicon": "https://cdn.mainichi.jp/vol1/images/icon/mainichi/favicon.ico",
-    "touch_icon": "https://cdn.mainichi.jp/vol1/images/icon/mainichi/apple-touch.png",
     "twitter": "mainichi"
   },
   {
@@ -54,9 +42,6 @@
     "query": "yomiuri.co.jp",
     "url": "https://www.yomiuri.co.jp",
     "feed": "https://assets.wor.jp/rss/rdf/yomiuri/latestnews.rdf",
-    "json": null,
-    "favicon": "https://www.yomiuri.co.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "mainichi"
   },
   {
@@ -66,9 +51,6 @@
     "query": "news24.jp",
     "url": "http://www.news24.jp",
     "feed": "http://www.news24.jp/rss/index.rdf",
-    "json": null,
-    "favicon": "http://www.news24.jp/favicon.ico",
-    "touch_icon": "http://www.news24.jp/images/apple-touch-icon.png",
     "twitter": "news24ntv"
   },
   {
@@ -78,9 +60,6 @@
     "query": "news.tbs.co.jp",
     "url": "https://news.tbs.co.jp/index.html",
     "feed": "https://news.tbs.co.jp/rss/tbs_newsi.rdf",
-    "json": null,
-    "favicon": "https://news.tbs.co.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "tbs_news"
   },
   {
@@ -90,9 +69,6 @@
     "query": "fnn.jp",
     "url": "https://www.fnn.jp",
     "feed": "https://www.fnn.jp/files/rss/fnn_ALL.xml",
-    "json": null,
-    "favicon": "https://www.fnn.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "fnn_news"
   },
   {
@@ -102,9 +78,6 @@
     "query": "news.tv-asahi.co.jp",
     "url": "https://news.tv-asahi.co.jp",
     "feed": "https://news.yahoo.co.jp/rss/media/ann/all.xml",
-    "json": "https://news.tv-asahi.co.jp/api/newslist.php?appcode=n4tAMkmEnY&category_id=1&page=0001&kind=all",
-    "favicon": "https://news.tv-asahi.co.jp/img/new_favicon.ico",
-    "touch_icon": null,
     "twitter": "tv_asahi_news"
   },
   {
@@ -114,9 +87,6 @@
     "query": "https://www.tv-tokyo.co.jp/news/",
     "url": "https://www.tv-tokyo.co.jp/news/",
     "feed": null,
-    "json": "https://www.tv-tokyo.co.jp/news/original/json/entries.json",
-    "favicon": "https://www.tv-tokyo.co.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "tx_news"
   },
   {
@@ -126,9 +96,6 @@
     "query": "nhk.or.jp",
     "url": "https://www3.nhk.or.jp/news/",
     "feed": "https://www3.nhk.or.jp/rss/news/cat0.xml",
-    "json": null,
-    "favicon": "https://www.nhk.or.jp/favicon.ico",
-    "touch_icon": "https://www.nhk.or.jp/apple-touch-icon-152x152-precomposed.png",
     "twitter": "nhk_news"
   },
   {
@@ -138,9 +105,6 @@
     "query": "https://www.bbc.com/japanese",
     "url": "https://www.bbc.com/japanese",
     "feed": null,
-    "json": null,
-    "favicon": "https://www.bbc.com/favicon.ico",
-    "touch_icon": "https://news.files.bbci.co.uk/include/articles/public/japanese/images/icons/icon-144x144.png",
     "twitter": "bbcnewsjapan"
   },
   {
@@ -150,9 +114,6 @@
     "query": "cnn.co.jp",
     "url": "https://www.cnn.co.jp",
     "feed": "http://feeds.cnn.co.jp/rss/cnn/cnn.rdf",
-    "json": null,
-    "favicon": "https://www.cnn.co.jp/media/cnn/images/icons/favicon.ico",
-    "touch_icon": "https://www.cnn.co.jp/apple-touch-icon-144x144.png",
     "twitter": "cnn_co_jp"
   },
   {
@@ -162,9 +123,6 @@
     "query": "this.kiji.is",
     "url": "https://this.kiji.is",
     "feed": null,
-    "json": "https://this.kiji.is/top/getPosts?limit=100&offset=0",
-    "favicon": "https://this.kiji.is/images/newsnor/kiji/img/common/favicons/favicon-16x16.png?1571083723",
-    "touch_icon": "https://this.kiji.is/images/newsnor/kiji/img/common/favicons/favicon-194x194.png?1571083723",
     "twitter": "kyodo_official"
   },
   {
@@ -174,9 +132,6 @@
     "query": "jiji.com",
     "url": "https://www.jiji.com",
     "feed": "https://www.jiji.com/rss/ranking.rdf",
-    "json": null,
-    "favicon": "https://www.jiji.com/favicon.ico",
-    "touch_icon": null,
     "twitter": "jijicom"
   },
   {
@@ -186,9 +141,6 @@
     "query": "afpbb.com",
     "url": "https://www.afpbb.com/",
     "feed": "http://feeds.afpbb.com/rss/afpbb/afpbbnews",
-    "json": null,
-    "favicon": "https://afpbb.ismcdn.jp/common/images/favicon.ico",
-    "touch_icon": "https://afpbb.ismcdn.jp/common/images/apple-touch-icon.png",
     "twitter": "afpbbcom"
   },
   {
@@ -198,9 +150,6 @@
     "query": "jp.reuters.com",
     "url": "https://jp.reuters.com",
     "feed": null,
-    "json": null,
-    "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
-    "touch_icon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon-96x96.png",
     "twitter": "reuters_co_jp"
   },
   {
@@ -210,9 +159,6 @@
     "query": "newsdigest.jp",
     "url": "https://newsdigest.jp",
     "feed": "https://news.livedoor.com/rss/article/vender/newsdigest",
-    "json": null,
-    "favicon": "https://newsdigest.jp/favicon.ico",
-    "touch_icon": "https://newsdigest.jp/icon-192x192.png",
     "twitter": "NewsDigestWeb"
   },
   {
@@ -222,9 +168,6 @@
     "query": "47news",
     "url": "https://www.47news.jp",
     "feed": "https://assets.wor.jp/rss/rdf/ynnews/news.rdf",
-    "json": null,
-    "favicon": "https://www.47news.jp/favicon.ico",
-    "touch_icon": "https://www.47news.jp/apple-touch-icon-152x152.png",
     "twitter": "47news"
   },
   {
@@ -234,9 +177,6 @@
     "query": "headlines.yahoo.co.jp",
     "url": "https://headlines.yahoo.co.jp",
     "feed": "https://news.yahoo.co.jp/rss/topics/domestic.xml",
-    "json": null,
-    "favicon": "https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico",
-    "touch_icon": "https://s.yimg.jp/c/icon/s/bsc/2.0/news120.png",
     "twitter": "YahooNewsTopics"
   },
   {
@@ -246,9 +186,6 @@
     "query": "news.yahoo.co.jp",
     "url": "https://news.yahoo.co.jp",
     "feed": "https://news.yahoo.co.jp/rss/categories/domestic.xml",
-    "json": null,
-    "favicon": "https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico",
-    "touch_icon": "https://s.yimg.jp/c/icon/s/bsc/2.0/news120.png",
     "twitter": "YahooNewsTopics"
   },
   {
@@ -258,9 +195,6 @@
     "query": "times.abema.tv",
     "url": "https://times.abema.tv",
     "feed": "https://news.yahoo.co.jp/rss/media/abema/all.xml",
-    "json": "https://times.abema.tv/json_svc/category_list/?category_id=17&start=1&count=12&preview_type=2",
-    "favicon": "https://d13krdvwknzmgv.cloudfront.net/files/user/images/design/favicon-times.png",
-    "touch_icon": null,
     "twitter": "AbemaTIMES"
   },
   {
@@ -270,9 +204,6 @@
     "query": "bengo4.com",
     "url": "https://www.bengo4.com",
     "feed": "https://www.bengo4.com/api/topics/rss",
-    "json": null,
-    "favicon": "https://www.bengo4.com/favicon.ico",
-    "touch_icon": null,
     "twitter": "bengo4topics"
   },
   {
@@ -282,9 +213,6 @@
     "query": "buzzfeed.com/jp/",
     "url": "https://www.buzzfeed.com/jp/",
     "feed": "https://www.buzzfeed.com/jp/index.xml",
-    "json": null,
-    "favicon": "https://www.buzzfeed.com/favicon.ico",
-    "touch_icon": null,
     "twitter": "BFJNews"
   },
   {
@@ -294,9 +222,6 @@
     "query": "tokyo-np.co.jp",
     "url": "https://www.tokyo-np.co.jp/",
     "feed": null,
-    "json": null,
-    "favicon": "https://static.tokyo-np.co.jp/tokyo-np/appconfig/favicon.ico",
-    "touch_icon": "https://static.tokyo-np.co.jp/tokyo-np/appconfig/apple-touch-icon.png",
     "twitter": "tokyo_shimbun"
   },
   {
@@ -306,9 +231,6 @@
     "query": "kyoto-np.co.jp",
     "url": "https://www.kyoto-np.co.jp/",
     "feed": "https://www.kyoto-np.co.jp/list/feed/rss",
-    "json": null,
-    "favicon": "https://www.kyoto-np.co.jp/common/images/favicon.ico",
-    "touch_icon": "https://www.kyoto-np.co.jp/common/images/apple-touch-icon-152x152.png",
     "twitter": "tokyo_shimbun"
   },
   {
@@ -318,9 +240,6 @@
     "query": "kobe-np.co.jp",
     "url": "https://www.kobe-np.co.jp/",
     "feed": null,
-    "json": null,
-    "favicon": "https://i.kobe-np.co.jp/common/web/img/favicon.ico",
-    "touch_icon": null,
     "twitter": "tokyo_shimbun"
   },
   {
@@ -330,9 +249,6 @@
     "query": "toonippo.co.jp",
     "url": "https://www.toonippo.co.jp/",
     "feed": "https://www.toonippo.co.jp/list/feed/rss",
-    "json": null,
-    "favicon": "https://www.toonippo.co.jp/common/images/favicon.ico",
-    "touch_icon": "https://www.toonippo.co.jp/common/images/apple_icon.png",
     "twitter": "toonippo"
   },
   {
@@ -342,9 +258,6 @@
     "query": "sakigake.jp",
     "url": "https://www.sakigake.jp",
     "feed": "http://feeds.feedburner.com/akita_news",
-    "json": null,
-    "favicon": "https://www.sakigake.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "sakigake"
   }
 ]

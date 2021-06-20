@@ -4,9 +4,7 @@
     "name": "首相官邸",
     "domain": "www.kantei.go.jp",
     "query": "kantei.go.jp",
-    "url": "http://www.kantei.go.jp",
-    "favicon": "http://www.kantei.go.jp/favicon.ico",
-    "touch_icon": null,
+    "url": "https://www.kantei.go.jp",
     "twitter": "kantei"
   },
   {
@@ -15,8 +13,6 @@
     "domain": "www.cao.go.jp",
     "query": "cao.go.jp",
     "url": "https://www.cao.go.jp",
-    "favicon": "https://www.cao.go.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "cao_japan"
   },
   {
@@ -26,8 +22,6 @@
     "domain": "www.bousai.go.jp",
     "query": "bousai.go.jp",
     "url": "https://www.bousai.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "CAO_BOUSAI"
   },
   {
@@ -37,8 +31,6 @@
     "domain": "www.reconstruction.go.jp",
     "query": "reconstruction.go.jp",
     "url": "https://www.reconstruction.go.jp/",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "fukkocho_JAPAN"
   },
   {
@@ -48,8 +40,6 @@
     "domain": "www.jftc.go.jp",
     "query": "jftc.go.jp",
     "url": "https://www.jftc.go.jp/",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "jftc"
   },
   {
@@ -59,8 +49,6 @@
     "domain": "www.scj.go.jp",
     "query": "scj.go.jp",
     "url": "http://www.scj.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "scj_info"
   },
   {
@@ -69,9 +57,7 @@
     "name": "警察庁",
     "domain": "www.npa.go.jp",
     "query": "npa.go.jp",
-    "url": "http://www.npa.go.jp/",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.npa.go.jp/",
     "twitter": "NPA_KOHO"
   },
   {
@@ -81,8 +67,6 @@
     "domain": "www.fsa.go.jp",
     "query": "fsa.go.jp",
     "url": "https://www.fsa.go.jp/",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "fsa_JAPAN"
   },
   {
@@ -92,8 +76,6 @@
     "domain": "www.caa.go.jp",
     "query": "caa.go.jp",
     "url": "https://www.caa.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "caa_shohishacho"
   },
   {
@@ -102,9 +84,7 @@
     "name": "総務省",
     "domain": "www.soumu.go.jp",
     "query": "soumu.go.jp",
-    "url": "http://www.soumu.go.jp",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.soumu.go.jp",
     "twitter": "MIC_JAPAN"
   },
   {
@@ -114,8 +94,6 @@
     "domain": "www.fdma.go.jp",
     "query": "fdma.go.jp",
     "url": "https://www.fdma.go.jp/",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "MLIT_JAPAN"
   },
   {
@@ -125,8 +103,6 @@
     "domain": "www.moj.go.jp",
     "query": "moj.go.jp",
     "url": "http://www.moj.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "MOJ_HOUMU"
   },
   {
@@ -136,8 +112,6 @@
     "domain": "www.mofa.go.jp",
     "query": "mofa.go.jp",
     "url": "https://www.mofa.go.jp/mofaj/",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "MofaJapan_jp"
   },
   {
@@ -147,8 +121,6 @@
     "domain": "www.mof.go.jp",
     "query": "mof.go.jp",
     "url": "https://www.mof.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "MOF_Japan"
   },
   {
@@ -158,8 +130,6 @@
     "domain": "www.nta.go.jp",
     "query": "nta.go.jp",
     "url": "https://www.nta.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "NTA_Japan"
   },
   {
@@ -168,9 +138,7 @@
     "name": "文部科学省",
     "domain": "www.mext.go.jp",
     "query": "mext.go.jp",
-    "url": "http://www.mext.go.jp",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.mext.go.jp",
     "twitter": "mextjapan"
   },
   {
@@ -179,9 +147,7 @@
     "name": "文化庁",
     "domain": "www.bunka.go.jp",
     "query": "bunka.go.jp",
-    "url": "http://www.bunka.go.jp",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.bunka.go.jp",
     "twitter": "prmag_bunka"
   },
   {
@@ -191,8 +157,6 @@
     "domain": "www.mhlw.go.jp",
     "query": "mhlw.go.jp",
     "url": "https://www.mhlw.go.jp/index.html",
-    "favicon": "https://www.mhlw.go.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "MHLWitter"
   },
   {
@@ -201,9 +165,7 @@
     "name": "農林水産省",
     "domain": "www.maff.go.jp",
     "query": "maff.go.jp",
-    "url": "http://www.maff.go.jp",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.maff.go.jp",
     "twitter": "MAFF_JAPAN"
   },
   {
@@ -213,8 +175,6 @@
     "domain": "www.meti.go.jp",
     "query": "meti.go.jp",
     "url": "https://www.meti.go.jp/index.html",
-    "favicon": "https://www.meti.go.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "MHLWitter"
   },
   {
@@ -224,8 +184,6 @@
     "domain": "www.jpo.go.jp",
     "query": "jpo.go.jp",
     "url": "https://www.jpo.go.jp/index.html",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "jpo_NIPPON"
   },
   {
@@ -235,8 +193,6 @@
     "domain": "www.chusho.meti.go.jp",
     "query": "chusho.meti.go.jp",
     "url": "https://www.chusho.meti.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "meti_chusho"
   },
   {
@@ -244,9 +200,7 @@
     "name": "国土交通省",
     "domain": "www.mlit.go.jp",
     "query": "mlit.go.jp",
-    "url": "http://www.mlit.go.jp/",
-    "favicon": "http://www.mlit.go.jp/favicon.ico",
-    "touch_icon": null,
+    "url": "https://www.mlit.go.jp/",
     "twitter": "MLIT_JAPAN"
   },
   {
@@ -256,8 +210,6 @@
     "domain": "www.gsi.go.jp",
     "query": "gsi.go.jp",
     "url": "https://www.gsi.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "gsi_chiriin"
   },
   {
@@ -266,9 +218,7 @@
     "name": "観光庁",
     "domain": "mlit.go.jp",
     "query": "mlit.go.jp/kankocho/",
-    "url": "http://www.mlit.go.jp/kankocho/",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.mlit.go.jp/kankocho/",
     "twitter": "Kanko_Jpn"
   },
   {
@@ -277,8 +227,6 @@
     "domain": "www.jma.go.jp",
     "query": "jma.go.jp",
     "url": "https://www.jma.go.jp/jma/index.html",
-    "favicon": "https://www.jma.go.jp/favicon.ico",
-    "touch_icon": null,
     "twitter": "JMA_kishou"
   },
   {
@@ -288,8 +236,6 @@
     "domain": "www.kaiho.mlit.go.jp",
     "query": "kaiho.mlit.go.jp",
     "url": "https://www.kaiho.mlit.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "JCG_koho"
   },
   {
@@ -298,9 +244,7 @@
     "name": "環境省",
     "domain": "www.env.go.jp",
     "query": "env.go.jp",
-    "url": "http://www.env.go.jp",
-    "favicon": null,
-    "touch_icon": null,
+    "url": "https://www.env.go.jp",
     "twitter": "Kankyo_Jpn"
   },
   {
@@ -310,8 +254,6 @@
     "domain": "www.nsr.go.jp",
     "query": "nsr.go.jp",
     "url": "https://www.nsr.go.jp",
-    "favicon": null,
-    "touch_icon": null,
     "twitter": "gensiryokukisei"
   },
   {
@@ -319,9 +261,7 @@
     "name": "防衛省",
     "domain": "www.mod.go.jp",
     "query": "mod.go.jp",
-    "url": "http://www.mod.go.jp",
-    "favicon": "https://www.mod.go.jp/favicon32.ico",
-    "touch_icon": "https://www.mod.go.jp/apple-touch-icon.png",
+    "url": "https://www.mod.go.jp",
     "twitter": "modjapan_jp"
   }
 ]
