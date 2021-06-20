@@ -6,6 +6,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   const riverLevels = await Dispatch.find({}, null, {
     sort: { updatedAt: 1 },
+    limit: 200,
   });
   res.status(200).json(riverLevels);
 };

@@ -11,6 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const riverLevels = await News.find(condition, null, {
     sort: { updatedAt: 1 },
+    limit: 200,
   });
   res.status(200).json(riverLevels);
 };
