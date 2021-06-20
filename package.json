@@ -13,10 +13,10 @@
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
     "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images",
-    "job-river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
-    "job-dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
-    "job-massmedia": "ts-node --files -r tsconfig-paths/register src/jobs/massmedia.ts",
-    "job-hatebu": "ts-node --files -r tsconfig-paths/register src/jobs/hatebu.ts"
+    "job:river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
+    "job:dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
+    "job:massmedia": "ts-node --files -r tsconfig-paths/register src/jobs/massmedia.ts",
+    "job:hatebu": "ts-node --files -r tsconfig-paths/register src/jobs/hatebu.ts"
   },
   "husky": {
     "hooks": {
