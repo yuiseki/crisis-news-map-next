@@ -204,8 +204,11 @@ export class Detector {
    * 国を検出する
    */
   public detectCountry() {
+    const re1 = new RegExp('タイ[ァ-ンヴー]+');
+    const re2 = new RegExp('[ァ-ンヴー]+タイ');
+
     this.country = Detector.detect(
-      this.text,
+      this.text.replaceAll(re1, '').replaceAll(re2, ''),
       Object.keys(locationList.country.data)
     );
     if (this.country !== null) {
