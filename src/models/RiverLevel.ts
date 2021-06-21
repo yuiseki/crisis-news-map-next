@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 
 interface IRiverLevel {
+  createdAt: string;
+  updatedAt: string;
+  observedAt: Date;
   code: string;
   name: string;
   obsTime: string;
@@ -14,7 +17,6 @@ interface IRiverLevel {
   fladLevel: number;
   isFlood: boolean;
   category: string;
-  observedAt: Date;
   // place
   placeCountry: string;
   placePref: string;

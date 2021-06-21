@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 
 export interface INews {
+  createdAt: string;
+  updatedAt: string;
   url: string;
   title: string;
   ogTitle: string;

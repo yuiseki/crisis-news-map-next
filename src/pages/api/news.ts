@@ -17,7 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     Object.assign(condition, { category: category });
   }
   const json = await News.find(condition, null, {
-    sort: { updatedAt: 1 },
+    sort: { createdAt: -1 },
     limit: 200,
   });
   res.status(200).json(json);

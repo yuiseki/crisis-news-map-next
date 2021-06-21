@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 
 interface IDispatch {
+  createdAt: string;
+  updatedAt: string;
+  observedAt: Date;
   originId: string;
   category: string;
   unit: string;
@@ -8,7 +11,6 @@ interface IDispatch {
   division: string;
   status: string;
   time_str: string;
-  observedAt: Date;
   // place
   placeCity: string;
   placeCountry: string;
