@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const ChildMap = dynamic(() => import('../components/ChildMap'), {
+const ChildMap = dynamic(() => import('../components/leaflet/ChildMap'), {
   ssr: false,
 });
 

@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const Covid19Map = dynamic(() => import('../components/Covid19Map'), {
+const Covid19Map = dynamic(() => import('../components/leaflet/Covid19Map'), {
   ssr: false,
 });
 

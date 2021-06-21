@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const PovertyMap = dynamic(() => import('../components/PovertyMap'), {
+const PovertyMap = dynamic(() => import('../components/leaflet/PovertyMap'), {
   ssr: false,
 });
 

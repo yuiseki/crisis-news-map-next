@@ -6,6 +6,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   const category = req.query.category;
   const hasLocation = req.query.hasLocation;
+  const country = req.query.country;
+  const pref = req.query.pref;
+  const city = req.query.city;
   const condition = {};
   if (hasLocation === 'true') {
     Object.assign(condition, {
@@ -15,6 +18,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   if (category) {
     Object.assign(condition, { category: category });
+  }
+  if (country) {
+    Object.assign(condition, { placeCountry: country });
+  }
+  if (pref) {
+    Object.assign(condition, { placePref: pref });
+  }
+  if (city) {
+    Object.assign(condition, { placeCity: city });
   }
   const json = await News.find(condition, null, {
     sort: { createdAt: -1 },
