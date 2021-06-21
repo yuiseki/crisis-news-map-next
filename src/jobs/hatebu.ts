@@ -8,7 +8,8 @@ const crawl = async () => {
     if (
       category !== 'virus' &&
       category !== 'poverty' &&
-      category !== 'children'
+      category !== 'children' &&
+      category !== 'drug'
     ) {
       continue;
     }
