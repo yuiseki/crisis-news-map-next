@@ -204,8 +204,8 @@ export class Detector {
    * 国を検出する
    */
   public detectCountry() {
-    const re1 = new RegExp('タイ[ァ-ンヴー]+');
-    const re2 = new RegExp('[ァ-ンヴー]+タイ');
+    const re1 = new RegExp('タイ[ァ-ンヴー]+', 'g');
+    const re2 = new RegExp('[ァ-ンヴー]+タイ', 'g');
 
     this.country = Detector.detect(
       this.text.replaceAll(re1, '').replaceAll(re2, ''),
