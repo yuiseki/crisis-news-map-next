@@ -6,10 +6,12 @@ import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import tw from 'twin.macro';
 
-const StaticMap: React.VFC<{ center: LatLngTuple }> = ({
+const StaticMap: React.VFC<{ center: LatLngTuple; zoom: number }> = ({
   center,
+  zoom,
 }: {
   center: LatLngTuple;
+  zoom: number;
 }) => {
   useEffect(() => {
     delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
@@ -23,7 +25,7 @@ const StaticMap: React.VFC<{ center: LatLngTuple }> = ({
     <div className='map' css={tw`h-full mx-auto m-0 p-0`}>
       <MapContainer
         center={center}
-        zoom={13}
+        zoom={zoom}
         scrollWheelZoom={false}
         style={{ height: '100%', width: '100%' }}
       >

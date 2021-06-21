@@ -8,7 +8,7 @@ export const NewsView: React.VFC<{ news: INews }> = ({
 }: {
   news: INews;
 }) => {
-  let locationPath = '/';
+  let locationPath = '/place/';
   if (news.placeCountry) {
     locationPath += news.placeCountry;
   }
@@ -19,6 +19,8 @@ export const NewsView: React.VFC<{ news: INews }> = ({
     locationPath += '/' + news.placeCity;
   }
 
+  const categoryPath = `/news/${news.category}`;
+
   return (
     <div css={tw`m-5`}>
       <a href={news.url}>
@@ -27,12 +29,16 @@ export const NewsView: React.VFC<{ news: INews }> = ({
       </a>
       <div css={tw`text-xl my-1`}>
         <span css={tw`mr-1`}>
-          {new Date(Date.parse(news.createdAt)).toLocaleString()}
+          取得日時: {new Date(Date.parse(news.createdAt)).toLocaleString()}
         </span>
+      </div>
+      <div css={tw`text-xl my-1`}>
         <span css={tw`mr-1`}>
-          <Link href={locationPath}>{locationPath}</Link>
+          場所（推定）: <Link href={locationPath}>{locationPath}</Link>
         </span>
-        <span>{news.category}</span>
+      </div>
+      <div css={tw`text-xl my-1`}>
+        カテゴリ（推定）: <Link href={categoryPath}>{news.category}</Link>
       </div>
       <div>{news.ogDesc}</div>
     </div>
