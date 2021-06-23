@@ -14,7 +14,7 @@ const StaticMap = dynamic(() => import('../../components/leaflet/StaticMap'), {
 const NewsListView: React.VFC = () => {
   const router = useRouter();
   const { category } = router.query;
-  const url = `/api/news?hasLocation=true&category=${category}`;
+  const url = `/api/news?category=${category}`;
   const { data } = useSWR<INews[]>(url);
   return (
     <div>
@@ -23,9 +23,11 @@ const NewsListView: React.VFC = () => {
         return (
           <div key={news.url} css={tw`my-10`}>
             <NewsView news={news} />
-            <div css={tw`h-40 w-full`}>
-              <StaticMap zoom={5} center={center} />
-            </div>
+            {news.latitude && news.longitude && (
+              <div css={tw`h-40 w-full`}>
+                <StaticMap zoom={5} center={center} />
+              </div>
+            )}
           </div>
         );
       })}

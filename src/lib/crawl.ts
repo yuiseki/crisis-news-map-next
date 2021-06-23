@@ -26,11 +26,12 @@ export const fetchFeedArticles = async (feedUrl) => {
       const ogp = await parseOGP(url, html);
       const news: INews = await convertOGP(ogp);
       if (
-        news.placeCountry !== '日本' &&
         news.category !== 'crisis' &&
         news.category !== 'virus' &&
         news.category !== 'poverty' &&
-        news.category !== 'children'
+        news.category !== 'children' &&
+        news.category !== 'drug' &&
+        news.category !== 'nikkei'
       ) {
         continue;
       }
