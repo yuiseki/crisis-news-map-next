@@ -1,20 +1,21 @@
 import mongoose from 'mongoose';
 
 interface IDispatch {
-  createdAt: string;
-  updatedAt: string;
-  observedAt: Date;
   originId: string;
   category: string;
   unit: string;
   detail: string;
   division: string;
   status: string;
+  // time
   time_str: string;
+  createdAt: string;
+  updatedAt: string;
+  observedAt: Date;
   // place
-  placeCity: string;
   placeCountry: string;
   placePref: string;
+  placeCity: string;
   // gps
   latitude: number;
   longitude: number;
@@ -31,10 +32,11 @@ const schema = new mongoose.Schema(
     division: String,
     latitude: Number,
     longitude: Number,
-    placeCity: String,
     placeCountry: String,
     placePref: String,
+    placeCity: String,
     status: String,
+    // time
     time_str: String,
     observedAt: Date,
   },

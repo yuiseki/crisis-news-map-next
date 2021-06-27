@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 
 export interface INews {
-  createdAt: string;
-  updatedAt: string;
   url: string;
   title: string;
   ogTitle: string;
@@ -10,6 +8,9 @@ export interface INews {
   ogImage: string;
   ogUrl: string;
   category: string;
+  // time
+  createdAt: string;
+  updatedAt: string;
   // place
   placeCountry: string;
   placePref: string;
@@ -35,6 +36,7 @@ const schema = new mongoose.Schema(
     ogImage: String,
     ogUrl: String,
     category: String,
+    // place
     placeCountry: String,
     placePref: String,
     placeCity: String,
@@ -43,6 +45,7 @@ const schema = new mongoose.Schema(
     placeStation: String,
     placeAirport: String,
     placePolice: String,
+    // gps
     latitude: Number,
     longitude: Number,
   },
