@@ -1,21 +1,22 @@
-import { LayersControl, MapContainer, Pane } from 'react-leaflet';
-import Leaflet from 'leaflet';
+import Head from 'next/head';
 import React, { useEffect } from 'react';
+import Leaflet from 'leaflet';
+import { LayersControl, MapContainer, Pane } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from './handler/MapInitializer';
 import { MapEventHandler } from './handler/MapEventHandler';
 import { AdditionalControls } from './controls/AdditionalControls';
+import { LinkControl } from './controls/LinkControl';
 import { OSMBaseLayer } from './layers/BaseLayers/OSMBaseLayer';
 import { GSIBaseLayer } from './layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { NewsVirus } from './layers/MarkerLayers/NewsMarkerLayers';
+import { PopulationLayer } from './layers/OverlayLayers/PopulationLayer';
+import { Covid19VaccinePieChartLayer } from './layers/PieChartLayers/Covid19VaccinePieChartLayer';
 import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from './CommonMapStyle';
-import { LinkControl } from './controls/LinkControl';
-import { Covid19VaccinePieChartLayer } from './layers/PieChartLayers/Covid19VaccinePieChartLayer';
-import Head from 'next/head';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -49,10 +50,13 @@ const CrisisMap = () => {
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />
             </Pane>
-            <Pane name='pie-chart-overlay' style={{ zIndex: 600 }}>
+            <Pane name='stat-overlay' style={{ zIndex: 600 }}>
+              <PopulationLayer />
+            </Pane>
+            <Pane name='pie-chart-overlay' style={{ zIndex: 700 }}>
               <Covid19VaccinePieChartLayer />
             </Pane>
-            <Pane name='marker-overlay' style={{ zIndex: 700 }}>
+            <Pane name='marker-overlay' style={{ zIndex: 800 }}>
               <NewsVirus />
             </Pane>
           </LayersControl>

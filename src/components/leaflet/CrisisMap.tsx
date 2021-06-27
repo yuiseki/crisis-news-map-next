@@ -14,6 +14,7 @@ import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLa
 import { NowcastOverlayLayer } from './layers/OverlayLayers/NowcastOverlayLayer';
 import { RainViewerOverlayLayer } from './layers/OverlayLayers/RainViewerOverlayLayer';
 import { GsiReliefOverlayLayer } from './layers/OverlayLayers/GsiReliefOverlayLayer';
+import { PopulationLayer } from './layers/OverlayLayers/PopulationLayer';
 import { FireDeptLayers } from './layers/MarkerLayers/FireDeptMarkerLayers';
 import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
 import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
@@ -53,7 +54,10 @@ const CrisisMap = () => {
             <NowcastOverlayLayer />
             <RainViewerOverlayLayer />
           </Pane>
-          <Pane name='marker-overlay' style={{ zIndex: 700 }}>
+          <Pane name='stat-overlay' style={{ zIndex: 700 }}>
+            <PopulationLayer />
+          </Pane>
+          <Pane name='marker-overlay' style={{ zIndex: 800 }}>
             <FireDeptLayers />
             <NewsCrisis />
             <RiverLevelLayer />
