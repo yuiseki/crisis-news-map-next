@@ -20,7 +20,8 @@
     "job:river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
     "job:dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
     "job:massmedia": "ts-node --files -r tsconfig-paths/register src/jobs/massmedia.ts",
-    "job:hatebu": "ts-node --files -r tsconfig-paths/register src/jobs/hatebu.ts"
+    "job:hatebu": "ts-node --files -r tsconfig-paths/register src/jobs/hatebu.ts",
+    "job:weather": "ts-node --files -r tsconfig-paths/register src/jobs/weather.ts"
   },
   "husky": {
     "hooks": {
