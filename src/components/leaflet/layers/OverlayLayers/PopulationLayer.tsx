@@ -12,7 +12,7 @@ export const PopulationLayer = () => {
           name='人口密度'
           attribution='人口密度'
           url={url}
-          opacity={0.8}
+          opacity={0.5}
         />
       )}
     </>
