@@ -46,12 +46,12 @@ const CrisisMap = () => {
           <LayersControl position='topright'>
             <OSMBaseLayer />
             <GSIBaseLayer />
-            <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
+            <Pane name='stat-overlay' style={{ zIndex: 500 }}>
+              <PopulationLayer />
+            </Pane>
+            <Pane name='pref-city-overlay' style={{ zIndex: 600 }}>
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />
-            </Pane>
-            <Pane name='stat-overlay' style={{ zIndex: 600 }}>
-              <PopulationLayer />
             </Pane>
             <Pane name='pie-chart-overlay' style={{ zIndex: 700 }}>
               <Covid19VaccinePieChartLayer />
