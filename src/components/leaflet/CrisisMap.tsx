@@ -46,16 +46,16 @@ const CrisisMap = () => {
           <OSMBaseLayer />
           <GSIBaseLayer />
           <GsiReliefOverlayLayer />
-          <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
+          <Pane name='stat-overlay' style={{ zIndex: 500 }}>
+            <PopulationLayer />
+          </Pane>
+          <Pane name='pref-city-overlay' style={{ zIndex: 600 }}>
             <JapanPrefOverlayLayer />
             <JapanCityOverlayLayer />
           </Pane>
-          <Pane name='rain-overlay' style={{ zIndex: 600 }}>
+          <Pane name='rain-overlay' style={{ zIndex: 700 }}>
             <NowcastOverlayLayer />
             <RainViewerOverlayLayer />
-          </Pane>
-          <Pane name='stat-overlay' style={{ zIndex: 700 }}>
-            <PopulationLayer />
           </Pane>
           <Pane name='marker-overlay' style={{ zIndex: 800 }}>
             <FireDeptLayers />
