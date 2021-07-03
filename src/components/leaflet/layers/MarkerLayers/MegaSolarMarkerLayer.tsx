@@ -27,7 +27,7 @@ export const MegaSolarLayer = () => {
   }, [data]);
   return (
     <AbstractMarkerLayer
-      id='river-level-marker-layer'
+      id='mega-solar-marker-layer'
       title='メガソーラー発電所'
       markers={markers}
     />
