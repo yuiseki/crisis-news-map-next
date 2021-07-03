@@ -3,9 +3,7 @@ import useSWR from 'swr';
 import AbstractMarkerLayer from './AbstractMarkerLayer';
 
 export const MegaSolarLayer = () => {
-  const { data } = useSWR(
-    'http://agora.ex.nii.ac.jp/earthquake/201103-eastjapan/energy/electrical-japan/type/8.json'
-  );
+  const { data } = useSWR('/data/solar.json');
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
     if (data) {
