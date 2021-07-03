@@ -20,6 +20,8 @@ import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
 import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
 import { LinkControl } from './controls/LinkControl';
 import { CommonMapStyle } from './CommonMapStyle';
+import { LandslideLayer } from './layers/OverlayLayers/LandslideOverlayLayer';
+import { FloodAssumeLayer } from './layers/OverlayLayers/FloodAssumeOverlayLayer';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -48,6 +50,8 @@ const CrisisMap = () => {
           <GsiReliefOverlayLayer />
           <Pane name='stat-overlay' style={{ zIndex: 500 }}>
             <PopulationLayer />
+            <FloodAssumeLayer />
+            <LandslideLayer />
           </Pane>
           <Pane name='rain-overlay' style={{ zIndex: 600 }}>
             <NowcastOverlayLayer />

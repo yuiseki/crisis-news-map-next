@@ -25,7 +25,7 @@ export const JapanPrefOverlayLayer = () => {
       id='japan-pref-overlay-layer'
       name='都道府県境界'
       url='/data/japan.geojson'
-      style={{ weight: 5, opacity: 0.5, fillOpacity: 0.2 }}
+      style={{ weight: 5, opacity: 0.5, fillOpacity: 0.05 }}
       onEachFeature={onEachFeature}
     />
   );

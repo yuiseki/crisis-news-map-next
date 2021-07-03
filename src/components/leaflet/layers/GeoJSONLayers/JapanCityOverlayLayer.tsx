@@ -10,7 +10,7 @@ export const JapanCityOverlayLayer = () => {
       id='japan-city-overlay-layer'
       name='市区町村境界'
       url='/data/japan_cities.geojson'
-      style={{ weight: 1, opacity: 0.5, fillOpacity: 0.2 }}
+      style={{ weight: 1, opacity: 0.5, fillOpacity: 0.1 }}
       onEachFeature={onEachFeature}
     />
   );
