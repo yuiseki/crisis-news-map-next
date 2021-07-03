@@ -47,8 +47,8 @@ const CrisisMap = () => {
         <LayersControl position='topright'>
           <OSMBaseLayer />
           <GSIBaseLayer />
-          <GsiReliefOverlayLayer />
           <Pane name='stat-overlay' style={{ zIndex: 500 }}>
+            <GsiReliefOverlayLayer />
             <PopulationLayer />
             <FloodAssumeLayer />
             <LandslideLayer />
