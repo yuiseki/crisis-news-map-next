@@ -39,8 +39,10 @@ const IzusnaRescueLayer = () => {
         iconUrl = '/images/ofuro.png';
         break;
       case '無料Wi-Fi':
+        iconUrl = '/images/wifi.png';
         break;
       case '携帯充電':
+        iconUrl = '/images/electric_power.png';
         break;
       case '車両通行止め':
         iconUrl = '/images/traffic_cancel.png';
