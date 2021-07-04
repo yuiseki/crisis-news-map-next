@@ -30,7 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const json = await News.find(condition, null, {
     sort: { createdAt: -1 },
-    limit: 200,
+    limit: 600,
   });
   res.status(200).json(json);
 };
