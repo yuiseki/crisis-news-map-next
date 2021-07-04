@@ -1,11 +1,13 @@
-import { dbConnect } from '../lib/dbConnect';
 import TwitterApi, { MediaObjectV2, TweetV2, UserV2 } from 'twitter-api-v2';
 import { detectLocation } from 'detect-location-jp';
+import {
+  detectCategories,
+  categories as definedCategories,
+} from 'detect-categories-ja';
+import { dbConnect } from '../lib/dbConnect';
+import { Tweet, ITweet } from '~/models/Tweet';
 
 import dotenv from 'dotenv';
-import { Tweet, ITweet } from '~/models/Tweet';
-import { detectCategories } from 'detect-categories-ja';
-
 dotenv.config();
 
 interface Tweet extends TweetV2 {
@@ -22,7 +24,31 @@ const client = new TwitterApi({
 
 const crawl = async () => {
   await dbConnect();
-  const tweets = await fetchTwitterSearch('from:yuiseki_', true);
+  for await (const category of definedCategories) {
+    switch (category.id) {
+      case 'crisis':
+        await searchAndSaveWords(category.words);
+        break;
+      case 'poverty':
+        await searchAndSaveWords(category.words);
+        break;
+      default:
+        break;
+    }
+  }
+  process.exit(0);
+};
+
+const searchAndSaveWords = async (words: string[]) => {
+  for await (const word of words) {
+    // eslint-disable-next-line no-console
+    console.log(word);
+    await searchAndSave(word);
+  }
+};
+
+const searchAndSave = async (word: string) => {
+  const tweets = await fetchTwitterSearch(word, true);
   for (const tw of tweets) {
     const tweet = await convertTweet(tw);
     const query = {
@@ -30,7 +56,6 @@ const crawl = async () => {
     };
     await Tweet.findOneAndUpdate(query, tweet, { upsert: true });
   }
-  process.exit(0);
 };
 
 const convertTweet = async (tweet: Tweet): Promise<ITweet> => {
@@ -99,12 +124,15 @@ const fetchTwitterSearch = async (query: string, excludeRetweets = false) => {
 
   // tweet.fieldsのみのオブジェクトの配列
   const tweets = res.tweets;
+  if (!tweets) {
+    return [];
+  }
   // media.fieldsのみのオブジェクトの配列
   // @ts-ignore
-  const media = res._realData.includes.media;
+  const media = res._realData.includes?.media;
   // user.fieldsのみのオブジェクトの配列
   // @ts-ignore
-  const users = res._realData.includes.users;
+  const users = res._realData.includes?.users;
 
   // tweet.fieldsのみのオブジェクトにmediaオブジェクトとuserオブジェクトを埋め込む
   const result = [];
