@@ -1,6 +1,6 @@
 import { dbConnect } from '../lib/dbConnect';
 import Parser from 'rss-parser';
-import { Detector } from '~/lib/detector';
+import { detectLocation } from 'detect-location-jp';
 import { WeatherAlert } from '~/models/WeatherAlert';
 
 const rssParser = new Parser();
@@ -25,9 +25,8 @@ const convertFeed = async (feed: any) => {
     if (item.title !== '気象特別警報・警報・注意報') {
       continue;
     }
-    const detector = new Detector(item.content);
-    await detector.ready;
-    if (detector.country === null) {
+    const location = await detectLocation(item.content);
+    if (location === null) {
       continue;
     }
     const observedAt = new Date(Date.parse(item.pubDate));
@@ -36,10 +35,10 @@ const convertFeed = async (feed: any) => {
       title: item.title,
       content: item.content,
       observedAt: observedAt,
-      placeCountry: detector.country,
-      placePref: detector.pref,
-      latitude: detector.location.lat,
-      longitude: detector.location.long,
+      placeCountry: location.country,
+      placePref: location.state,
+      latitude: location.latitude,
+      longitude: location.longitude,
     };
     alerts.push(alert);
   }

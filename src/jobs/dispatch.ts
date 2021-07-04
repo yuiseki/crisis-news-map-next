@@ -1,7 +1,8 @@
 import fetch from 'node-fetch';
 import { dbConnect } from '../lib/dbConnect';
-import { Dispatch } from '~/models/Dispatch';
-import { Detector } from '~/lib/detector';
+import { IDispatchModel, Dispatch } from '~/models/Dispatch';
+import { detectCategories } from 'detect-categories-ja';
+import { detectLocation } from 'detect-location-jp';
 
 const crawl = async () => {
   await dbConnect();
@@ -22,7 +23,7 @@ const crawl = async () => {
 };
 
 const convertJson = async (json: any) => {
-  const dispatches = [];
+  const dispatches: IDispatchModel[] = [];
   for (const dispatch of json) {
     dispatch.originId = String(dispatch.id);
     if (dispatch.created_at !== null) {
@@ -34,15 +35,20 @@ const convertJson = async (json: any) => {
     delete dispatch.created_at;
     delete dispatch.tweet_id;
     delete dispatch.pg_name;
-    const detector = new Detector(dispatch.division + dispatch.detail);
-    await detector.ready;
     dispatch.unit = 'firedept';
-    dispatch.category = detector.category;
-    dispatch.placeCountry = detector.country;
-    dispatch.placePref = detector.pref;
-    dispatch.placeCity = detector.city;
-    dispatch.latitude = detector.location.lat;
-    dispatch.longitude = detector.location.long;
+    const text = dispatch.division + dispatch.detail;
+    const categories = await detectCategories(text);
+    dispatch.category = categories[0]?.id;
+    const location = await detectLocation(text);
+    if (location === null) {
+      dispatches.push(dispatch);
+      continue;
+    }
+    dispatch.placeCountry = location.country;
+    dispatch.placePref = location.state;
+    dispatch.placeCity = location.city;
+    dispatch.latitude = location.latitude;
+    dispatch.longitude = location.longitude;
     dispatches.push(dispatch);
   }
   return dispatches;

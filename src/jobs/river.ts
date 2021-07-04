@@ -49,7 +49,7 @@ const convertJson = async (json: any) => {
         riverLevel.placeCity = city.name;
       }
     }
-    if (riverLevel.level > riverLevel.fladLevel) {
+    if (riverLevel.level >= riverLevel.fladLevel) {
       riverLevel.isFlood = true;
     } else {
       riverLevel.isFlood = false;

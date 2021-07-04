@@ -2,8 +2,9 @@ import fetch from 'node-fetch';
 import Parser from 'rss-parser';
 import * as cheerio from 'cheerio';
 import sleep from '~/lib/sleep';
-import { Detector } from '~/lib/detector';
 import { INews, News } from '~/models/News';
+import { detectCategories } from 'detect-categories-ja';
+import { detectLocation } from 'detect-location-jp';
 
 const rssParser = new Parser();
 
@@ -26,6 +27,7 @@ export const fetchFeedArticles = async (feedUrl) => {
       const ogp = await parseOGP(url, html);
       const news: INews = await convertOGP(ogp);
       if (
+        news &&
         news.category !== 'crisis' &&
         news.category !== 'virus' &&
         news.category !== 'poverty' &&
@@ -87,13 +89,26 @@ export const parseOGP = async (url: string, html: string) => {
 };
 
 export const convertOGP = async (news: any) => {
-  const detector = new Detector(news.ogTitle + news.ogDesc);
-  await detector.ready;
-  news.category = detector.category;
-  news.placeCountry = detector.country;
-  news.placePref = detector.pref;
-  news.placeCity = detector.city;
-  news.latitude = detector.location.lat;
-  news.longitude = detector.location.long;
+  const text = news.ogTitle + news.ogDesc;
+  if (text === 0) {
+    return news;
+  }
+  try {
+    const categories = await detectCategories(text);
+    news.category = categories[0]?.id;
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log(text);
+    console.error(e);
+  }
+  const location = await detectLocation(text);
+  if (location === null) {
+    return news;
+  }
+  news.placeCountry = location.country;
+  news.placePref = location.state;
+  news.placeCity = location.city;
+  news.latitude = location.latitude;
+  news.longitude = location.longitude;
   return news;
 };

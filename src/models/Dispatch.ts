@@ -21,7 +21,7 @@ interface IDispatch {
   longitude: number;
 }
 
-interface IDispatchModel extends IDispatch, mongoose.Document {}
+export interface IDispatchModel extends IDispatch, mongoose.Document {}
 
 const schema = new mongoose.Schema(
   {
