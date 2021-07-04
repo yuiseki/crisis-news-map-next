@@ -1,3 +1,4 @@
+import { Layer } from 'leaflet';
 import React from 'react';
 import { LayersControl, GeoJSON } from 'react-leaflet';
 import useSWR from 'swr';
@@ -8,6 +9,7 @@ interface AbstractGeoJSONLayerProps {
   url: string;
   style: any;
   onEachFeature?: (feature, layer) => void | undefined;
+  pointToLayer?: (point, latlng) => Layer | undefined;
 }
 
 const AbstractGeoJSONLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
@@ -16,6 +18,7 @@ const AbstractGeoJSONLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
   url,
   style,
   onEachFeature,
+  pointToLayer,
 }: AbstractGeoJSONLayerProps) => {
   const overlays = JSON.parse(
     localStorage.getItem('leaflet-selected-overlays')
@@ -32,6 +35,7 @@ const AbstractGeoJSONLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
           data={data.features}
           style={style}
           onEachFeature={onEachFeature}
+          pointToLayer={pointToLayer}
         />
       )}
     </LayersControl.Overlay>

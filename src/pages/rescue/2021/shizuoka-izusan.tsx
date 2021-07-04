@@ -2,15 +2,15 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const PovertyMap = dynamic(
-  () => import('../components/leaflet/maps/theme/PovertyMap'),
+const IzusanMap = dynamic(
+  () => import('../../../components/leaflet/maps/rescue/2021/IzusanMap'),
   {
     ssr: false,
   }
 );
 
 export const PovertyMapView: React.VFC = () => {
-  return <PovertyMap />;
+  return <IzusanMap />;
 };
 
 export default PovertyMapView;

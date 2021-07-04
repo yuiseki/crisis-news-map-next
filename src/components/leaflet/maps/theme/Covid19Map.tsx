@@ -4,27 +4,27 @@ import Leaflet from 'leaflet';
 import { LayersControl, MapContainer, Pane } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import { MapInitializer } from './handler/MapInitializer';
-import { MapEventHandler } from './handler/MapEventHandler';
-import { AdditionalControls } from './controls/AdditionalControls';
-import { LinkControl } from './controls/LinkControl';
-import { OSMBaseLayer } from './layers/BaseLayers/OSMBaseLayer';
-import { GSIBaseLayer } from './layers/BaseLayers/GSIBaseLayer';
-import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
-import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLayer';
-import { NewsVirus } from './layers/MarkerLayers/NewsMarkerLayers';
-import { PopulationLayer } from './layers/OverlayLayers/PopulationLayer';
-import { Covid19VaccinePieChartLayer } from './layers/PieChartLayers/Covid19VaccinePieChartLayer';
+import { MapInitializer } from '../../handler/MapInitializer';
+import { MapEventHandler } from '../../handler/MapEventHandler';
+import { AdditionalControls } from '../../controls/AdditionalControls';
+import { LinkControl } from '../../controls/LinkControl';
+import { OSMBaseLayer } from '../../layers/BaseLayers/OSMBaseLayer';
+import { GSIBaseLayer } from '../../layers/BaseLayers/GSIBaseLayer';
+import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
+import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
+import { NewsVirus } from '../../layers/MarkerLayers/NewsMarkerLayers';
+import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
+import { Covid19VaccinePieChartLayer } from '../../layers/PieChartLayers/Covid19VaccinePieChartLayer';
 import { Follow, Share } from 'react-twitter-widgets';
-import { CommonMapStyle } from './CommonMapStyle';
+import { CommonMapStyle } from '../../CommonMapStyle';
 
 const CrisisMap = () => {
   useEffect(() => {
     delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
     Leaflet.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'images/marker-icon-2x.png',
-      iconUrl: 'images/marker-icon.png',
-      shadowUrl: 'images/marker-shadow.png',
+      iconRetinaUrl: '/images/marker-icon-2x.png',
+      iconUrl: '/images/marker-icon.png',
+      shadowUrl: '/images/marker-shadow.png',
     });
   }, []);
   return (

@@ -2,9 +2,12 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const Covid19Map = dynamic(() => import('../components/leaflet/Covid19Map'), {
-  ssr: false,
-});
+const Covid19Map = dynamic(
+  () => import('../components/leaflet/maps/theme/Covid19Map'),
+  {
+    ssr: false,
+  }
+);
 
 export const Covid19MapView: React.VFC = () => {
   return <Covid19Map />;

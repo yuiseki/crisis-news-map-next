@@ -3,29 +3,29 @@ import Leaflet from 'leaflet';
 import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import { MapInitializer } from './handler/MapInitializer';
-import { MapEventHandler } from './handler/MapEventHandler';
-import { AdditionalControls } from './controls/AdditionalControls';
-import { OSMBaseLayer } from './layers/BaseLayers/OSMBaseLayer';
-import { GSIBaseLayer } from './layers/BaseLayers/GSIBaseLayer';
-import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
-import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLayer';
+import { MapInitializer } from '../../handler/MapInitializer';
+import { MapEventHandler } from '../../handler/MapEventHandler';
+import { AdditionalControls } from '../../controls/AdditionalControls';
+import { OSMBaseLayer } from '../../layers/BaseLayers/OSMBaseLayer';
+import { GSIBaseLayer } from '../../layers/BaseLayers/GSIBaseLayer';
+import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
+import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { Follow, Share } from 'react-twitter-widgets';
-import { CommonMapStyle } from './CommonMapStyle';
-import { LinkControl } from './controls/LinkControl';
+import { CommonMapStyle } from '../../CommonMapStyle';
+import { LinkControl } from '../../controls/LinkControl';
 import Head from 'next/head';
-import { MegaSolarHeatMapLayer } from './layers/HeatmapLayers/MegaSolarHeatMapLayer';
-import { PopulationLayer } from './layers/OverlayLayers/PopulationLayer';
-import { LandslideLayer } from './layers/OverlayLayers/LandslideOverlayLayer';
-import { GsiReliefOverlayLayer } from './layers/OverlayLayers/GsiReliefOverlayLayer';
+import { MegaSolarHeatMapLayer } from '../../layers/HeatmapLayers/MegaSolarHeatMapLayer';
+import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
+import { LandslideLayer } from '../../layers/OverlayLayers/LandslideOverlayLayer';
+import { GsiReliefOverlayLayer } from '../../layers/OverlayLayers/GsiReliefOverlayLayer';
 
 const MegaSolarMap = () => {
   useEffect(() => {
     delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
     Leaflet.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'images/marker-icon-2x.png',
-      iconUrl: 'images/marker-icon.png',
-      shadowUrl: 'images/marker-shadow.png',
+      iconRetinaUrl: '/images/marker-icon-2x.png',
+      iconUrl: '/images/marker-icon.png',
+      shadowUrl: '/images/marker-shadow.png',
     });
   }, []);
   return (
