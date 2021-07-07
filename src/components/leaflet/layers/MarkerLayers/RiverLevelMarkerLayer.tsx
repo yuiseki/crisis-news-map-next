@@ -33,6 +33,7 @@ export const RiverLevelLayer = () => {
     <AbstractMarkerLayer
       id='river-level-marker-layer'
       title='河川氾濫箇所'
+      attribution='危機管理型水位計運用協議会 <a href="https://k.river.go.jp/">一般財団法人河川情報センター</a>'
       markers={markers}
     />
   );

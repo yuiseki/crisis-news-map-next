@@ -33,6 +33,7 @@ export const Covid19VaccinePieChartLayer = () => {
     <AbstractPieChartLayer
       id='covid19-vaccine-pie-chart-layer'
       title='新型コロナワクチン接種率'
+      attribution='<a href="http://www.kantei.go.jp/jp/headline/kansensho/vaccine.html">首相官邸</a>'
       markers={markers}
     />
   );

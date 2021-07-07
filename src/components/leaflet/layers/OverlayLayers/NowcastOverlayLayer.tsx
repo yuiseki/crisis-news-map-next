@@ -33,7 +33,7 @@ export const NowcastOverlayLayer = () => {
       {url && (
         <AbstractOverlayLayer
           id='nowcast-overlay-layer'
-          name='高解像度降水ナウキャスト'
+          name='気象庁 高解像度降水ナウキャスト'
           attribution='ナウキャスト'
           url={url}
           maxNativeZoom={10}

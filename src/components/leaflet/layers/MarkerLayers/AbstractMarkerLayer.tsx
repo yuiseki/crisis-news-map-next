@@ -12,12 +12,14 @@ interface MarkerProps {
 interface AbstractMarkerLayerProps {
   id: string;
   title: string;
+  attribution?: string;
   markers: MarkerProps[];
 }
 
 const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
   id,
   title,
+  attribution,
   markers,
 }: AbstractMarkerLayerProps) => {
   const overlays = JSON.parse(
@@ -29,7 +31,7 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
       name={title}
       checked={overlays ? overlays.indexOf(title) > -1 : true}
     >
-      <LayerGroup>
+      <LayerGroup attribution={attribution}>
         {markers.map((marker) => {
           const iconMarkup = renderToStaticMarkup(
             <div style={{ width: 30, height: 30 }}>

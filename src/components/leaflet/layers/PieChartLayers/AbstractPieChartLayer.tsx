@@ -14,12 +14,14 @@ export interface PieChartMarkerProps {
 interface AbstractPieChartLayerProps {
   id: string;
   title: string;
+  attribution?: string;
   markers: PieChartMarkerProps[];
 }
 
 const AbstractPieChartLayer: React.VFC<AbstractPieChartLayerProps> = ({
   id,
   title,
+  attribution,
   markers,
 }: AbstractPieChartLayerProps) => {
   const overlays = JSON.parse(
@@ -31,7 +33,7 @@ const AbstractPieChartLayer: React.VFC<AbstractPieChartLayerProps> = ({
       name={title}
       checked={overlays ? overlays.indexOf(title) > -1 : true}
     >
-      <LayerGroup>
+      <LayerGroup attribution={attribution}>
         {markers.map((marker) => {
           const iconMarkup = renderToString(
             <PieChartIcon percentage={marker.percentage} />
