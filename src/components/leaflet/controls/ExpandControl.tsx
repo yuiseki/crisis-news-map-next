@@ -19,7 +19,7 @@ Leaflet.Control.ExpandControl = Leaflet.Control.extend({
     container.style.height = '34px';
 
     container.onclick = function () {
-      map.setView([36.56028, 139.19333], 6);
+      map.setView([36.56028, 139.19333], 7);
     };
     return container;
   },

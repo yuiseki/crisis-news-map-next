@@ -4,7 +4,7 @@ import { useMap } from 'react-leaflet';
 export const MapInitializer = () => {
   const map = useMap();
   const [center, setCenter] = useState([36.57142382346277, 132.31701507110336]);
-  const [zoom, setZoom] = useState(6);
+  const [zoom, setZoom] = useState(7);
   useEffect(() => {
     // center
     const lat = localStorage.getItem('leaflet-center-lat');

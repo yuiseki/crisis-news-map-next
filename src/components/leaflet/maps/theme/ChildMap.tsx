@@ -15,6 +15,7 @@ import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { LinkControl } from '../../controls/LinkControl';
 import Head from 'next/head';
+import { JMABaseLayer } from '../../layers/BaseLayers/JMABaseLayer';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -44,6 +45,7 @@ const CrisisMap = () => {
           <LayersControl position='topright'>
             <OSMBaseLayer />
             <GSIBaseLayer />
+            <JMABaseLayer />
             <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />

@@ -45,7 +45,7 @@ const FireDeptCrisis = () => {
   return (
     <AbstractFireDept
       id='fire-dept-crisis'
-      title='消防災害出動'
+      title='消防 災害出動'
       category='crisis'
       icon='/images/caution.png'
     />
@@ -56,7 +56,7 @@ const FireDeptFire = () => {
   return (
     <AbstractFireDept
       id='fire-dept-fire'
-      title='消防火災出動'
+      title='消防 火災出動'
       category='fire'
       icon='/images/fire_icon.png'
     />
@@ -67,7 +67,7 @@ const FireDeptRescue = () => {
   return (
     <AbstractFireDept
       id='fire-dept-rescue'
-      title='消防救急出動'
+      title='消防 救急出動'
       category='rescue'
       icon='/images/ambulance_fast.png'
     />
@@ -78,7 +78,7 @@ const FireDeptOther = () => {
   return (
     <AbstractFireDept
       id='fire-dept-other'
-      title='消防その他出動'
+      title='消防 その他出動'
       category='other'
       icon='/images/caution.png'
     />

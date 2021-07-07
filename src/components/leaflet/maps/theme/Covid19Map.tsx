@@ -17,6 +17,7 @@ import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
 import { Covid19VaccinePieChartLayer } from '../../layers/PieChartLayers/Covid19VaccinePieChartLayer';
 import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from '../../CommonMapStyle';
+import { JMABaseLayer } from '../../layers/BaseLayers/JMABaseLayer';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -46,6 +47,7 @@ const CrisisMap = () => {
           <LayersControl position='topright'>
             <OSMBaseLayer />
             <GSIBaseLayer />
+            <JMABaseLayer />
             <Pane name='stat-overlay' style={{ zIndex: 500 }}>
               <PopulationLayer />
             </Pane>

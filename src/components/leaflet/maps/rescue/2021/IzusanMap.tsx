@@ -16,12 +16,11 @@ import { CommonMapStyle } from '../../../CommonMapStyle';
 import { LinkControl } from '../../../controls/LinkControl';
 import Head from 'next/head';
 import { PopulationLayer } from '../../../layers/OverlayLayers/PopulationLayer';
-import { LandslideLayer } from '../../../layers/OverlayLayers/LandslideOverlayLayer';
-import { GsiReliefOverlayLayer } from '../../../layers/OverlayLayers/GsiReliefOverlayLayer';
-import { FloodAssumeLayer } from '~/components/leaflet/layers/OverlayLayers/FloodAssumeOverlayLayer';
+import { GSIHazardMapLayers } from '../../../layers/OverlayLayers/GSIHazardMapLayers';
+import { GSIReliefLayer } from '../../../layers/OverlayLayers/GSIReliefLayer';
 import { NowcastOverlayLayer } from '~/components/leaflet/layers/OverlayLayers/NowcastOverlayLayer';
-import { RainViewerOverlayLayer } from '~/components/leaflet/layers/OverlayLayers/RainViewerOverlayLayer';
 import AbstractGeoJSONLayer from '~/components/leaflet/layers/GeoJSONLayers/AbstractGeoJSONLayer';
+import { JMABaseLayer } from '~/components/leaflet/layers/BaseLayers/JMABaseLayer';
 
 const IzusnaRescueLayer = () => {
   const pointToLayer = useCallback((point, latlng) => {
@@ -106,19 +105,18 @@ const Map = () => {
           <LayersControl position='topright'>
             <OSMBaseLayer />
             <GSIBaseLayer />
+            <JMABaseLayer />
             <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />
             </Pane>
             <Pane name='stat-overlay' style={{ zIndex: 500 }}>
-              <GsiReliefOverlayLayer />
+              <GSIReliefLayer />
               <PopulationLayer />
-              <FloodAssumeLayer />
-              <LandslideLayer />
+              <GSIHazardMapLayers />
             </Pane>
             <Pane name='rain-overlay' style={{ zIndex: 600 }}>
               <NowcastOverlayLayer />
-              <RainViewerOverlayLayer />
             </Pane>
             <Pane name='marker-overlay' style={{ zIndex: 700 }}>
               <IzusnaRescueLayer />
