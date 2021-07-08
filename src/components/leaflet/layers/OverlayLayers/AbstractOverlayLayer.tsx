@@ -27,12 +27,14 @@ const AbstractOverlayLayer: React.VFC<AbstractOverlayLayerProps> = ({
       name={name}
       checked={overlays ? overlays.indexOf(name) > -1 : true}
     >
-      <TileLayer
-        attribution={attribution}
-        url={url}
-        maxNativeZoom={maxNativeZoom}
-        opacity={opacity}
-      />
+      {url && (
+        <TileLayer
+          attribution={attribution}
+          url={url}
+          maxNativeZoom={maxNativeZoom}
+          opacity={opacity}
+        />
+      )}
     </LayersControl.Overlay>
   );
 };

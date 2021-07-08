@@ -1,10 +1,13 @@
 import React from 'react';
 import AbstractOverlayLayer from './AbstractOverlayLayer';
+import { useJMARiskTile } from '~/lib/useJMATile';
 
-export const LandslideRiskLayer = () => {
-  const time = '20210706232000';
-  const landslideUrl = `https://www.jma.go.jp/bosai/jmatile/data/risk/${time}/none/${time}/surf/land/{z}/{x}/{y}.png`;
-  const inundateUrl = `https://www.jma.go.jp/bosai/jmatile/data/risk/${time}/none/${time}/surf/inund/{z}/{x}/{y}.png`;
+export const JMARiskLayers = () => {
+  const landslideUrl = useJMARiskTile('land');
+  const inundateUrl = useJMARiskTile('inund');
+
+  //const landslideUrl = `https://www.jma.go.jp/bosai/jmatile/data/risk/${time}/none/${time}/surf/land/{z}/{x}/{y}.png`;
+  //const inundateUrl = `https://www.jma.go.jp/bosai/jmatile/data/risk/${time}/none/${time}/surf/inund/{z}/{x}/{y}.png`;
   //const floodUrl = `https://www.jma.go.jp/bosai/jmatile/data/risk/${time}/none/${time}/surf/flood/{z}/{x}/{y}.pbf`;
   return (
     <>

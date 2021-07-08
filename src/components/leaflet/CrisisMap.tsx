@@ -20,8 +20,11 @@ import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
 import { LinkControl } from './controls/LinkControl';
 import { CommonMapStyle } from './CommonMapStyle';
 import { GSIHazardMapLayers } from './layers/OverlayLayers/GSIHazardMapLayers';
-import { JMABaseLayer } from './layers/BaseLayers/JMABaseLayer';
-import { LandslideRiskLayer } from './layers/OverlayLayers/JMARiskLayers';
+import {
+  JMABaseLayer,
+  JMABoundaryLayer,
+} from './layers/BaseLayers/JMABaseLayer';
+import { JMARiskLayers } from './layers/OverlayLayers/JMARiskLayers';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -44,6 +47,9 @@ const CrisisMap = () => {
         <MapInitializer />
         <MapEventHandler />
         <AdditionalControls />
+        <Pane name='boundary-overlay' style={{ zIndex: 1000 }}>
+          <JMABoundaryLayer />
+        </Pane>
         <LayersControl position='topright'>
           <OSMBaseLayer />
           <GSIBaseLayer />
@@ -58,7 +64,7 @@ const CrisisMap = () => {
             <PopulationLayer />
           </Pane>
           <Pane name='jma-overlay' style={{ zIndex: 600 }}>
-            <LandslideRiskLayer />
+            <JMARiskLayers />
           </Pane>
           <Pane name='rain-overlay' style={{ zIndex: 600 }}>
             <NowcastOverlayLayer />

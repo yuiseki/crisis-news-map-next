@@ -11,3 +11,12 @@ export const JMABaseLayer = () => {
     </LayersControl.BaseLayer>
   );
 };
+
+export const JMABoundaryLayer = () => {
+  return (
+    <TileLayer
+      attribution='<a href="https://www.jma.go.jp/">気象庁</a>'
+      url='https://www.jma.go.jp/bosai/jmatile/data/map/none/none/none/surf/mask/{z}/{x}/{y}.png'
+    />
+  );
+};
