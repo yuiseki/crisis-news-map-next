@@ -11,7 +11,7 @@ export const NowcastOverlayLayer = () => {
       attribution='ナウキャスト'
       url={url}
       maxNativeZoom={10}
-      opacity={0.6}
+      opacity={0.4}
     />
   );
 };
