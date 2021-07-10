@@ -32,6 +32,10 @@ export const CommonMapStyle = css`
     display: inline-block;
   }
 
+  .leaflet-marker-icon {
+    z-index: 9999 !important;
+  }
+
   .leaflet-popup {
     z-index: 10000;
   }

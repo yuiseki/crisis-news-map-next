@@ -50,7 +50,7 @@ const CrisisMap = () => {
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />
             </Pane>
-            <Pane name='marker-overlay' style={{ zIndex: 700 }}>
+            <Pane name='marker-cluster-overlay' style={{ zIndex: 700 }}>
               <NewsChild />
             </Pane>
           </LayersControl>

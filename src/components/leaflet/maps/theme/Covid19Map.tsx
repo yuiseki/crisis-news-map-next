@@ -58,7 +58,7 @@ const CrisisMap = () => {
             <Pane name='pie-chart-overlay' style={{ zIndex: 700 }}>
               <Covid19VaccinePieChartLayer />
             </Pane>
-            <Pane name='marker-overlay' style={{ zIndex: 800 }}>
+            <Pane name='marker-cluster-overlay' style={{ zIndex: 800 }}>
               <NewsVirus />
             </Pane>
           </LayersControl>

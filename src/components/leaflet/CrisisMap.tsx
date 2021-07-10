@@ -47,9 +47,6 @@ const CrisisMap = () => {
         <MapInitializer />
         <MapEventHandler />
         <AdditionalControls />
-        <Pane name='boundary-overlay' style={{ zIndex: 1000 }}>
-          <JMABoundaryLayer />
-        </Pane>
         <LayersControl position='topright'>
           <OSMBaseLayer />
           <GSIBaseLayer />
@@ -69,10 +66,15 @@ const CrisisMap = () => {
           <Pane name='rain-overlay' style={{ zIndex: 600 }}>
             <NowcastOverlayLayer />
           </Pane>
-          <Pane name='marker-overlay' style={{ zIndex: 800 }}>
+          <Pane name='boundary-overlay' style={{ zIndex: 1000 }}>
+            <JMABoundaryLayer />
+          </Pane>
+          <Pane name='marker-overlay' style={{ zIndex: 1000 }}>
             <FireDeptLayers />
-            <NewsCrisis />
             <RiverLevelLayer />
+          </Pane>
+          <Pane name='marker-cluster-overlay' style={{ zIndex: 1000 }}>
+            <NewsCrisis />
           </Pane>
         </LayersControl>
       </MapContainer>

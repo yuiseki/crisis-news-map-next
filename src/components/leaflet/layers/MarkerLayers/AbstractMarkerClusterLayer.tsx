@@ -32,7 +32,7 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
       checked={overlays ? overlays.indexOf(title) > -1 : true}
     >
       <LayerGroup>
-        <MarkerClusterGroup clusterPane='marker-overlay'>
+        <MarkerClusterGroup clusterPane='marker-cluster-overlay'>
           {markers.map((marker) => {
             const iconMarkup = renderToStaticMarkup(
               <div style={{ width: 30, height: 30 }}>
@@ -48,6 +48,7 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
                 key={marker.id}
                 position={marker.center}
                 icon={markerIcon}
+                zIndexOffset={-10000}
               >
                 <Popup>{marker.popupContent}</Popup>
               </Marker>

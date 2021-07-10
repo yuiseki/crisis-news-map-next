@@ -27,9 +27,10 @@ const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
             <>
               <a href={marker.ogUrl} target='_target'>
                 <b css={tw`text-xl`}>{marker.ogTitle}</b>
-                {marker.ogImage && <img src={marker.ogImage} />}
                 <br />
-                {marker.ogDesc}
+                {marker.ogDesc && <span>{marker.ogDesc}</span>}
+                <br />
+                {marker.ogImage && <img src={marker.ogImage} />}
               </a>
             </>
           );
