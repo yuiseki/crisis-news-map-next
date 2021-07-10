@@ -98,8 +98,8 @@ const convertTweet = async (tweet: Tweet): Promise<ITweet> => {
     result.placeCountry = location.country;
     result.placePref = location.state;
     result.placeCity = location.city;
-    result.latitude = parseFloat(location.latitude);
-    result.longitude = parseFloat(location.longitude);
+    result.latitude = location.latitude;
+    result.longitude = location.longitude;
   }
   return result;
 };
