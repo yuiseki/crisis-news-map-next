@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import tw from 'twin.macro';
 import { NewsView } from '~/components/NewsView';
+import { newsCategories } from '~/lib/constants/newsCategories';
 import { INews } from '~/models/News';
 
 /*
@@ -13,20 +14,6 @@ const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
   ssr: false,
 });
 */
-
-const categories = {
-  '': 'すべて',
-  crisis: '災害',
-  virus: '感染症',
-  accident: '事故',
-  incident: '事件',
-  children: '児童虐待',
-  drug: '薬物乱用',
-  poverty: '貧困',
-  nikkei: '経済',
-  politics: '政治',
-  sports: 'スポーツ',
-};
 
 export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
@@ -46,10 +33,6 @@ export const LocalNewsPage: React.VFC = () => {
     params.append('hasLocation', 'true');
     params.append('limit', '100');
     params.append('page', '0');
-    if (selectedCategory !== undefined && selectedCategory.length > 0) {
-      // @ts-ignore
-      params.append('category', selectedCategory);
-    }
     if (country) {
       params.append('country', country as string);
       title += country;
@@ -61,6 +44,10 @@ export const LocalNewsPage: React.VFC = () => {
     if (city) {
       params.append('city', city as string);
       title += ', ' + city;
+    }
+    if (selectedCategory !== undefined && selectedCategory.length > 0) {
+      // @ts-ignore
+      params.append('category', selectedCategory);
     }
     title += 'のニュース記事';
     setTitle(title);
@@ -83,7 +70,7 @@ export const LocalNewsPage: React.VFC = () => {
            */}
         <div>
           <h2 css={tw`text-xl inline ml-4`}>カテゴリ:</h2>
-          {Object.keys(categories).map((cat) => {
+          {Object.keys(newsCategories).map((cat) => {
             return (
               <div key={cat} css={tw`text-xl inline ml-4`}>
                 <input
@@ -96,7 +83,7 @@ export const LocalNewsPage: React.VFC = () => {
                     setSelectedCategory(e.target.value);
                   }}
                 />
-                <label htmlFor={cat}>{categories[cat]}</label>
+                <label htmlFor={cat}>{newsCategories[cat]}</label>
               </div>
             );
           })}

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import tw from 'twin.macro';
 import { INews } from '~/models/News';
+import { newsCategories } from '~/lib/constants/newsCategories';
 
 export const NewsView: React.VFC<{ news: INews }> = ({
   news,
@@ -47,7 +48,8 @@ export const NewsView: React.VFC<{ news: INews }> = ({
           </span>
         </div>
         <div css={tw`text-xl my-1`}>
-          カテゴリ（推定）: <Link href={categoryPath}>{news.category}</Link>
+          カテゴリ（推定）:{' '}
+          <Link href={categoryPath}>{newsCategories[news.category]}</Link>
         </div>
         <div>
           <span css={tw`text-xl`}>{news.ogDesc}</span>
