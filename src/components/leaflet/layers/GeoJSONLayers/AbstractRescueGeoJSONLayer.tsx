@@ -44,7 +44,7 @@ const AbstractRescueGeoJSONLayer = ({
         break;
     }
     const iconMarkup = renderToStaticMarkup(
-      <div style={{ width: 50, height: 50 }}>
+      <div style={{ width: 50, height: 50, backgroundColor: 'lightgray' }}>
         <img src={iconUrl} width={50} height={50} />
       </div>
     );
