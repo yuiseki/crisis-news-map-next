@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const country = req.query.country;
   const pref = req.query.pref;
   const city = req.query.city;
-  const limit = req.query.limit ? req.query.limit : 500;
+  const limit = req.query.limit ? req.query.limit : 1000;
   const page = req.query.page ? req.query.page : 1;
   const condition = {};
   if (category) {

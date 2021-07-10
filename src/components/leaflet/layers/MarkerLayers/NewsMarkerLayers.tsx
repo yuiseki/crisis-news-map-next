@@ -12,7 +12,7 @@ interface AbstractNewsProps {
 }
 
 const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
-  const url = `/api/news?hasLocation=true&category=${category}`;
+  const url = `/api/news?hasLocation=true&country=日本&category=${category}`;
   const { data } = useSWR(url);
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
