@@ -52,7 +52,7 @@ export const NewsView: React.VFC<{ news: INews }> = ({
           <Link href={categoryPath}>{newsCategories[news.category]}</Link>
         </div>
         <div>
-          <span css={tw`text-xl`}>{news.ogDesc}</span>
+          <span css={tw`break-all text-xl`}>{news.ogDesc}</span>
           <img css={tw`my-2`} src={news.ogImage} width={350} />
         </div>
       </div>
