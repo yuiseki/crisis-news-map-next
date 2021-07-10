@@ -3,26 +3,13 @@ import Link from 'next/link';
 import tw from 'twin.macro';
 import { INews } from '~/models/News';
 import { newsCategories } from '~/lib/constants/newsCategories';
+import { LocalNewsTitleView } from './LocalNewsTitleView';
 
 export const NewsView: React.VFC<{ news: INews }> = ({
   news,
 }: {
   news: INews;
 }) => {
-  let locationPath = '/place/';
-  if (!news.placeCountry) {
-    locationPath = '不明';
-  }
-  if (news.placeCountry) {
-    locationPath += news.placeCountry;
-  }
-  if (news.placePref) {
-    locationPath += '/' + news.placePref;
-  }
-  if (news.placeCity) {
-    locationPath += '/' + news.placeCity;
-  }
-
   const categoryPath = `/news/${news.category}`;
 
   return (
@@ -44,7 +31,13 @@ export const NewsView: React.VFC<{ news: INews }> = ({
         </div>
         <div css={tw`text-xl my-1`}>
           <span css={tw`mr-1`}>
-            場所（推定）: <Link href={locationPath}>{locationPath}</Link>
+            場所（推定）:{' '}
+            <LocalNewsTitleView
+              country={news.placeCountry}
+              pref={news.placePref}
+              city={news.placeCity}
+              category={news.category}
+            />
           </span>
         </div>
         <div css={tw`text-xl my-1`}>

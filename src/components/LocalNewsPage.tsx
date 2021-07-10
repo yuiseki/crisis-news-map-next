@@ -8,6 +8,7 @@ import tw from 'twin.macro';
 import { NewsView } from '~/components/NewsView';
 import { newsCategories } from '~/lib/constants/newsCategories';
 import { INews } from '~/models/News';
+import { getPlacePath, LocalNewsTitleView } from './LocalNewsTitleView';
 
 /*
 const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
@@ -18,21 +19,21 @@ const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
 export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
   const { country, pref, city, category } = router.query;
-  const [selectedCategory, setSelectedCategory] = useState(category);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [url, setUrl] = useState<string | null>(null);
   const [title, setTitle] = useState<string>('ニュース記事');
 
   useEffect(() => {
-    setSelectedCategory(category);
+    setSelectedCategory(category as string);
   }, [category]);
 
   useEffect(() => {
-    let title = '';
     //const center = [36.5748441, 139.2394179] as LatLngTuple;
     const params = new URLSearchParams();
     params.append('hasLocation', 'true');
     params.append('limit', '100');
     params.append('page', '0');
+    let title = '';
     if (country) {
       params.append('country', country as string);
       title += country;
@@ -46,7 +47,7 @@ export const LocalNewsPage: React.VFC = () => {
       title += ', ' + city;
     }
     title += 'の';
-    if (selectedCategory !== undefined && selectedCategory.length > 0) {
+    if (selectedCategory !== undefined) {
       // @ts-ignore
       params.append('category', selectedCategory);
       // @ts-ignore
@@ -56,7 +57,8 @@ export const LocalNewsPage: React.VFC = () => {
     setTitle(title);
 
     setUrl('/api/news?' + params.toString());
-  }, [selectedCategory]);
+  }, [country, pref, city, selectedCategory]);
+
   const { data } = useSWR<INews[]>(url);
 
   return (
@@ -65,9 +67,19 @@ export const LocalNewsPage: React.VFC = () => {
         <title>全国災害情報地図 - {title}</title>
       </Head>
       <div>
-        <h1 css={tw`m-5 text-3xl font-bold`}>{title}</h1>
+        <h1 css={tw`m-5 text-3xl font-bold`}>
+          <LocalNewsTitleView
+            country={country}
+            pref={pref}
+            city={city}
+            category={selectedCategory}
+          />
+          &nbsp;の
+          {category && newsCategories[selectedCategory] + '関連'}
+          ニュース記事
+        </h1>
         {/**
-        <div css={tw`h-80 w-full my-4`}>
+          <div css={tw`h-80 w-full my-4`}>
           <StaticMap zoom={5} center={center} />
         </div>
            */}
@@ -83,7 +95,13 @@ export const LocalNewsPage: React.VFC = () => {
                   name={cat}
                   checked={cat === selectedCategory}
                   onChange={(e) => {
-                    setSelectedCategory(e.target.value);
+                    const path = getPlacePath(
+                      country,
+                      pref,
+                      city,
+                      e.target.value
+                    );
+                    router.push(path);
                   }}
                 />
                 <label htmlFor={cat}>{newsCategories[cat]}</label>
