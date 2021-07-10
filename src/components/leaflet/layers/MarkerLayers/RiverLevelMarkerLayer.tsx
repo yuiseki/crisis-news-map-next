@@ -8,7 +8,7 @@ export const RiverLevelLayer = () => {
   useEffect(() => {
     if (data) {
       const newMarkers = data.map((marker) => {
-        const updatedAt = new Date(Date.parse(marker.updatedAt.obsTime));
+        const updatedAt = new Date(Date.parse(marker.updatedAt));
         const content = (
           <>
             <b>{marker.name}</b>
