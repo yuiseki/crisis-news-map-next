@@ -25,10 +25,12 @@ const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
         .map((marker) => {
           const content = (
             <>
-              <b css={tw`text-xl`}>{marker.ogTitle}</b>
-              {marker.ogImage && <img src={marker.ogImage} />}
-              <br />
-              {marker.ogDesc}
+              <a href={marker.ogUrl} target='_target'>
+                <b css={tw`text-xl`}>{marker.ogTitle}</b>
+                {marker.ogImage && <img src={marker.ogImage} />}
+                <br />
+                {marker.ogDesc}
+              </a>
             </>
           );
           return {
