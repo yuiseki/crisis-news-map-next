@@ -15,8 +15,8 @@ const HeatMapLayer: React.VFC<HeatMapLayerProps> = ({
   const map = useMap();
   const options = {
     minOpacity: 0.1,
-    maxZoom: 6,
-    radius: 12,
+    maxZoom: 10,
+    radius: 10,
   };
 
   useEffect(() => {
