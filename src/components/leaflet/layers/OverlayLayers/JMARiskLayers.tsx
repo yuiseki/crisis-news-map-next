@@ -17,7 +17,7 @@ export const JMARiskLayers = () => {
         attribution='<a href="https://www.jma.go.jp/">気象庁</a>'
         maxNativeZoom={11}
         url={landslideUrl}
-        opacity={0.4}
+        opacity={0.7}
       />
       <AbstractOverlayLayer
         id='jma-flood-overlay-layer'
@@ -25,7 +25,7 @@ export const JMARiskLayers = () => {
         attribution='<a href="https://www.jma.go.jp/">気象庁</a>'
         maxNativeZoom={11}
         url={inundateUrl}
-        opacity={0.4}
+        opacity={0.7}
       />
       {/*
       <AbstractOverlayLayer

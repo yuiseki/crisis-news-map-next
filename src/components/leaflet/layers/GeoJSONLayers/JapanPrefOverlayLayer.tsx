@@ -32,7 +32,7 @@ export const JapanPrefOverlayLayer = () => {
         if (item.placePref === prefName) {
           fillOpacity = Math.fround(fillOpacity * 2.5);
           if (item.content.indexOf('特別警報') > 0) {
-            fillOpacity = Math.fround(fillOpacity * 8);
+            fillOpacity = Math.fround(fillOpacity * 5);
             color = 'red';
           }
         }
