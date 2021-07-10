@@ -17,14 +17,37 @@ import { GSIReliefLayer } from '../../../layers/OverlayLayers/GSIReliefLayer';
 import { NowcastOverlayLayer } from '~/components/leaflet/layers/OverlayLayers/NowcastOverlayLayer';
 import { BaseLayers } from '~/components/leaflet/layers/BaseLayers';
 import AbstractRescueGeoJSONLayer from '~/components/leaflet/layers/GeoJSONLayers/AbstractRescueGeoJSONLayer';
+import AbstractGeoJSONLayer from '~/components/leaflet/layers/GeoJSONLayers/AbstractGeoJSONLayer';
 
 const IzusnaRescueLayer = () => {
   return (
     <AbstractRescueGeoJSONLayer
       id='izusan-rescue-layer'
-      name='2021年 静岡県熱海市伊豆山 土砂崩れ 災害情報'
+      name='2021年 静岡県熱海市伊豆山 土砂災害 災害支援情報'
       url='https://script.google.com/macros/s/AKfycbw0D0AjIFPBGbBXj3Zr5X1j_34fwIj8RSflwc6EJrDp97pMdRRnyNcMOOHvuRHZOslJdg/exec?confirmed=true'
     />
+  );
+};
+
+const IzusanHazardLayer = () => {
+  return (
+    <>
+      <AbstractGeoJSONLayer
+        id='izusan-hazard-layer-1'
+        name='2021年 静岡県熱海市伊豆山 土砂災害 被害状況 速報'
+        url='https://maps.gsi.go.jp/xyz/20210705oame_atami_houkaichi/2/3/1.geojson'
+      />
+      <AbstractGeoJSONLayer
+        id='izusan-hazard-layer-2'
+        name='2021年 静岡県熱海市伊豆山 土砂災害 被害状況 第2報'
+        url='https://maps.gsi.go.jp/xyz/20210705oame_atami_houkaichi2/2/3/1.geojson'
+      />
+      <AbstractGeoJSONLayer
+        id='izusan-hazard-layer-3'
+        name='2021年 静岡県熱海市伊豆山 土砂災害 被害状況 第3報'
+        url='https://maps.gsi.go.jp/xyz/20210705oame_atami_houkaichi3/2/3/1.geojson'
+      />
+    </>
   );
 };
 
@@ -37,7 +60,7 @@ const Map = () => {
       shadowUrl: '/images/marker-shadow.png',
     });
   }, []);
-  const title = '2021年 静岡県熱海市伊豆山 土砂崩れ 災害情報地図';
+  const title = '2021年 静岡県熱海市伊豆山 土砂災害 災害情報地図';
   return (
     <>
       <Head>
@@ -76,6 +99,9 @@ const Map = () => {
             </Pane>
             <Pane name='marker-overlay' style={{ zIndex: 700 }}>
               <IzusnaRescueLayer />
+            </Pane>
+            <Pane name='hazard-overlay' style={{ zIndex: 700 }}>
+              <IzusanHazardLayer />
             </Pane>
           </LayersControl>
         </MapContainer>

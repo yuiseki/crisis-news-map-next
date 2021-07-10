@@ -7,6 +7,7 @@ interface AbstractOverlayLayerProps {
   attribution: string;
   url: string;
   maxNativeZoom?: number;
+  maxZoom?: number;
   opacity?: number;
 }
 
@@ -16,6 +17,7 @@ const AbstractOverlayLayer: React.VFC<AbstractOverlayLayerProps> = ({
   attribution,
   url,
   maxNativeZoom,
+  maxZoom,
   opacity,
 }: AbstractOverlayLayerProps) => {
   const overlays = JSON.parse(
@@ -32,6 +34,7 @@ const AbstractOverlayLayer: React.VFC<AbstractOverlayLayerProps> = ({
           attribution={attribution}
           url={url}
           maxNativeZoom={maxNativeZoom}
+          maxZoom={maxZoom}
           opacity={opacity}
         />
       )}

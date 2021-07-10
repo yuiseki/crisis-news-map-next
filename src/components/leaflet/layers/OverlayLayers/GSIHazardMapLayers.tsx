@@ -12,6 +12,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={17}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='flood-assume-overlay-layer'
@@ -19,6 +21,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={17}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='debris-flow-overlay-layer'
@@ -26,6 +30,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={17}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='debris-flow-overlay-layer'
@@ -33,6 +39,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_dosekiryukikenkeiryu/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={17}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='landslide-overlay-layer'
@@ -40,6 +48,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={17}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='steep-slope-overlay-layer'
@@ -47,6 +57,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={17}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='steep-slope-overlay-layer'
@@ -54,6 +66,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/daikiboumoritsuzouseichi/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={16}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='steep-slope-overlay-layer'
@@ -61,6 +75,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/10_kansui/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={14}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='steep-slope-overlay-layer'
@@ -68,6 +84,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/10_jizentuukoukiseikukan/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={14}
+        maxZoom={22}
       />
       <AbstractOverlayLayer
         id='steep-slope-overlay-layer'
@@ -75,6 +93,8 @@ export const GSIHazardMapLayers = () => {
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/10_yoboutekituukoukiseikukan/{z}/{x}/{y}.png'
         opacity={1}
+        maxNativeZoom={15}
+        maxZoom={22}
       />
     </>
   );
