@@ -30,7 +30,7 @@ export const NewsView: React.VFC<{ news: INews }> = ({
       <div>
         <a
           href={news.url}
-          css={tw`text-blue-600 visited:text-purple-600`}
+          css={tw`break-all text-blue-600 visited:text-purple-600`}
           target='_blank'
           rel='noreferrer'
         >
