@@ -9,15 +9,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const country = req.query.country;
   const pref = req.query.pref;
   const city = req.query.city;
+  const limit = req.query.limit;
+  const page = req.query.page;
   const condition = {};
+  if (category) {
+    Object.assign(condition, { category: category });
+  }
   if (hasLocation === 'true') {
     Object.assign(condition, {
       longitude: { $ne: null },
       latitude: { $ne: null },
     });
-  }
-  if (category) {
-    Object.assign(condition, { category: category });
   }
   if (country) {
     Object.assign(condition, { placeCountry: country });
@@ -30,7 +32,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const json = await News.find(condition, null, {
     sort: { createdAt: -1 },
-    limit: 600,
+    // @ts-ignore
+    offset: parseInt(limit) + parseInt(page),
+    // @ts-ignore
+    limit: parseInt(limit),
   });
   res.status(200).json(json);
 };
