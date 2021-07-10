@@ -11,7 +11,6 @@ import { OSMBaseLayer } from '../../../layers/BaseLayers/OSMBaseLayer';
 import { GSIBaseLayer } from '../../../layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from '../../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from '../../../layers/GeoJSONLayers/JapanCityOverlayLayer';
-import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from '../../../CommonMapStyle';
 import { LinkControl } from '../../../controls/LinkControl';
 import Head from 'next/head';
@@ -92,9 +91,14 @@ const Map = () => {
         <title>2021年 静岡県熱海市伊豆山 土砂崩れ 災害情報地図</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
-        <Follow username='yuiseki_' />
-        <Share url={window.location.href} />
-        <LinkControl path='/' title='全国災害情報地図' />
+        <LinkControl
+          links={[
+            {
+              path: '/',
+              title: '全国災害情報地図',
+            },
+          ]}
+        />
         <MapContainer
           scrollWheelZoom={true}
           style={{ height: '100%', width: '100%' }}

@@ -11,7 +11,6 @@ import { GSIBaseLayer } from '../../layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { NewsPoverty } from '../../layers/MarkerLayers/NewsMarkerLayers';
-import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { LinkControl } from '../../controls/LinkControl';
 import Head from 'next/head';
@@ -32,9 +31,14 @@ const CrisisMap = () => {
         <title>全世界貧困情報地図</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
-        <Follow username='yuiseki_' />
-        <Share url={window.location.href} />
-        <LinkControl path='/' title='全国災害情報地図' />
+        <LinkControl
+          links={[
+            {
+              path: '/',
+              title: '全国災害情報地図',
+            },
+          ]}
+        />
         <MapContainer
           scrollWheelZoom={true}
           style={{ height: '100%', width: '100%' }}

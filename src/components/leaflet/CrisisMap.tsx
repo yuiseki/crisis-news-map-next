@@ -3,12 +3,9 @@ import Leaflet from 'leaflet';
 import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import { Follow, Share } from 'react-twitter-widgets';
 import { MapInitializer } from './handler/MapInitializer';
 import { MapEventHandler } from './handler/MapEventHandler';
 import { AdditionalControls } from './controls/AdditionalControls';
-import { OSMBaseLayer } from './layers/BaseLayers/OSMBaseLayer';
-import { GSIBaseLayer } from './layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { NowcastOverlayLayer } from './layers/OverlayLayers/NowcastOverlayLayer';
@@ -20,11 +17,9 @@ import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
 import { LinkControl } from './controls/LinkControl';
 import { CommonMapStyle } from './CommonMapStyle';
 import { GSIHazardMapLayers } from './layers/OverlayLayers/GSIHazardMapLayers';
-import {
-  JMABaseLayer,
-  JMABoundaryLayer,
-} from './layers/BaseLayers/JMABaseLayer';
+import { JMABoundaryLayer } from './layers/BaseLayers/JMABaseLayer';
 import { JMARiskLayers } from './layers/OverlayLayers/JMARiskLayers';
+import { BaseLayers } from './layers/BaseLayers';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -37,20 +32,29 @@ const CrisisMap = () => {
   }, []);
   return (
     <div className='map' css={CommonMapStyle}>
-      <Follow username='yuiseki_' />
-      <Share url='https://crisis.yuiseki.net/' />
-      <LinkControl path='/covid19' title='新型コロナウイルス情報地図' />
+      <LinkControl
+        links={[
+          {
+            path: '/place/日本?category=crisis',
+            title: '全国災害ニュース記事一覧',
+          },
+          {
+            path: '/theme/solar',
+            title: '全国メガソーラー情報地図',
+          },
+          { path: '/theme/covid19', title: '全国新型コロナウイルス情報地図' },
+          { path: '/theme/poverty', title: '全世界貧困情報地図' },
+          { path: '/theme/child', title: '全世界児童虐待情報地図' },
+        ]}
+      />
       <MapContainer
         scrollWheelZoom={true}
         style={{ height: '100%', width: '100%' }}
       >
         <MapInitializer />
         <MapEventHandler />
-        <AdditionalControls />
         <LayersControl position='topright'>
-          <OSMBaseLayer />
-          <GSIBaseLayer />
-          <JMABaseLayer />
+          <BaseLayers />
           <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
             <JapanPrefOverlayLayer />
             <JapanCityOverlayLayer />
@@ -77,6 +81,7 @@ const CrisisMap = () => {
             <NewsCrisis />
           </Pane>
         </LayersControl>
+        <AdditionalControls />
       </MapContainer>
     </div>
   );

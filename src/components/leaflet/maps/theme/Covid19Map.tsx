@@ -15,7 +15,6 @@ import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverl
 import { NewsVirus } from '../../layers/MarkerLayers/NewsMarkerLayers';
 import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
 import { Covid19VaccinePieChartLayer } from '../../layers/PieChartLayers/Covid19VaccinePieChartLayer';
-import { Follow, Share } from 'react-twitter-widgets';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { JMABaseLayer } from '../../layers/BaseLayers/JMABaseLayer';
 
@@ -34,9 +33,14 @@ const CrisisMap = () => {
         <title>全国新型コロナウイルス情報地図</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
-        <Follow username='yuiseki_' />
-        <Share url={window.location.href} />
-        <LinkControl path='/' title='全国災害情報地図' />
+        <LinkControl
+          links={[
+            {
+              path: '/',
+              title: '全国災害情報地図',
+            },
+          ]}
+        />
         <MapContainer
           scrollWheelZoom={true}
           style={{ height: '100%', width: '100%' }}

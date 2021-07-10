@@ -29,7 +29,7 @@ export const CommonMapStyle = css`
   }
   #nav-link * {
     width: auto !important;
-    display: inline-block;
+    text-align: left;
   }
 
   .leaflet-marker-icon {
