@@ -1,7 +1,6 @@
 import { LayersControl, MapContainer, Pane } from 'react-leaflet';
-import { renderToStaticMarkup } from 'react-dom/server';
 import Leaflet from 'leaflet';
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from '../../../handler/MapInitializer';
@@ -16,60 +15,15 @@ import { PopulationLayer } from '../../../layers/OverlayLayers/PopulationLayer';
 import { GSIHazardMapLayers } from '../../../layers/OverlayLayers/GSIHazardMapLayers';
 import { GSIReliefLayer } from '../../../layers/OverlayLayers/GSIReliefLayer';
 import { NowcastOverlayLayer } from '~/components/leaflet/layers/OverlayLayers/NowcastOverlayLayer';
-import AbstractGeoJSONLayer from '~/components/leaflet/layers/GeoJSONLayers/AbstractGeoJSONLayer';
 import { BaseLayers } from '~/components/leaflet/layers/BaseLayers';
+import AbstractRescueGeoJSONLayer from '~/components/leaflet/layers/GeoJSONLayers/AbstractRescueGeoJSONLayer';
 
 const IzusnaRescueLayer = () => {
-  const pointToLayer = useCallback((point, latlng) => {
-    const name = point.properties.name;
-    const category = point.properties.category;
-    let iconUrl = '/images/marker-icon.png';
-    switch (category) {
-      case '避難所':
-        iconUrl = '/images/shelter.png';
-        break;
-      case '給水所':
-        iconUrl = '/images/water.png';
-        break;
-      case '入浴施設':
-        iconUrl = '/images/ofuro.png';
-        break;
-      case '無料Wi-Fi':
-        iconUrl = '/images/wifi.png';
-        break;
-      case '携帯充電':
-        iconUrl = '/images/electric_power.png';
-        break;
-      case '車両通行止め':
-        iconUrl = '/images/traffic_cancel.png';
-        break;
-      case 'バス運行見合わせ':
-        break;
-      case '鉄道運行見合わせ':
-        break;
-      default:
-        break;
-    }
-    const iconMarkup = renderToStaticMarkup(
-      <div style={{ width: 50, height: 50 }}>
-        <img src={iconUrl} width={50} height={50} />
-      </div>
-    );
-    const markerIcon = new Leaflet.DivIcon({
-      html: iconMarkup,
-      className: '',
-    });
-    return Leaflet.marker(latlng, { icon: markerIcon }).bindPopup(
-      name + ':' + category
-    );
-  }, []);
   return (
-    <AbstractGeoJSONLayer
+    <AbstractRescueGeoJSONLayer
       id='izusan-rescue-layer'
       name='2021年 静岡県熱海市伊豆山 土砂崩れ 災害情報'
       url='https://script.google.com/macros/s/AKfycbw0D0AjIFPBGbBXj3Zr5X1j_34fwIj8RSflwc6EJrDp97pMdRRnyNcMOOHvuRHZOslJdg/exec?confirmed=true'
-      style={{ weight: 5, opacity: 0.5, fillOpacity: 0.05 }}
-      pointToLayer={pointToLayer}
     />
   );
 };

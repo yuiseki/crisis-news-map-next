@@ -7,7 +7,7 @@ interface AbstractGeoJSONLayerProps {
   id: string;
   name: string;
   url: string;
-  style: any;
+  style?: any;
   onEachFeature?: (feature, layer) => void | undefined;
   pointToLayer?: (point, latlng) => Layer | undefined;
 }
