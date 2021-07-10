@@ -30,22 +30,34 @@ const IzusnaRescueLayer = () => {
 };
 
 const IzusanHazardLayer = () => {
+  const styleFunction = (feature) => {
+    return {
+      color: feature.properties._color,
+      fillColor: feature.properties._fillColor,
+      fillOpacity: feature.properties._fillOpacity,
+      opacity: feature.properties._opacity,
+      weight: feature.properties._weight,
+    };
+  };
   return (
     <>
       <AbstractGeoJSONLayer
         id='izusan-hazard-layer-1'
         name='2021年 静岡県熱海市伊豆山 土砂災害 被害状況 速報'
         url='https://maps.gsi.go.jp/xyz/20210705oame_atami_houkaichi/2/3/1.geojson'
+        style={styleFunction}
       />
       <AbstractGeoJSONLayer
         id='izusan-hazard-layer-2'
         name='2021年 静岡県熱海市伊豆山 土砂災害 被害状況 第2報'
         url='https://maps.gsi.go.jp/xyz/20210705oame_atami_houkaichi2/2/3/1.geojson'
+        style={styleFunction}
       />
       <AbstractGeoJSONLayer
         id='izusan-hazard-layer-3'
         name='2021年 静岡県熱海市伊豆山 土砂災害 被害状況 第3報'
         url='https://maps.gsi.go.jp/xyz/20210705oame_atami_houkaichi3/2/3/1.geojson'
+        style={styleFunction}
       />
     </>
   );
