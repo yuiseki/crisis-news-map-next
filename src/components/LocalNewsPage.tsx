@@ -2,7 +2,7 @@
 //import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import tw from 'twin.macro';
 import { NewsView } from '~/components/NewsView';
@@ -14,47 +14,59 @@ const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
 });
 */
 
+const categories = {
+  '': 'すべて',
+  crisis: '災害',
+  virus: '感染症',
+  accident: '事故',
+  incident: '事件',
+  children: '児童虐待',
+  drug: '薬物乱用',
+  poverty: '貧困',
+  nikkei: '経済',
+  politics: '政治',
+  sports: 'スポーツ',
+};
+
 export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
-  const { country, pref, city } = router.query;
-  const [category, setCategory] = useState('');
+  const { country, pref, city, category } = router.query;
+  const [selectedCategory, setSelectedCategory] = useState(category);
+  const [url, setUrl] = useState<string | null>(null);
+  const [title, setTitle] = useState<string>('ニュース記事');
 
-  const categories = {
-    '': 'すべて',
-    crisis: '災害',
-    virus: '感染症',
-    accident: '事故',
-    incident: '事件',
-    children: '児童虐待',
-    drug: '薬物乱用',
-    poverty: '貧困',
-    nikkei: '経済',
-    politics: '政治',
-    sports: 'スポーツ',
-  };
+  useEffect(() => {
+    setSelectedCategory(category);
+  }, [category]);
 
-  let title = '';
-  //const center = [36.5748441, 139.2394179] as LatLngTuple;
-  const param = new URLSearchParams();
-  param.append('hasLocation', 'true');
-  if (category.length > 0) {
-    param.append('category', category);
-  }
-  if (country) {
-    param.append('country', country as string);
-    title += country;
-  }
-  if (pref) {
-    param.append('pref', pref as string);
-    title += ', ' + pref;
-  }
-  if (city) {
-    param.append('city', city as string);
-    title += ', ' + city;
-  }
-  title += 'のニュース記事';
+  useEffect(() => {
+    let title = '';
+    //const center = [36.5748441, 139.2394179] as LatLngTuple;
+    const params = new URLSearchParams();
+    params.append('hasLocation', 'true');
+    params.append('limit', '100');
+    params.append('page', '0');
+    if (selectedCategory !== undefined && selectedCategory.length > 0) {
+      // @ts-ignore
+      params.append('category', selectedCategory);
+    }
+    if (country) {
+      params.append('country', country as string);
+      title += country;
+    }
+    if (pref) {
+      params.append('pref', pref as string);
+      title += ', ' + pref;
+    }
+    if (city) {
+      params.append('city', city as string);
+      title += ', ' + city;
+    }
+    title += 'のニュース記事';
+    setTitle(title);
 
-  const url = '/api/news?' + param.toString();
+    setUrl('/api/news?' + params.toString());
+  }, [selectedCategory]);
   const { data } = useSWR<INews[]>(url);
 
   return (
@@ -79,9 +91,9 @@ export const LocalNewsPage: React.VFC = () => {
                   id={cat}
                   value={cat}
                   name={cat}
-                  checked={cat === category}
+                  checked={cat === selectedCategory}
                   onChange={(e) => {
-                    setCategory(e.target.value);
+                    setSelectedCategory(e.target.value);
                   }}
                 />
                 <label htmlFor={cat}>{categories[cat]}</label>
