@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import tw from 'twin.macro';
+import { LocalNewsTitleView } from '~/components/LocalNewsTitleView';
 import AbstractMarkerClusterLayer from './AbstractMarkerClusterLayer';
 
 interface AbstractNewsProps {
@@ -25,6 +26,15 @@ const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
         .map((marker) => {
           const content = (
             <>
+              <b css={tw`text-xl`}>
+                <LocalNewsTitleView
+                  country={marker.placeCountry}
+                  pref={marker.placePref}
+                  city={marker.placeCity}
+                  category={marker.category}
+                />
+              </b>
+              <br />
               <a href={marker.ogUrl} target='_target'>
                 <b css={tw`text-xl`}>{marker.ogTitle}</b>
                 <br />
