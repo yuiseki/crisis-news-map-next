@@ -19,11 +19,11 @@ export const LinkControl = ({
       id='nav-link'
       className='leaflet-bar leaflet-control leaflet-control-custom'
     >
-      <span css={tw`text-xl`}>
+      <span css={tw`text-base`}>
         <i className='fas fa-info-circle' />
         {title}
       </span>
-      <ul css={tw`pl-6 list-disc`}>
+      <ul css={tw`pl-6 list-disc text-xs`}>
         {links.map((link) => {
           return (
             <li key={link.path}>
