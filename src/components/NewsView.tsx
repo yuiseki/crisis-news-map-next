@@ -9,6 +9,9 @@ export const NewsView: React.VFC<{ news: INews }> = ({
   news: INews;
 }) => {
   let locationPath = '/place/';
+  if (!news.placeCountry) {
+    locationPath = '不明';
+  }
   if (news.placeCountry) {
     locationPath += news.placeCountry;
   }
