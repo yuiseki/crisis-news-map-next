@@ -26,13 +26,15 @@ const MegaSolarMap = () => {
       shadowUrl: '/images/marker-shadow.png',
     });
   }, []);
+  const title = '全国メガソーラー・盛り土情報地図';
   return (
     <>
       <Head>
-        <title>全国メガソーラー・盛り土情報地図</title>
+        <title>{title}</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
         <LinkControl
+          title={title}
           links={[
             {
               path: '/',

@@ -7,14 +7,22 @@ interface LinkProps {
   title: string;
 }
 
-export const LinkControl = ({ links }: { links: LinkProps[] }) => {
+export const LinkControl = ({
+  title,
+  links,
+}: {
+  title: string;
+  links: LinkProps[];
+}) => {
   return (
     <div
       id='nav-link'
       className='leaflet-bar leaflet-control leaflet-control-custom'
     >
-      <i className='fas fa-info-circle' />
-      他の地図
+      <span css={tw`text-xl`}>
+        <i className='fas fa-info-circle' />
+        {title}
+      </span>
       <ul css={tw`pl-6 list-disc`}>
         {links.map((link) => {
           return (

@@ -3,18 +3,18 @@ import tw, { css } from 'twin.macro';
 export const CommonMapStyle = css`
   ${tw`h-screen mx-auto m-0 p-0`}
 
-  iframe#twitter-widget-0 {
-    z-index: 1000;
-    position: absolute !important;
-    left: 64px !important;
-    bottom: 10px !important;
-  }
-
-  iframe#twitter-widget-1 {
+  .twitter-share-button {
     z-index: 1000;
     position: absolute !important;
     left: 64px !important;
     bottom: 36px !important;
+  }
+
+  .twitter-follow-button {
+    z-index: 1000;
+    position: absolute !important;
+    left: 64px !important;
+    bottom: 10px !important;
   }
 
   #nav-link {

@@ -23,13 +23,15 @@ const CrisisMap = () => {
       shadowUrl: '/images/marker-shadow.png',
     });
   }, []);
+  const title = '全世界貧困情報地図';
   return (
     <>
       <Head>
-        <title>全世界貧困情報地図</title>
+        <title>{title}</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
         <LinkControl
+          title={title}
           links={[
             {
               path: '/',

@@ -30,9 +30,11 @@ const CrisisMap = () => {
       shadowUrl: 'images/marker-shadow.png',
     });
   }, []);
+
   return (
     <div className='map' css={CommonMapStyle}>
       <LinkControl
+        title='全国災害情報地図'
         links={[
           {
             path: '/place/日本?category=crisis',
