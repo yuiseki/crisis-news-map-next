@@ -9,8 +9,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const country = req.query.country;
   const pref = req.query.pref;
   const city = req.query.city;
-  const limit = req.query.limit;
-  const page = req.query.page;
+  const limit = req.query.limit ? req.query.limit : 500;
+  const page = req.query.page ? req.query.page : 1;
   const condition = {};
   if (category) {
     Object.assign(condition, { category: category });
@@ -33,7 +33,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const json = await News.find(condition, null, {
     sort: { createdAt: -1 },
     // @ts-ignore
-    offset: parseInt(limit) + parseInt(page),
+    offset: parseInt(limit) * parseInt(page),
     // @ts-ignore
     limit: parseInt(limit),
   });
