@@ -10,11 +10,39 @@ import { newsCategories } from '~/lib/constants/newsCategories';
 import { INews } from '~/models/News';
 import { getPlacePath, LocalNewsTitleView } from './LocalNewsTitleView';
 
-/*
+import { countries, states, cities } from 'detect-location-jp';
+import { LatLngTuple } from 'leaflet';
+import dynamic from 'next/dynamic';
+
 const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
   ssr: false,
 });
-*/
+
+const getCenter = (country, state, city) => {
+  let center = [36.5748441, 139.2394179] as LatLngTuple;
+  if (country) {
+    for (const c of countries) {
+      if (c === country) {
+        center = [c.latitude, c.longitude];
+      }
+    }
+  }
+  if (country === '日本' && state) {
+    for (const s of states) {
+      if (s.state_ja === state) {
+        center = [s.latitude, s.longitude];
+      }
+    }
+  }
+  if (country === '日本' && city) {
+    for (const c of cities) {
+      if (c.city_ja === city) {
+        center = [c.latitude, c.longitude];
+      }
+    }
+  }
+  return center;
+};
 
 export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
@@ -22,13 +50,13 @@ export const LocalNewsPage: React.VFC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [url, setUrl] = useState<string | null>(null);
   const [title, setTitle] = useState<string>('ニュース記事');
+  const [center, setCenter] = useState(null);
 
   useEffect(() => {
     setSelectedCategory(category as string);
   }, [category]);
 
   useEffect(() => {
-    //const center = [36.5748441, 139.2394179] as LatLngTuple;
     const params = new URLSearchParams();
     params.append('hasLocation', 'true');
     params.append('limit', '100');
@@ -55,7 +83,7 @@ export const LocalNewsPage: React.VFC = () => {
     }
     title += 'ニュース記事';
     setTitle(title);
-
+    setCenter(getCenter(country, pref, city));
     setUrl('/api/news?' + params.toString());
   }, [country, pref, city, selectedCategory]);
 
@@ -78,11 +106,9 @@ export const LocalNewsPage: React.VFC = () => {
           {category && newsCategories[selectedCategory] + '関連'}
           ニュース記事
         </h1>
-        {/**
-          <div css={tw`h-80 w-full my-4`}>
-          <StaticMap zoom={5} center={center} />
+        <div css={tw`h-60 w-full my-4`}>
+          <StaticMap zoom={7} center={center} />
         </div>
-           */}
         <div>
           <h2 css={tw`text-xl inline ml-4`}>カテゴリ:</h2>
           {Object.keys(newsCategories).map((cat) => {

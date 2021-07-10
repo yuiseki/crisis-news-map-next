@@ -50,7 +50,7 @@
     "cheerio": "^1.0.0-rc.10",
     "csv-parse": "^4.16.0",
     "detect-categories-ja": "^0.0.4",
-    "detect-location-jp": "^0.0.2",
+    "detect-location-jp": "^0.0.3",
     "dotenv": "^10.0.0",
     "leaflet": "^1.7.1",
     "leaflet.heat": "^0.2.0",
