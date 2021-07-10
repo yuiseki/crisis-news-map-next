@@ -45,11 +45,14 @@ export const LocalNewsPage: React.VFC = () => {
       params.append('city', city as string);
       title += ', ' + city;
     }
+    title += 'の';
     if (selectedCategory !== undefined && selectedCategory.length > 0) {
       // @ts-ignore
       params.append('category', selectedCategory);
+      // @ts-ignore
+      title += newsCategories[selectedCategory] + '関連';
     }
-    title += 'のニュース記事';
+    title += 'ニュース記事';
     setTitle(title);
 
     setUrl('/api/news?' + params.toString());
