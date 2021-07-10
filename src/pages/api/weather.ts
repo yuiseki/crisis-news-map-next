@@ -4,7 +4,11 @@ import { WeatherAlert } from '~/models/WeatherAlert';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
-  const alerts = await WeatherAlert.find({}, null, {
+  const today = new Date();
+  const yesterday = today.setDate(today.getDate() - 1);
+  const condition = { updatedAt: { $gt: yesterday.toString() } };
+
+  const alerts = await WeatherAlert.find(condition, null, {
     sort: { updatedAt: -1 },
     limit: 200,
   });

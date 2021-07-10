@@ -6,11 +6,11 @@ export const JapanPrefOverlayLayer = () => {
   const { data } = useSWR('/api/weather');
   const onEachFeature = useCallback(
     (feature, layer) => {
-      const prefName = feature.properties.nam_ja;
-      const prefAlerts = [];
       if (!data) {
         return;
       }
+      const prefName = feature.properties.nam_ja;
+      const prefAlerts = [];
       for (const item of data) {
         if (item.placePref === prefName) {
           prefAlerts.push(item);
@@ -20,12 +20,38 @@ export const JapanPrefOverlayLayer = () => {
     },
     [data]
   );
+  const styleFunction = useCallback(
+    (feature) => {
+      if (!data) {
+        return;
+      }
+      const prefName = feature.properties.nam_ja;
+      let fillOpacity = 0.01;
+      let color = 'yellow';
+      for (const item of data) {
+        if (item.placePref === prefName) {
+          fillOpacity = Math.fround(fillOpacity * 2.5);
+          if (item.content.indexOf('特別警報') > 0) {
+            fillOpacity = Math.fround(fillOpacity * 8);
+            color = 'red';
+          }
+        }
+      }
+      return {
+        weight: 0.01,
+        opacity: 1,
+        color: color,
+        fillOpacity: fillOpacity,
+      };
+    },
+    [data]
+  );
   return (
     <AbstractGeoJSONLayer
       id='japan-pref-overlay-layer'
       name='都道府県境界'
       url='/data/japan.geojson'
-      style={{ weight: 0.5, opacity: 0.5, fillOpacity: 0.01 }}
+      style={styleFunction}
       onEachFeature={onEachFeature}
     />
   );
