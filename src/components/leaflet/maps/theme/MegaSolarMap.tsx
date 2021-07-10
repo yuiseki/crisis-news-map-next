@@ -29,7 +29,7 @@ const MegaSolarMap = () => {
   return (
     <>
       <Head>
-        <title>全国メガソーラー土砂災害警戒区域情報地図</title>
+        <title>全国メガソーラー・盛り土情報地図</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
         <LinkControl
@@ -37,6 +37,10 @@ const MegaSolarMap = () => {
             {
               path: '/',
               title: '全国災害情報地図',
+            },
+            {
+              path: '/',
+              title: '全国新型コロナウイルス情報地図',
             },
           ]}
         />

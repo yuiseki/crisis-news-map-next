@@ -40,7 +40,7 @@ const CrisisMap = () => {
           },
           {
             path: '/theme/solar',
-            title: '全国メガソーラー情報地図',
+            title: '全国メガソーラー・盛り土情報地図',
           },
           { path: '/theme/covid19', title: '全国新型コロナウイルス情報地図' },
           { path: '/theme/poverty', title: '全世界貧困情報地図' },

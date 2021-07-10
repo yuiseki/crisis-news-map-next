@@ -37,6 +37,10 @@ const CrisisMap = () => {
               path: '/',
               title: '全国災害情報地図',
             },
+            {
+              path: '/',
+              title: '全国メガソーラー・盛り土情報地図',
+            },
           ]}
         />
         <MapContainer
