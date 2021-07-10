@@ -7,8 +7,6 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from '../../../handler/MapInitializer';
 import { MapEventHandler } from '../../../handler/MapEventHandler';
 import { AdditionalControls } from '../../../controls/AdditionalControls';
-import { OSMBaseLayer } from '../../../layers/BaseLayers/OSMBaseLayer';
-import { GSIBaseLayer } from '../../../layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from '../../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from '../../../layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { CommonMapStyle } from '../../../CommonMapStyle';
@@ -19,7 +17,7 @@ import { GSIHazardMapLayers } from '../../../layers/OverlayLayers/GSIHazardMapLa
 import { GSIReliefLayer } from '../../../layers/OverlayLayers/GSIReliefLayer';
 import { NowcastOverlayLayer } from '~/components/leaflet/layers/OverlayLayers/NowcastOverlayLayer';
 import AbstractGeoJSONLayer from '~/components/leaflet/layers/GeoJSONLayers/AbstractGeoJSONLayer';
-import { JMABaseLayer } from '~/components/leaflet/layers/BaseLayers/JMABaseLayer';
+import { BaseLayers } from '~/components/leaflet/layers/BaseLayers';
 
 const IzusnaRescueLayer = () => {
   const pointToLayer = useCallback((point, latlng) => {
@@ -85,13 +83,15 @@ const Map = () => {
       shadowUrl: '/images/marker-shadow.png',
     });
   }, []);
+  const title = '2021年 静岡県熱海市伊豆山 土砂崩れ 災害情報地図';
   return (
     <>
       <Head>
-        <title>2021年 静岡県熱海市伊豆山 土砂崩れ 災害情報地図</title>
+        <title>{title}</title>
       </Head>
       <div className='map' css={CommonMapStyle}>
         <LinkControl
+          title={title}
           links={[
             {
               path: '/',
@@ -107,9 +107,7 @@ const Map = () => {
           <MapEventHandler />
           <AdditionalControls />
           <LayersControl position='topright'>
-            <OSMBaseLayer />
-            <GSIBaseLayer />
-            <JMABaseLayer />
+            <BaseLayers />
             <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />
