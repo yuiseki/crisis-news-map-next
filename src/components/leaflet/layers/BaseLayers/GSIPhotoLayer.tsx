@@ -7,6 +7,9 @@ export const GSIPhotoLayer = () => {
       <TileLayer
         attribution='<a href="https://maps.gsi.go.jp/development/ichiran.html#seamlessphoto">国土地理院</a>'
         url='https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg'
+        maxNativeZoom={18}
+        maxZoom={20}
+        minNativeZoom={2}
       />
     </LayersControl.BaseLayer>
   );
