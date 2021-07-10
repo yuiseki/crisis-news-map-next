@@ -6,8 +6,6 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from '../../handler/MapInitializer';
 import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
-import { OSMBaseLayer } from '../../layers/BaseLayers/OSMBaseLayer';
-import { GSIBaseLayer } from '../../layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { CommonMapStyle } from '../../CommonMapStyle';
@@ -17,7 +15,7 @@ import { MegaSolarHeatMapLayer } from '../../layers/HeatmapLayers/MegaSolarHeatM
 import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
 import { GSIHazardMapLayers } from '../../layers/OverlayLayers/GSIHazardMapLayers';
 import { GSIReliefLayer } from '../../layers/OverlayLayers/GSIReliefLayer';
-import { JMABaseLayer } from '../../layers/BaseLayers/JMABaseLayer';
+import { BaseLayers } from '../../layers/BaseLayers';
 
 const MegaSolarMap = () => {
   useEffect(() => {
@@ -50,9 +48,7 @@ const MegaSolarMap = () => {
           <MapEventHandler />
           <AdditionalControls />
           <LayersControl position='topright'>
-            <OSMBaseLayer />
-            <GSIBaseLayer />
-            <JMABaseLayer />
+            <BaseLayers />
             <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
               <JapanPrefOverlayLayer />
               <JapanCityOverlayLayer />

@@ -50,6 +50,13 @@ export const GSIHazardMapLayers = () => {
       />
       <AbstractOverlayLayer
         id='steep-slope-overlay-layer'
+        name='国土地理院 大規模盛土造成地'
+        attribution={attribution}
+        url='https://disaportaldata.gsi.go.jp/raster/daikiboumoritsuzouseichi/{z}/{x}/{y}.png'
+        opacity={1}
+      />
+      <AbstractOverlayLayer
+        id='steep-slope-overlay-layer'
         name='国土地理院 道路冠水想定箇所'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/10_kansui/{z}/{x}/{y}.png'

@@ -8,15 +8,13 @@ import { MapInitializer } from '../../handler/MapInitializer';
 import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
 import { LinkControl } from '../../controls/LinkControl';
-import { OSMBaseLayer } from '../../layers/BaseLayers/OSMBaseLayer';
-import { GSIBaseLayer } from '../../layers/BaseLayers/GSIBaseLayer';
 import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
 import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { NewsVirus } from '../../layers/MarkerLayers/NewsMarkerLayers';
 import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
 import { Covid19VaccinePieChartLayer } from '../../layers/PieChartLayers/Covid19VaccinePieChartLayer';
 import { CommonMapStyle } from '../../CommonMapStyle';
-import { JMABaseLayer } from '../../layers/BaseLayers/JMABaseLayer';
+import { BaseLayers } from '../../layers/BaseLayers';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -49,9 +47,7 @@ const CrisisMap = () => {
           <MapEventHandler />
           <AdditionalControls />
           <LayersControl position='topright'>
-            <OSMBaseLayer />
-            <GSIBaseLayer />
-            <JMABaseLayer />
+            <BaseLayers />
             <Pane name='stat-overlay' style={{ zIndex: 500 }}>
               <PopulationLayer />
             </Pane>
