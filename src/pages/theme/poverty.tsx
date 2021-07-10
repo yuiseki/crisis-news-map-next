@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 const PovertyMap = dynamic(
-  () => import('../components/leaflet/maps/theme/PovertyMap'),
+  () => import('../../components/leaflet/maps/theme/PovertyMap'),
   {
     ssr: false,
   }

@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 const MegaSolarMap = dynamic(
-  () => import('../components/leaflet/maps/theme/MegaSolarMap'),
+  () => import('../../components/leaflet/maps/theme/MegaSolarMap'),
   {
     ssr: false,
   }

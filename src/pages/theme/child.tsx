@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 const ChildMap = dynamic(
-  () => import('../components/leaflet/maps/theme/ChildMap'),
+  () => import('../../components/leaflet/maps/theme/ChildMap'),
   {
     ssr: false,
   }

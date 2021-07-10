@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 const Covid19Map = dynamic(
-  () => import('../components/leaflet/maps/theme/Covid19Map'),
+  () => import('../../components/leaflet/maps/theme/Covid19Map'),
   {
     ssr: false,
   }
