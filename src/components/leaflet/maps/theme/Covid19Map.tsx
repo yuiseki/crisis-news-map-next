@@ -8,8 +8,6 @@ import { MapInitializer } from '../../handler/MapInitializer';
 import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
 import { LinkControl } from '../../controls/LinkControl';
-import { JapanPrefGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanPrefGeoJSONLayer';
-import { JapanCityGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanCityGeoJSONLayer';
 import { NewsVirus } from '../../layers/MarkerLayers/NewsMarkerLayers';
 import { PopulationOverlayLayer } from '../../layers/OverlayLayers/PopulationOverlayLayer';
 import { Covid19VaccinePieChartLayer } from '../../layers/PieChartLayers/Covid19VaccinePieChartLayer';
@@ -56,10 +54,6 @@ const CrisisMap = () => {
             <BaseLayers />
             <Pane name='stat-overlay' style={{ zIndex: 500 }}>
               <PopulationOverlayLayer />
-            </Pane>
-            <Pane name='pref-city-overlay' style={{ zIndex: 600 }}>
-              <JapanPrefGeoJSONLayer />
-              <JapanCityGeoJSONLayer />
             </Pane>
             <Pane name='pie-chart-overlay' style={{ zIndex: 700 }}>
               <Covid19VaccinePieChartLayer />
