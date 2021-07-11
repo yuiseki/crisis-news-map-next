@@ -6,8 +6,8 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from '../../handler/MapInitializer';
 import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
-import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
-import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
+import { JapanPrefGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanPrefGeoJSONLayer';
+import { JapanCityGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanCityGeoJSONLayer';
 import { NewsPoverty } from '../../layers/MarkerLayers/NewsMarkerLayers';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { LinkControl } from '../../controls/LinkControl';
@@ -49,8 +49,8 @@ const CrisisMap = () => {
           <LayersControl position='topright'>
             <BaseLayers />
             <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
-              <JapanPrefOverlayLayer />
-              <JapanCityOverlayLayer />
+              <JapanPrefGeoJSONLayer />
+              <JapanCityGeoJSONLayer />
             </Pane>
             <Pane name='marker-cluster-overlay' style={{ zIndex: 700 }}>
               <NewsPoverty />

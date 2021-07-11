@@ -1,7 +1,7 @@
 import React from 'react';
 import AbstractOverlayLayer from './AbstractOverlayLayer';
 
-export const GSIHazardMapLayers = () => {
+export const GSIHazardMapOverlayLayers = () => {
   const attribution =
     '<a href="https://disaportal.gsi.go.jp/maps/">重ねるハザードマップ</a>';
   return (

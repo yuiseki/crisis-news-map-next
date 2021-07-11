@@ -1,7 +1,7 @@
 import React from 'react';
 import AbstractOverlayLayer from './AbstractOverlayLayer';
 
-export const GSIReliefLayer = () => {
+export const GSIReliefOverlayLayer = () => {
   return (
     <AbstractOverlayLayer
       id='gsi-relief-layer'

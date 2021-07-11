@@ -1,7 +1,7 @@
 import React from 'react';
 import AbstractGeoJSONLayer from './AbstractGeoJSONLayer';
 
-export const JapanStationOverlayLayer = () => {
+export const JapanStationGeoJSONLayer = () => {
   const onEachFeature = (feature, layer) => {
     if (feature.properties.name) {
       layer.bindTooltip(feature.properties.name);

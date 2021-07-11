@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import useSWR from 'swr';
 import AbstractGeoJSONLayer from './AbstractGeoJSONLayer';
 
-export const JapanPrefOverlayLayer = () => {
+export const JapanPrefGeoJSONLayer = () => {
   const { data } = useSWR('/api/weather');
   const onEachFeature = useCallback(
     (feature, layer) => {

@@ -6,15 +6,15 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from '../../handler/MapInitializer';
 import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
-import { JapanPrefOverlayLayer } from '../../layers/GeoJSONLayers/JapanPrefOverlayLayer';
-import { JapanCityOverlayLayer } from '../../layers/GeoJSONLayers/JapanCityOverlayLayer';
+import { JapanPrefGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanPrefGeoJSONLayer';
+import { JapanCityGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanCityGeoJSONLayer';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { LinkControl } from '../../controls/LinkControl';
 import Head from 'next/head';
 import { MegaSolarHeatMapLayer } from '../../layers/HeatmapLayers/MegaSolarHeatMapLayer';
-import { PopulationLayer } from '../../layers/OverlayLayers/PopulationLayer';
-import { GSIHazardMapLayers } from '../../layers/OverlayLayers/GSIHazardMapLayers';
-import { GSIReliefLayer } from '../../layers/OverlayLayers/GSIReliefLayer';
+import { PopulationOverlayLayer } from '../../layers/OverlayLayers/PopulationOverlayLayer';
+import { GSIHazardMapOverlayLayers } from '../../layers/OverlayLayers/GSIHazardMapOverlayLayers';
+import { GSIReliefOverlayLayer } from '../../layers/OverlayLayers/GSIReliefOverlayLayer';
 import { BaseLayers } from '../../layers/BaseLayers';
 
 const MegaSolarMap = () => {
@@ -56,13 +56,13 @@ const MegaSolarMap = () => {
           <LayersControl position='topright'>
             <BaseLayers />
             <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
-              <JapanPrefOverlayLayer />
-              <JapanCityOverlayLayer />
+              <JapanPrefGeoJSONLayer />
+              <JapanCityGeoJSONLayer />
             </Pane>
             <Pane name='stat-overlay' style={{ zIndex: 500 }}>
-              <GSIReliefLayer />
-              <PopulationLayer />
-              <GSIHazardMapLayers />
+              <GSIReliefOverlayLayer />
+              <PopulationOverlayLayer />
+              <GSIHazardMapOverlayLayers />
             </Pane>
             <Pane name='marker-overlay' style={{ zIndex: 700 }}>
               <MegaSolarHeatMapLayer />

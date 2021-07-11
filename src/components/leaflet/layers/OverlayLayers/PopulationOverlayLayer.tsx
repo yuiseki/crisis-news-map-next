@@ -1,7 +1,7 @@
 import React from 'react';
 import AbstractOverlayLayer from './AbstractOverlayLayer';
 
-export const PopulationLayer = () => {
+export const PopulationOverlayLayer = () => {
   const url =
     'https://ktgis.net/kjmapw/kjtilemap/pop_density2015/{z}/{x}/{y}.png';
   return (

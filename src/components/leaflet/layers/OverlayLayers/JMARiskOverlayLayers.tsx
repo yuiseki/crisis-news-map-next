@@ -2,7 +2,7 @@ import React from 'react';
 import AbstractOverlayLayer from './AbstractOverlayLayer';
 import { useJMARiskTile } from '~/lib/useJMATile';
 
-export const JMARiskLayers = () => {
+export const JMARiskOverlayLayers = () => {
   const landslideUrl = useJMARiskTile('land');
   const inundateUrl = useJMARiskTile('inund');
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import AbstractOverlayLayer from './AbstractOverlayLayer';
 
-export const GSIYearsPhotoLayers = () => {
+export const GSIYearsPhotoOverlayLayers = () => {
   const years = [...Array(15).keys()].map((i) => 2007 + i);
   return (
     <>

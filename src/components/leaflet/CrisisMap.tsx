@@ -6,20 +6,20 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import { MapInitializer } from './handler/MapInitializer';
 import { MapEventHandler } from './handler/MapEventHandler';
 import { AdditionalControls } from './controls/AdditionalControls';
-import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
-import { NowcastOverlayLayer } from './layers/OverlayLayers/NowcastOverlayLayer';
-import { GSIReliefLayer } from './layers/OverlayLayers/GSIReliefLayer';
-import { PopulationLayer } from './layers/OverlayLayers/PopulationLayer';
+import { LinkControl } from './controls/LinkControl';
+import { CommonMapStyle } from './CommonMapStyle';
+import { BaseLayers } from './layers/BaseLayers';
+import { JMABoundaryLayer } from './layers/BaseLayers/JMABaseLayer';
+import { JapanPrefGeoJSONLayer } from './layers/GeoJSONLayers/JapanPrefGeoJSONLayer';
+import { JapanStationGeoJSONLayer } from './layers/GeoJSONLayers/JapanStationGeoJSONLayer';
 import { FireDeptLayers } from './layers/MarkerLayers/FireDeptMarkerLayers';
 import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
 import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
-import { LinkControl } from './controls/LinkControl';
-import { CommonMapStyle } from './CommonMapStyle';
-import { GSIHazardMapLayers } from './layers/OverlayLayers/GSIHazardMapLayers';
-import { JMABoundaryLayer } from './layers/BaseLayers/JMABaseLayer';
-import { JMARiskLayers } from './layers/OverlayLayers/JMARiskLayers';
-import { BaseLayers } from './layers/BaseLayers';
-import { JapanStationOverlayLayer } from './layers/GeoJSONLayers/JapanStationOverlayLayer';
+import { NowcastOverlayLayer } from './layers/OverlayLayers/NowcastOverlayLayer';
+import { GSIReliefOverlayLayer } from './layers/OverlayLayers/GSIReliefOverlayLayer';
+import { PopulationOverlayLayer } from './layers/OverlayLayers/PopulationOverlayLayer';
+import { GSIHazardMapOverlayLayers } from './layers/OverlayLayers/GSIHazardMapOverlayLayers';
+import { JMARiskOverlayLayers } from './layers/OverlayLayers/JMARiskOverlayLayers';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -57,25 +57,21 @@ const CrisisMap = () => {
         <MapEventHandler />
         <LayersControl position='topright'>
           <BaseLayers />
-          <Pane name='pref-overlay' style={{ zIndex: 500 }}>
-            <JapanPrefOverlayLayer />
+          <Pane name='static-overlay' style={{ zIndex: 500 }}>
+            <GSIReliefOverlayLayer />
+            <GSIHazardMapOverlayLayers />
+            <PopulationOverlayLayer />
+            <JapanStationGeoJSONLayer />
           </Pane>
-          <Pane name='stat-overlay' style={{ zIndex: 500 }}>
-            <GSIReliefLayer />
-            <GSIHazardMapLayers />
-            <PopulationLayer />
+          <Pane name='realtime-base--overlay' style={{ zIndex: 600 }}>
+            <JapanPrefGeoJSONLayer />
           </Pane>
-          <Pane name='jma-overlay' style={{ zIndex: 600 }}>
-            <JMARiskLayers />
-          </Pane>
-          <Pane name='rain-overlay' style={{ zIndex: 600 }}>
+          <Pane name='realtime-overlay' style={{ zIndex: 600 }}>
+            <JMARiskOverlayLayers />
             <NowcastOverlayLayer />
           </Pane>
-          <Pane name='boundary-overlay' style={{ zIndex: 900 }}>
+          <Pane name='boundary-overlay' style={{ zIndex: 600 }}>
             <JMABoundaryLayer />
-          </Pane>
-          <Pane name='railway-station-overlay' style={{ zIndex: 1000 }}>
-            <JapanStationOverlayLayer />
           </Pane>
           <Pane name='marker-overlay' style={{ zIndex: 1000 }}>
             <FireDeptLayers />

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import AbstractGeoJSONLayer from './AbstractGeoJSONLayer';
 
-export const JapanCityOverlayLayer = () => {
+export const JapanCityGeoJSONLayer = () => {
   const onEachFeature = useCallback((feature, layer) => {
     layer.bindTooltip(feature.properties.cityname_k);
   }, []);
