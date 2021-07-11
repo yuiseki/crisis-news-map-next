@@ -39,4 +39,8 @@ export const CommonMapStyle = css`
   .leaflet-popup {
     z-index: 10000;
   }
+
+  .leaflet-tooltip-pane {
+    z-index: 10000;
+  }
 `;

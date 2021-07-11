@@ -7,6 +7,7 @@ interface AbstractGeoJSONLayerProps {
   id: string;
   name: string;
   url: string;
+  attribution?: string;
   style?: any;
   onEachFeature?: (feature, layer) => void | undefined;
   pointToLayer?: (point, latlng) => Layer | undefined;
@@ -16,6 +17,7 @@ const AbstractGeoJSONLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
   id,
   name,
   url,
+  attribution,
   style,
   onEachFeature,
   pointToLayer,
@@ -33,6 +35,7 @@ const AbstractGeoJSONLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
       {data && (
         <GeoJSON
           data={data.features}
+          attribution={attribution}
           style={style}
           onEachFeature={onEachFeature}
           pointToLayer={pointToLayer}

@@ -7,7 +7,6 @@ import { MapInitializer } from './handler/MapInitializer';
 import { MapEventHandler } from './handler/MapEventHandler';
 import { AdditionalControls } from './controls/AdditionalControls';
 import { JapanPrefOverlayLayer } from './layers/GeoJSONLayers/JapanPrefOverlayLayer';
-import { JapanCityOverlayLayer } from './layers/GeoJSONLayers/JapanCityOverlayLayer';
 import { NowcastOverlayLayer } from './layers/OverlayLayers/NowcastOverlayLayer';
 import { GSIReliefLayer } from './layers/OverlayLayers/GSIReliefLayer';
 import { PopulationLayer } from './layers/OverlayLayers/PopulationLayer';
@@ -20,6 +19,7 @@ import { GSIHazardMapLayers } from './layers/OverlayLayers/GSIHazardMapLayers';
 import { JMABoundaryLayer } from './layers/BaseLayers/JMABaseLayer';
 import { JMARiskLayers } from './layers/OverlayLayers/JMARiskLayers';
 import { BaseLayers } from './layers/BaseLayers';
+import { JapanStationOverlayLayer } from './layers/GeoJSONLayers/JapanStationOverlayLayer';
 
 const CrisisMap = () => {
   useEffect(() => {
@@ -57,9 +57,8 @@ const CrisisMap = () => {
         <MapEventHandler />
         <LayersControl position='topright'>
           <BaseLayers />
-          <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
+          <Pane name='pref-overlay' style={{ zIndex: 500 }}>
             <JapanPrefOverlayLayer />
-            <JapanCityOverlayLayer />
           </Pane>
           <Pane name='stat-overlay' style={{ zIndex: 500 }}>
             <GSIReliefLayer />
@@ -72,8 +71,11 @@ const CrisisMap = () => {
           <Pane name='rain-overlay' style={{ zIndex: 600 }}>
             <NowcastOverlayLayer />
           </Pane>
-          <Pane name='boundary-overlay' style={{ zIndex: 1000 }}>
+          <Pane name='boundary-overlay' style={{ zIndex: 900 }}>
             <JMABoundaryLayer />
+          </Pane>
+          <Pane name='railway-station-overlay' style={{ zIndex: 1000 }}>
+            <JapanStationOverlayLayer />
           </Pane>
           <Pane name='marker-overlay' style={{ zIndex: 1000 }}>
             <FireDeptLayers />

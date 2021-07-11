@@ -49,7 +49,7 @@ export const JapanPrefOverlayLayer = () => {
   return (
     <AbstractGeoJSONLayer
       id='japan-pref-overlay-layer'
-      name='都道府県境界'
+      name='都道府県別 気象警報'
       url='/data/japan.geojson'
       style={styleFunction}
       onEachFeature={onEachFeature}
