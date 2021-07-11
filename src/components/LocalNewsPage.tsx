@@ -90,7 +90,7 @@ export const LocalNewsPage: React.VFC = () => {
                   type='radio'
                   id={cat}
                   value={cat}
-                  name={cat}
+                  name='category'
                   checked={cat === selectedCategory}
                   onChange={(e) => {
                     const path = getPlacePath(
