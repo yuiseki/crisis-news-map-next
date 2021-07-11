@@ -1,5 +1,5 @@
 export const newsCategories = {
-  '': 'すべて',
+  all: 'すべて',
   crisis: '災害',
   virus: '感染症',
   accident: '事故',

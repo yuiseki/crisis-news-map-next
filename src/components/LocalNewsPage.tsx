@@ -25,7 +25,11 @@ export const LocalNewsPage: React.VFC = () => {
   const [center, setCenter] = useState(null);
 
   useEffect(() => {
-    setSelectedCategory(category as string);
+    if (category) {
+      setSelectedCategory(category as string);
+    } else {
+      setSelectedCategory('all');
+    }
   }, [category]);
 
   useEffect(() => {
@@ -47,7 +51,7 @@ export const LocalNewsPage: React.VFC = () => {
       title += ', ' + city;
     }
     title += 'の';
-    if (selectedCategory !== undefined) {
+    if (selectedCategory !== undefined && selectedCategory !== 'all') {
       // @ts-ignore
       params.append('category', selectedCategory);
       // @ts-ignore
