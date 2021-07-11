@@ -63,7 +63,7 @@ const CrisisMap = () => {
             <PopulationOverlayLayer />
             <JapanStationGeoJSONLayer />
           </Pane>
-          <Pane name='realtime-base--overlay' style={{ zIndex: 600 }}>
+          <Pane name='realtime-base-overlay' style={{ zIndex: 600 }}>
             <JapanPrefGeoJSONLayer />
           </Pane>
           <Pane name='realtime-overlay' style={{ zIndex: 600 }}>

@@ -7,7 +7,6 @@ import { MapInitializer } from '../../handler/MapInitializer';
 import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
 import { JapanPrefGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanPrefGeoJSONLayer';
-import { JapanCityGeoJSONLayer } from '../../layers/GeoJSONLayers/JapanCityGeoJSONLayer';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { LinkControl } from '../../controls/LinkControl';
 import Head from 'next/head';
@@ -55,16 +54,15 @@ const MegaSolarMap = () => {
           <AdditionalControls />
           <LayersControl position='topright'>
             <BaseLayers />
-            <Pane name='pref-city-overlay' style={{ zIndex: 500 }}>
+            <Pane name='pref-overlay' style={{ zIndex: 50 }}>
               <JapanPrefGeoJSONLayer />
-              <JapanCityGeoJSONLayer />
             </Pane>
-            <Pane name='stat-overlay' style={{ zIndex: 500 }}>
+            <Pane name='stat-overlay' style={{ zIndex: 60 }}>
               <GSIReliefOverlayLayer />
               <PopulationOverlayLayer />
               <GSIHazardMapOverlayLayers />
             </Pane>
-            <Pane name='marker-overlay' style={{ zIndex: 700 }}>
+            <Pane name='heatmap-overlay' style={{ zIndex: 100 }}>
               <MegaSolarHeatMapLayer />
             </Pane>
           </LayersControl>
