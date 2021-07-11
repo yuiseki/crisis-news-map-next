@@ -17,7 +17,7 @@ export const getPlacePath = (
   if (locationPath[-1] === '/') {
     locationPath = locationPath.slice(0, -1);
   }
-  if (category) {
+  if (category && category !== 'all') {
     locationPath += '?category=' + category;
   }
   return locationPath;
