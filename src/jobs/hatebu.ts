@@ -6,10 +6,10 @@ const crawl = async () => {
   await dbConnect();
   for (const category of Object.keys(categoryWords)) {
     if (
-      category !== 'virus' &&
+      //category !== 'virus' &&
       category !== 'poverty' &&
-      category !== 'children' &&
-      category !== 'drug' &&
+      //category !== 'children' &&
+      //category !== 'drug' &&
       category !== 'nikkei'
     ) {
       continue;

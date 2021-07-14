@@ -11,6 +11,7 @@ import { INews } from '~/models/News';
 import { getPlacePath, LocalNewsTitleView } from './LocalNewsTitleView';
 import dynamic from 'next/dynamic';
 import { getPlaceCenter } from '~/lib/getPlaceCenter';
+import { categories } from 'detect-categories-ja';
 
 const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
   ssr: false,
@@ -20,6 +21,7 @@ export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
   const { country, pref, city, category } = router.query;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [words, setWords] = useState<Array<string>>(['']);
   const [url, setUrl] = useState<string | null>(null);
   const [title, setTitle] = useState<string>('ニュース記事');
   const [center, setCenter] = useState(null);
@@ -63,6 +65,14 @@ export const LocalNewsPage: React.VFC = () => {
     setUrl('/api/news?' + params.toString());
   }, [country, pref, city, selectedCategory]);
 
+  useEffect(() => {
+    categories.map((cat) => {
+      if (cat.id === selectedCategory) {
+        setWords(cat.words);
+      }
+    });
+  }, [selectedCategory]);
+
   const { data } = useSWR<INews[]>(url);
 
   return (
@@ -85,30 +95,39 @@ export const LocalNewsPage: React.VFC = () => {
         <div css={tw`h-60 w-full my-4`}>
           <StaticMap zoom={7} center={center} />
         </div>
-        <div>
-          <h2 css={tw`text-xl inline ml-4`}>カテゴリ:</h2>
+        <div css={tw`text-xl ml-4`}>
+          <h2>カテゴリ：</h2>
           {Object.keys(newsCategories).map((cat) => {
             return (
-              <div key={cat} css={tw`text-xl inline ml-4`}>
-                <input
-                  type='radio'
-                  id={cat}
-                  value={cat}
-                  name='category'
-                  checked={cat === selectedCategory}
-                  onChange={(e) => {
-                    const path = getPlacePath(
-                      country,
-                      pref,
-                      city,
-                      e.target.value
-                    );
-                    router.push(path);
-                  }}
-                />
-                <label htmlFor={cat}>{newsCategories[cat]}</label>
-              </div>
+              <>
+                {cat === 'poverty' && <br />}
+                <div key={cat} css={tw`inline mr-4`}>
+                  <input
+                    type='radio'
+                    id={cat}
+                    value={cat}
+                    name='category'
+                    checked={cat === selectedCategory}
+                    onChange={(e) => {
+                      const path = getPlacePath(
+                        country,
+                        pref,
+                        city,
+                        e.target.value
+                      );
+                      router.push(path);
+                    }}
+                  />
+                  <label htmlFor={cat}>{newsCategories[cat]}</label>
+                </div>
+              </>
             );
+          })}
+        </div>
+        <div css={tw`ml-4 my-4`}>
+          <h3>判定ワード：</h3>
+          {words.map((word) => {
+            return <span key={word}>{word} ,</span>;
           })}
         </div>
         {data?.map((news) => {

@@ -96,6 +96,9 @@ export const convertOGP = async (news: any) => {
   try {
     const categories = await detectCategories(text);
     news.category = categories[0]?.id;
+    news.tags = categories.map((cat) => {
+      return cat.id;
+    });
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log(text);

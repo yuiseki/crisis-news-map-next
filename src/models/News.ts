@@ -8,6 +8,7 @@ export interface INews {
   ogImage: string;
   ogUrl: string;
   category: string;
+  tags: string[];
   // time
   createdAt: string;
   updatedAt: string;
@@ -36,6 +37,7 @@ const schema = new mongoose.Schema(
     ogImage: String,
     ogUrl: String,
     category: String,
+    tags: [{ type: String }],
     // place
     placeCountry: String,
     placePref: String,

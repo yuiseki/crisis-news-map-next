@@ -13,7 +13,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const page = req.query.page ? req.query.page : 1;
   const condition = {};
   if (category) {
-    Object.assign(condition, { category: category });
+    Object.assign(condition, {
+      $or: [{ category: category }, { tags: category }],
+    });
   }
   if (hasLocation === 'true') {
     Object.assign(condition, {
