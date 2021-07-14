@@ -9,10 +9,12 @@ export const newsCategories = {
   nikkei: '経済',
   politics: '政治',
   sports: 'スポーツ',
+  refugee: '難民',
   poverty: '貧困',
   poverty_child: '貧困（子ども）',
   poverty_disparity: '貧困（経済格差）',
   poverty_food: '貧困（食）',
   poverty_non_regular: '貧困（非正規雇用）',
   poverty_one_parent: '貧困（片親）',
+  poverty_tech_intern: '貧困（技能実習生）',
 };

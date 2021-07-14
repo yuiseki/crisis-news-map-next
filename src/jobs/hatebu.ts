@@ -1,22 +1,23 @@
 import { dbConnect } from '../lib/dbConnect';
-import categoryWords from '../data/yuiseki.net/detector_category_words.json';
 import { fetchFeedArticles } from '~/lib/crawl';
+import { categories } from 'detect-categories-ja';
 
 const crawl = async () => {
   await dbConnect();
-  for (const category of Object.keys(categoryWords)) {
+  for (const category of categories) {
     if (
-      //category !== 'virus' &&
-      category !== 'poverty' &&
-      //category !== 'children' &&
-      //category !== 'drug' &&
-      category !== 'nikkei'
+      category.id !== 'poverty' &&
+      category.id !== 'refugee' &&
+      category.id !== 'virus' &&
+      category.id !== 'children' &&
+      category.id !== 'drug' &&
+      category.id !== 'nikkei'
     ) {
       continue;
     }
     // eslint-disable-next-line no-console
-    console.log(category);
-    for (const word of categoryWords[category]) {
+    console.log('job:hatebu', category);
+    for (const word of category.words) {
       // eslint-disable-next-line no-console
       console.log(word);
       await fetchFeedArticles(
