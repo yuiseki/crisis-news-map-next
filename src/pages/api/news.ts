@@ -18,6 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const pageStr = req.query.page ? req.query.page : 1;
   // @ts-ignore
   const page = parseInt(pageStr);
+  const skip = limit * page;
   const condition = {};
   if (category) {
     Object.assign(condition, {
@@ -41,7 +42,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const json = await News.find(condition, null, {
     sort: { createdAt: -1 },
-    offset: limit * page,
+    skip: skip,
     limit: limit,
   });
   res.status(200).json(json);
