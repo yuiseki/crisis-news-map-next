@@ -26,17 +26,6 @@ export const fetchFeedArticles = async (feedUrl) => {
       const html = await res.text();
       const ogp = await parseOGP(url, html);
       const news: INews = await convertOGP(ogp);
-      if (
-        news &&
-        news.category !== 'crisis' &&
-        news.category !== 'virus' &&
-        news.category !== 'poverty' &&
-        news.category !== 'children' &&
-        news.category !== 'drug' &&
-        news.category !== 'nikkei'
-      ) {
-        continue;
-      }
       // eslint-disable-next-line no-console
       console.log(news);
       const query = {

@@ -9,8 +9,8 @@ const crawl = async () => {
       category.id !== 'poverty' &&
       category.id !== 'refugee' &&
       category.id !== 'virus' &&
-      category.id !== 'children' &&
-      category.id !== 'drug' &&
+      category.id !== 'child_abuse' &&
+      category.id !== 'drug_abuse' &&
       category.id !== 'nikkei'
     ) {
       continue;
