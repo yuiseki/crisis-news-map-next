@@ -42,7 +42,9 @@ export const NewsView: React.VFC<{ news: INews }> = ({
         </div>
         <div css={tw`text-xl my-1`}>
           カテゴリ（推定）:{' '}
-          <Link href={categoryPath}>{newsCategories[news.category]}</Link>
+          {newsCategories[news.category] && (
+            <Link href={categoryPath}>{newsCategories[news.category]}</Link>
+          )}
         </div>
         <div>
           <span css={tw`break-all text-xl`}>{news.ogDesc}</span>
