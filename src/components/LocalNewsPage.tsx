@@ -46,7 +46,7 @@ export const LocalNewsPage: React.VFC = () => {
     const params = new URLSearchParams();
     params.append('hasLocation', 'true');
     params.append('limit', '100');
-    params.append('page', '0');
+    params.append('page', '1');
     let title = '';
     if (country) {
       params.append('country', country as string);

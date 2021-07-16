@@ -50,7 +50,7 @@ const NewsListView: React.VFC = () => {
     const endpoint = '/api/news?';
     const params = new URLSearchParams();
     params.append('limit', '100');
-    params.append('page', '0');
+    params.append('page', '1');
     if (category !== 'all') {
       // @ts-ignore
       params.append('category', category);
