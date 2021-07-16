@@ -18,7 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const pageStr = req.query.page ? req.query.page : 1;
   // @ts-ignore
   const page = parseInt(pageStr);
-  const skip = limit * page;
+  const skip = limit * (page - 1);
   const condition = {};
   if (category) {
     Object.assign(condition, {
@@ -27,8 +27,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   if (hasLocation === 'true') {
     Object.assign(condition, {
-      longitude: { $ne: null },
       latitude: { $ne: null },
+      longitude: { $ne: null },
     });
   }
   if (country) {

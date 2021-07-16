@@ -12,7 +12,7 @@ interface AbstractNewsProps {
 }
 
 const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
-  const url = `/api/news?hasLocation=true&country=日本&category=${category}`;
+  const url = `/api/news?limit=500&hasLocation=true&country=日本&category=${category}`;
   const { data } = useSWR(url);
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
@@ -86,7 +86,7 @@ export const NewsChild = () => {
     <AbstractNews
       id='news-child'
       title='児童虐待ニュース'
-      category='children'
+      category='child_abuse'
       icon='/images/news_icon.png'
     />
   );
