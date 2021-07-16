@@ -141,7 +141,11 @@ const NewsListView: React.VFC = () => {
                   name='category'
                   checked={cat === category}
                   onChange={(e) => {
-                    const path = getNewsPath(e.target.value, onlyJapan);
+                    const path = getNewsPath(
+                      e.target.value,
+                      onlyJapan,
+                      onlyConfirmed
+                    );
                     router.push(path);
                   }}
                 />
