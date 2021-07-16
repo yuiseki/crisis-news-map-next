@@ -35,6 +35,14 @@ export const LocalNewsPage: React.VFC = () => {
   }, [category]);
 
   useEffect(() => {
+    categories.map((cat) => {
+      if (cat.id === selectedCategory) {
+        setWords(cat.words);
+      }
+    });
+  }, [selectedCategory]);
+
+  useEffect(() => {
     const params = new URLSearchParams();
     params.append('hasLocation', 'true');
     params.append('limit', '100');
@@ -64,14 +72,6 @@ export const LocalNewsPage: React.VFC = () => {
     setCenter(getPlaceCenter(country, pref, city));
     setUrl('/api/news?' + params.toString());
   }, [country, pref, city, selectedCategory]);
-
-  useEffect(() => {
-    categories.map((cat) => {
-      if (cat.id === selectedCategory) {
-        setWords(cat.words);
-      }
-    });
-  }, [selectedCategory]);
 
   const { data } = useSWR<INews[]>(url);
 
