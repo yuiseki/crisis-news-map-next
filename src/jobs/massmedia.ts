@@ -7,12 +7,19 @@ const crawl = async () => {
   for (const massMedia of massMediaList) {
     // eslint-disable-next-line no-console
     console.log(massMedia.name);
+    const source = {
+      domain: massMedia.domain,
+      sourceType: massMedia.classification,
+      sourceName: massMedia.name,
+      sourceConfirmed: true,
+    };
     if (massMedia.feed !== null) {
-      await fetchFeedArticles(massMedia.feed);
+      await fetchFeedArticles(massMedia.feed, source);
     }
     if (massMedia.domain !== null) {
       await fetchFeedArticles(
-        `https://b.hatena.ne.jp/site/${massMedia.domain}/?sort=eid&mode=rss`
+        `https://b.hatena.ne.jp/site/${massMedia.domain}/?sort=eid&mode=rss`,
+        source
       );
     }
   }

@@ -2,11 +2,17 @@ import mongoose from 'mongoose';
 
 export interface INews {
   url: string;
+  domain: string;
   title: string;
   ogTitle: string;
   ogDesc: string;
   ogImage: string;
   ogUrl: string;
+  // source
+  sourceType: string;
+  sourceName: string;
+  sourceConfirmed: boolean;
+  // classify
   category: string;
   tags: string[];
   // time
@@ -36,6 +42,11 @@ const schema = new mongoose.Schema(
     ogDesc: String,
     ogImage: String,
     ogUrl: String,
+    // source
+    sourceType: String,
+    sourceName: String,
+    sourceConfirmed: Boolean,
+    // classify
     category: String,
     tags: [{ type: String }],
     // place

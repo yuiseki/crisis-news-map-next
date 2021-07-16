@@ -6,9 +6,10 @@ const crawl = async () => {
   await dbConnect();
   for (const category of categories) {
     if (
+      category.id !== 'crisis' &&
+      category.id !== 'virus' &&
       category.id !== 'poverty' &&
       category.id !== 'refugee' &&
-      category.id !== 'virus' &&
       category.id !== 'child_abuse' &&
       category.id !== 'drug_abuse' &&
       category.id !== 'nikkei'

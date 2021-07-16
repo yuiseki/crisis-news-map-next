@@ -13,28 +13,43 @@ const StaticMap = dynamic(() => import('../../components/leaflet/StaticMap'), {
   ssr: false,
 });
 
-export const getNewsPath = (category, checked) => {
-  let locationPath = '/news/' + category;
+export const getNewsPath = (category, checked, confirmed) => {
+  const locationPath = '/news/' + category + '?';
+  const params = new URLSearchParams();
   if (checked) {
-    locationPath += '?japanOnly=true';
+    params.append('japan', 'true');
   }
-  return locationPath;
+  if (!confirmed) {
+    params.append('confirmed', 'false');
+  }
+  return locationPath + params.toString();
 };
 
 const NewsListView: React.VFC = () => {
   const router = useRouter();
-  const { category, japanOnly } = router.query;
+  const { category, japan, confirmed } = router.query;
   const [words, setWords] = useState(['']);
   const [url, setUrl] = useState<string | null>(null);
   const [title, setTitle] = useState('');
-  const [checked, setChecked] = useState(false);
+  const [onlyJapan, setOnlyJapan] = useState(false);
+  const [onlyConfirmed, setOnlyConfirmed] = useState(true);
   const [country, setCountry] = useState('日本');
 
   useEffect(() => {
-    if (japanOnly === 'true') {
-      setChecked(true);
+    if (japan === 'true') {
+      setOnlyJapan(true);
+    } else {
+      setOnlyJapan(false);
     }
-  }, [japanOnly]);
+  }, [japan]);
+
+  useEffect(() => {
+    if (confirmed === 'false') {
+      setOnlyConfirmed(false);
+    } else {
+      setOnlyConfirmed(true);
+    }
+  }, [confirmed]);
 
   useEffect(() => {
     // @ts-ignore
@@ -58,43 +73,67 @@ const NewsListView: React.VFC = () => {
     if (country) {
       params.append('country', country);
     }
+    if (onlyConfirmed) {
+      params.append('sourceConfirmed', 'true');
+    }
     setUrl(endpoint + params.toString());
-  }, [category, checked, country]);
+  }, [category, onlyJapan, country, onlyConfirmed]);
 
   useEffect(() => {
-    if (checked) {
+    if (onlyJapan) {
       setCountry('日本');
     } else {
       setCountry(null);
     }
-  }, [checked]);
+  }, [onlyJapan]);
 
   const { data } = useSWR<INews[]>(url);
   return (
     <div>
       <h1 css={tw`m-5 text-3xl font-bold`}>{title}</h1>
-      <div css={tw`text-xl inline ml-5`}>
-        <input
-          type='checkbox'
-          id='placeCountry'
-          value='japan'
-          name='japan'
-          checked={checked}
-          onChange={(e) => {
-            setChecked(e.target.checked);
-            const path = getNewsPath(category, e.target.checked);
-            router.push(path);
-          }}
-        />
-        <label htmlFor='placeCountry'>日本のみ</label>
+      <div css={tw`text-2xl inline m-5`}>
+        <span css={tw`mr-4`}>
+          <input
+            type='checkbox'
+            id='placeCountry'
+            value='日本'
+            name='日本'
+            checked={onlyJapan}
+            onChange={(e) => {
+              setOnlyJapan(e.target.checked);
+              const path = getNewsPath(
+                category,
+                e.target.checked,
+                onlyConfirmed
+              );
+              router.push(path);
+            }}
+          />
+          <label htmlFor='placeCountry'>日本のみ</label>
+        </span>
+        <span css={tw`mr-4`}>
+          <input
+            type='checkbox'
+            id='onlyConfirmed'
+            value='マスメディアのみ'
+            name='マスメディアのみ'
+            checked={onlyConfirmed}
+            onChange={(e) => {
+              setOnlyConfirmed(e.target.checked);
+              const path = getNewsPath(category, onlyJapan, e.target.checked);
+              router.push(path);
+            }}
+          />
+          <label htmlFor='onlyConfirmed'>マスメディアのみ</label>
+        </span>
       </div>
-      <div css={tw`text-xl ml-4`}>
+      <div css={tw`text-xl m-5`}>
         <h2>カテゴリ：</h2>
         {Object.keys(newsCategories).map((cat) => {
           return (
             <>
               {cat === 'poverty' && <br />}
-              <div key={cat} css={tw`inline mr-4`}>
+              <div key={cat} css={tw`inline mr-2`}>
                 <input
                   type='radio'
                   id={cat}
@@ -102,7 +141,7 @@ const NewsListView: React.VFC = () => {
                   name='category'
                   checked={cat === category}
                   onChange={(e) => {
-                    const path = getNewsPath(e.target.value, checked);
+                    const path = getNewsPath(e.target.value, onlyJapan);
                     router.push(path);
                   }}
                 />

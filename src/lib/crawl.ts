@@ -3,12 +3,20 @@ import Parser from 'rss-parser';
 import * as cheerio from 'cheerio';
 import sleep from '~/lib/sleep';
 import { INews, News } from '~/models/News';
+import massMediaList from '../data/yuiseki.net/mass_media_japan.json';
 import { detectCategories } from 'detect-categories-ja';
 import { detectLocation } from 'detect-location-jp';
 
 const rssParser = new Parser();
 
-export const fetchFeedArticles = async (feedUrl) => {
+interface Source {
+  domain: string;
+  sourceType: string;
+  sourceName: string;
+  sourceConfirmed: boolean;
+}
+
+export const fetchFeedArticles = async (feedUrl, source: Source = null) => {
   // eslint-disable-next-line no-console
   console.log(feedUrl);
   let feed = { items: [] };
@@ -26,6 +34,12 @@ export const fetchFeedArticles = async (feedUrl) => {
       const html = await res.text();
       const ogp = await parseOGP(url, html);
       const news: INews = await convertOGP(ogp);
+      if (source) {
+        Object.assign(news, source);
+      } else {
+        const checkedSource: Source = checkSource(url);
+        Object.assign(news, checkedSource);
+      }
       // eslint-disable-next-line no-console
       console.log(news);
       const query = {
@@ -40,6 +54,26 @@ export const fetchFeedArticles = async (feedUrl) => {
       await sleep(500);
     }
   }
+};
+
+const checkSource = (urlStr) => {
+  const source = {
+    domain: null,
+    sourceType: null,
+    sourceName: null,
+    sourceConfirmed: false,
+  };
+  const url = new URL(urlStr);
+  const hostname = url.hostname;
+  source.domain = hostname;
+  for (const massMedia of massMediaList) {
+    if (massMedia.domain === hostname) {
+      source.sourceType = massMedia.classification;
+      source.sourceName = massMedia.name;
+      source.sourceConfirmed = true;
+    }
+  }
+  return source;
 };
 
 export const parseOGP = async (url: string, html: string) => {

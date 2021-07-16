@@ -30,7 +30,7 @@
     "classification": "新聞/全国紙",
     "name": "毎日新聞",
     "domain": "mainichi.jp",
-    "query": "mainichi.com",
+    "query": "mainichi.jp",
     "url": "https://mainichi.jp",
     "feed": "https://mainichi.jp/rss/etc/mainichi-flash.rss",
     "twitter": "mainichi"
