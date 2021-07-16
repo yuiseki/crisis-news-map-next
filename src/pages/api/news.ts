@@ -4,14 +4,7 @@ import { News } from '~/models/News';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
-  const {
-    category,
-    sourceConfirmed,
-    hasLocation,
-    country,
-    pref,
-    city,
-  } = req.query;
+  const { category, confirmed, hasLocation, country, pref, city } = req.query;
   const limitStr = req.query.limit ? req.query.limit : 100;
   // @ts-ignore
   let limit = parseInt(limitStr);
@@ -28,7 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       $or: [{ category: category }, { tags: category }],
     });
   }
-  if (sourceConfirmed === 'true') {
+  if (confirmed === 'true') {
     Object.assign(condition, { sourceConfirmed: true });
   }
   if (hasLocation === 'true') {

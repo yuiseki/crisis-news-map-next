@@ -74,7 +74,7 @@ const NewsListView: React.VFC = () => {
       params.append('country', country);
     }
     if (onlyConfirmed) {
-      params.append('sourceConfirmed', 'true');
+      params.append('confirmed', 'true');
     }
     setUrl(endpoint + params.toString());
   }, [category, onlyJapan, country, onlyConfirmed]);
