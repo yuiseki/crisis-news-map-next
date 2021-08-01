@@ -4,7 +4,15 @@ import { News } from '~/models/News';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
-  const { category, confirmed, hasLocation, country, pref, city } = req.query;
+  const {
+    category,
+    confirmed,
+    hasLocation,
+    hasDetailLocation,
+    country,
+    pref,
+    city,
+  } = req.query;
   const limitStr = req.query.limit ? req.query.limit : 100;
   // @ts-ignore
   let limit = parseInt(limitStr);
@@ -28,6 +36,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     Object.assign(condition, {
       latitude: { $ne: null },
       longitude: { $ne: null },
+    });
+  }
+  if (hasDetailLocation === 'true') {
+    Object.assign(condition, {
+      placeCountry: { $ne: null },
+      placePref: { $ne: null },
     });
   }
   if (country) {

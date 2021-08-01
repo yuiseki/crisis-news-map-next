@@ -8,11 +8,30 @@ interface AbstractNewsProps {
   id: string;
   title: string;
   category: string;
+  onlyJapan: boolean;
+  onlyDetailLocation: boolean;
   icon: string;
 }
 
-const AbstractNews = ({ id, title, category, icon }: AbstractNewsProps) => {
-  const url = `/api/news?limit=500&hasLocation=true&country=日本&category=${category}`;
+const AbstractNews = ({
+  id,
+  title,
+  category,
+  onlyJapan,
+  onlyDetailLocation,
+  icon,
+}: AbstractNewsProps) => {
+  const params = new URLSearchParams();
+  params.append('limit', '500');
+  params.append('hasLocation', 'true');
+  params.append('category', category);
+  if (onlyJapan) {
+    params.append('country', '日本');
+  }
+  if (onlyDetailLocation) {
+    params.append('hasDetailLocation', 'true');
+  }
+  const url = `/api/news?${params.toString()}`;
   const { data } = useSWR(url);
   const [markers, setMarkers] = useState([]);
   useEffect(() => {
@@ -65,6 +84,8 @@ export const NewsCrisis = () => {
       id='news-crisis'
       title='災害ニュース'
       category='crisis'
+      onlyJapan={true}
+      onlyDetailLocation={true}
       icon='/images/news_icon.png'
     />
   );
@@ -76,6 +97,8 @@ export const NewsVirus = () => {
       id='news-virus'
       title='感染症ニュース'
       category='virus'
+      onlyJapan={true}
+      onlyDetailLocation={true}
       icon='/images/news_icon.png'
     />
   );
@@ -87,6 +110,8 @@ export const NewsChild = () => {
       id='news-child'
       title='児童虐待ニュース'
       category='child_abuse'
+      onlyJapan={false}
+      onlyDetailLocation={false}
       icon='/images/news_icon.png'
     />
   );
@@ -98,6 +123,8 @@ export const NewsPoverty = () => {
       id='news-poverty'
       title='貧困ニュース'
       category='poverty'
+      onlyJapan={false}
+      onlyDetailLocation={false}
       icon='/images/news_icon.png'
     />
   );

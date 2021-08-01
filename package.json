@@ -15,7 +15,7 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test",
+    "test-all": "npm run lint && npm run type-check && npm run test",
     "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images",
     "job:river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
     "job:dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
@@ -27,13 +27,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
+      "pre-push": "npm run type-check"
     }
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn lint",
-      "yarn format"
+      "npm run lint",
+      "npm run format"
     ]
   },
   "babelMacros": {
