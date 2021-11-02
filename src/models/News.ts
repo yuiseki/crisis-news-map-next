@@ -12,6 +12,8 @@ export interface INews {
   sourceType: string;
   sourceName: string;
   sourceConfirmed: boolean;
+  factConfirmed: boolean;
+  fakeConfirmed: boolean;
   // classify
   category: string;
   tags: string[];
@@ -46,6 +48,14 @@ const schema = new mongoose.Schema(
     sourceType: String,
     sourceName: String,
     sourceConfirmed: Boolean,
+    factConfirmed: {
+      type: Boolean,
+      default: false,
+    },
+    fakeConfirmed: {
+      type: Boolean,
+      default: false,
+    },
     // classify
     category: String,
     tags: [{ type: String }],
