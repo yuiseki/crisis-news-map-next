@@ -22,7 +22,8 @@
     "job:massmedia": "ts-node --files -r tsconfig-paths/register src/jobs/massmedia.ts",
     "job:hatebu": "ts-node --files -r tsconfig-paths/register src/jobs/hatebu.ts",
     "job:twitter": "ts-node --files -r tsconfig-paths/register src/jobs/twitter.ts",
-    "job:weather": "ts-node --files -r tsconfig-paths/register src/jobs/weather.ts"
+    "job:weather": "ts-node --files -r tsconfig-paths/register src/jobs/weather.ts",
+    "job:elasticsearch": "ts-node --files -r tsconfig-paths/register tmp/elasticsearch.ts"
   },
   "husky": {
     "hooks": {
