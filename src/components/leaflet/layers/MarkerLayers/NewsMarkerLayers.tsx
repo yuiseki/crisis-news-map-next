@@ -24,6 +24,7 @@ const AbstractNews = ({
   const params = new URLSearchParams();
   params.append('limit', '500');
   params.append('hasLocation', 'true');
+  params.append('confirmed', 'true');
   params.append('category', category);
   if (onlyJapan) {
     params.append('country', '日本');
