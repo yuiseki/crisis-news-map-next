@@ -1,0 +1,31 @@
+on:
+  schedule:
+    - cron:  '30 * * * *'
+
+name: npm run job
+jobs:
+  every-job:
+    runs-on: ubuntu-latest
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      MONGODB_DB: ${{ secrets.MONGODB_DB }}
+      MONGODB_USER: ${{ secrets.MONGODB_USER }}
+      MONGODB_PASS: ${{ secrets.MONGODB_PASS }}
+    strategy:
+      matrix:
+        job-name:
+          - river
+          - dispatch
+          - massmedia
+          - hatebu
+    steps:
+      - uses: actions/checkout@master
+      - name: Extract node version
+        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run job:${{ matrix['job-name'] }}
