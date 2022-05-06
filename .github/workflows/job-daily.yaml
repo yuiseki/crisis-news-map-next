@@ -1,11 +1,11 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '30 * * * *'
+    - cron:  '0 0 * * *'
 
-name: npm run job
+name: daily jobs
 jobs:
-  every-job:
+  daily-jobs:
     runs-on: ubuntu-latest
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
