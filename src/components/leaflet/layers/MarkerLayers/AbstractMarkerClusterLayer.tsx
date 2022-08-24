@@ -32,7 +32,7 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
       checked={
         overlays
           ? overlays.indexOf(title) > -1
-          : title === '災害ニュース'
+          : title.includes('ニュース')
           ? true
           : false
       }
