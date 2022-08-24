@@ -17,7 +17,6 @@ import { RiverLevelLayer } from './layers/MarkerLayers/RiverLevelMarkerLayer';
 import { NewsCrisis } from './layers/MarkerLayers/NewsMarkerLayers';
 import { NowcastOverlayLayer } from './layers/OverlayLayers/NowcastOverlayLayer';
 import { GSIReliefOverlayLayer } from './layers/OverlayLayers/GSIReliefOverlayLayer';
-import { PopulationOverlayLayer } from './layers/OverlayLayers/PopulationOverlayLayer';
 import { GSIHazardMapOverlayLayers } from './layers/OverlayLayers/GSIHazardMapOverlayLayers';
 import { JMARiskOverlayLayers } from './layers/OverlayLayers/JMARiskOverlayLayers';
 
@@ -60,7 +59,6 @@ const CrisisMap = () => {
           <Pane name='static-overlay' style={{ zIndex: 500 }}>
             <GSIReliefOverlayLayer />
             <GSIHazardMapOverlayLayers />
-            <PopulationOverlayLayer />
             <JapanStationGeoJSONLayer />
           </Pane>
           <Pane name='realtime-base-overlay' style={{ zIndex: 600 }}>

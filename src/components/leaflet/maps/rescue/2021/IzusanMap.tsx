@@ -12,7 +12,6 @@ import { MapEventHandler } from '../../../handler/MapEventHandler';
 import { BaseLayers } from '~/components/leaflet/layers/BaseLayers';
 import { JapanPrefGeoJSONLayer } from '../../../layers/GeoJSONLayers/JapanPrefGeoJSONLayer';
 import { JapanCityGeoJSONLayer } from '../../../layers/GeoJSONLayers/JapanCityGeoJSONLayer';
-import { PopulationOverlayLayer } from '../../../layers/OverlayLayers/PopulationOverlayLayer';
 import { GSIHazardMapOverlayLayers } from '../../../layers/OverlayLayers/GSIHazardMapOverlayLayers';
 import { GSIReliefOverlayLayer } from '../../../layers/OverlayLayers/GSIReliefOverlayLayer';
 import { NowcastOverlayLayer } from '~/components/leaflet/layers/OverlayLayers/NowcastOverlayLayer';
@@ -103,7 +102,6 @@ const Map = () => {
             </Pane>
             <Pane name='stat-overlay' style={{ zIndex: 500 }}>
               <GSIReliefOverlayLayer />
-              <PopulationOverlayLayer />
               <GSIHazardMapOverlayLayers />
             </Pane>
             <Pane name='rain-overlay' style={{ zIndex: 600 }}>

@@ -31,7 +31,7 @@ const AbstractPieChartLayer: React.VFC<AbstractPieChartLayerProps> = ({
     <LayersControl.Overlay
       key={id}
       name={title}
-      checked={overlays ? overlays.indexOf(title) > -1 : true}
+      checked={overlays ? overlays.indexOf(title) > -1 : false}
     >
       <LayerGroup attribution={attribution}>
         {markers.map((marker) => {

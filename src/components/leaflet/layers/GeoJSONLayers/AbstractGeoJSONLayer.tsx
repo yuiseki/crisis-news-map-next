@@ -30,7 +30,7 @@ const AbstractGeoJSONLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
     <LayersControl.Overlay
       key={id}
       name={name}
-      checked={overlays ? overlays.indexOf(name) > -1 : true}
+      checked={overlays ? overlays.indexOf(name) > -1 : false}
     >
       {data && (
         <GeoJSON

@@ -9,7 +9,6 @@ import { MapEventHandler } from '../../handler/MapEventHandler';
 import { AdditionalControls } from '../../controls/AdditionalControls';
 import { LinkControl } from '../../controls/LinkControl';
 import { NewsVirus } from '../../layers/MarkerLayers/NewsMarkerLayers';
-import { PopulationOverlayLayer } from '../../layers/OverlayLayers/PopulationOverlayLayer';
 import { Covid19VaccinePieChartLayer } from '../../layers/PieChartLayers/Covid19VaccinePieChartLayer';
 import { CommonMapStyle } from '../../CommonMapStyle';
 import { BaseLayers } from '../../layers/BaseLayers';
@@ -52,9 +51,6 @@ const CrisisMap = () => {
           <AdditionalControls />
           <LayersControl position='topright'>
             <BaseLayers />
-            <Pane name='stat-overlay' style={{ zIndex: 500 }}>
-              <PopulationOverlayLayer />
-            </Pane>
             <Pane name='pie-chart-overlay' style={{ zIndex: 700 }}>
               <Covid19VaccinePieChartLayer />
             </Pane>

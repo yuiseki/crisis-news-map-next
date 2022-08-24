@@ -27,7 +27,13 @@ const AbstractOverlayLayer: React.VFC<AbstractOverlayLayerProps> = ({
     <LayersControl.Overlay
       key={id}
       name={name}
-      checked={overlays ? overlays.indexOf(name) > -1 : true}
+      checked={
+        overlays
+          ? overlays.indexOf(name) > -1
+          : name.includes('キキクル') || name.includes('国土地理院')
+          ? true
+          : false
+      }
     >
       {url && (
         <TileLayer

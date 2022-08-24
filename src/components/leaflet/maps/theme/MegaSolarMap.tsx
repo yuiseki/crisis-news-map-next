@@ -11,7 +11,6 @@ import { CommonMapStyle } from '../../CommonMapStyle';
 import { LinkControl } from '../../controls/LinkControl';
 import Head from 'next/head';
 import { MegaSolarHeatMapLayer } from '../../layers/HeatmapLayers/MegaSolarHeatMapLayer';
-import { PopulationOverlayLayer } from '../../layers/OverlayLayers/PopulationOverlayLayer';
 import { GSIHazardMapOverlayLayers } from '../../layers/OverlayLayers/GSIHazardMapOverlayLayers';
 import { GSIReliefOverlayLayer } from '../../layers/OverlayLayers/GSIReliefOverlayLayer';
 import { BaseLayers } from '../../layers/BaseLayers';
@@ -59,7 +58,6 @@ const MegaSolarMap = () => {
             </Pane>
             <Pane name='stat-overlay' style={{ zIndex: 60 }}>
               <GSIReliefOverlayLayer />
-              <PopulationOverlayLayer />
               <GSIHazardMapOverlayLayers />
             </Pane>
             <Pane name='heatmap-overlay' style={{ zIndex: 100 }}>

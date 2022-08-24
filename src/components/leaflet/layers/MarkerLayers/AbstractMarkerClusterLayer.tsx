@@ -29,7 +29,13 @@ const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
     <LayersControl.Overlay
       key={id}
       name={title}
-      checked={overlays ? overlays.indexOf(title) > -1 : true}
+      checked={
+        overlays
+          ? overlays.indexOf(title) > -1
+          : title === '災害ニュース'
+          ? true
+          : false
+      }
     >
       <LayerGroup>
         <MarkerClusterGroup clusterPane='marker-cluster-overlay'>
