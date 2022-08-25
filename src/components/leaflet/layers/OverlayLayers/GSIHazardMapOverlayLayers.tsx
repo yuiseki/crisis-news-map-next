@@ -11,7 +11,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 洪水浸水想定区域'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={17}
         maxZoom={22}
       />
@@ -20,7 +20,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 津波浸水想定区域'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={17}
         maxZoom={22}
       />
@@ -29,7 +29,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 土石流警戒区域'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={17}
         maxZoom={22}
       />
@@ -38,7 +38,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 土石流警戒渓流'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_dosekiryukikenkeiryu/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={17}
         maxZoom={22}
       />
@@ -47,7 +47,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 地すべり警戒区域'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={17}
         maxZoom={22}
       />
@@ -56,7 +56,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 急傾斜崩壊警戒区域'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={17}
         maxZoom={22}
       />
@@ -65,7 +65,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 大規模盛土造成地'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/daikiboumoritsuzouseichi/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={16}
         maxZoom={22}
       />
@@ -83,7 +83,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 事前通行規制区間'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/10_jizentuukoukiseikukan/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={14}
         maxZoom={22}
       />
@@ -92,7 +92,7 @@ export const GSIHazardMapOverlayLayers = () => {
         name='国土地理院 予防的通行規制区間'
         attribution={attribution}
         url='https://disaportaldata.gsi.go.jp/raster/10_yoboutekituukoukiseikukan/{z}/{x}/{y}.png'
-        opacity={1}
+        opacity={0.6}
         maxNativeZoom={15}
         maxZoom={22}
       />

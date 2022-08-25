@@ -7,10 +7,10 @@ import { OSMBaseLayer } from './OSMBaseLayer';
 export const BaseLayers = () => {
   return (
     <>
+      <OSMBaseLayer />
       <JMABaseLayer />
       <GSIBaseLayer />
       <GSIPhotoLayer />
-      <OSMBaseLayer />
     </>
   );
 };
