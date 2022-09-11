@@ -4,8 +4,8 @@
   "license": "MIT",
   "version": "1.0.0",
   "engines": {
-    "node": "14.x",
-    "npm": "7.x"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "scripts": {
     "dev": "next dev",
