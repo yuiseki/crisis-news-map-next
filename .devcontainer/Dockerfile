@@ -8,14 +8,13 @@ RUN apt update && apt install -y \
     jq
 
 
-RUN curl -Ls https://deb.nodesource.com/setup_16.x | bash
+RUN curl -Ls https://deb.nodesource.com/setup_18.x | bash
 RUN apt update && apt install -y nodejs
+RUN npm i -g npm
 
 WORKDIR /app
 COPY . /app
 
 RUN useradd -m user
-
-RUN npm ci
 
 CMD [ "sleep", "infinity" ]

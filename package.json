@@ -1,10 +1,10 @@
 {
-  "name": "next-benri-template",
+  "name": "crisis-news-map-next",
   "author": "@yuiseki_",
   "license": "MIT",
   "version": "1.0.0",
   "engines": {
-    "node": "16.x",
+    "node": "18.x",
     "npm": "8.x"
   },
   "scripts": {
@@ -19,10 +19,10 @@
     "leaflet": "mkdir -p ./public/images && cp node_modules/leaflet/dist/images/* ./public/images",
     "job:river": "ts-node --files -r tsconfig-paths/register src/jobs/river.ts",
     "job:dispatch": "ts-node --files -r tsconfig-paths/register src/jobs/dispatch.ts",
+    "job:weather": "ts-node --files -r tsconfig-paths/register src/jobs/weather.ts",
     "job:massmedia": "ts-node --files -r tsconfig-paths/register src/jobs/massmedia.ts",
     "job:hatebu": "ts-node --files -r tsconfig-paths/register src/jobs/hatebu.ts",
     "job:twitter": "ts-node --files -r tsconfig-paths/register src/jobs/twitter.ts",
-    "job:weather": "ts-node --files -r tsconfig-paths/register src/jobs/weather.ts",
     "job:elasticsearch": "ts-node --files -r tsconfig-paths/register tmp/elasticsearch.ts"
   },
   "husky": {
