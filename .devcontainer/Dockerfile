@@ -1,12 +1,8 @@
 FROM ubuntu:22.04
 
-RUN apt update && apt install -y \
-    git \
-    curl \
-    vim \
-    htop \
-    jq
-
+RUN apt update
+RUN apt install -y git curl
+RUN apt install -y vim htop make jq
 
 RUN curl -Ls https://deb.nodesource.com/setup_18.x | bash
 RUN apt update && apt install -y nodejs
