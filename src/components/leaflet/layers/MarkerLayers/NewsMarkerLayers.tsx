@@ -22,7 +22,7 @@ const AbstractNews = ({
   icon,
 }: AbstractNewsProps) => {
   const params = new URLSearchParams();
-  params.append('limit', '500');
+  params.append('limit', '250');
   params.append('hasLocation', 'true');
   params.append('confirmed', 'true');
   params.append('category', category);
