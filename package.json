@@ -98,6 +98,6 @@
     "postcss": "^8.2.13",
     "prettier": "^2.0.2",
     "tailwindcss": "^2.1.2",
-    "twin.macro": "^2.4.1"
+    "twin.macro": "^3.0.0"
   }
 }
