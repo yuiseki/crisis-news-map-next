@@ -7,7 +7,7 @@ const IzusanMap = dynamic(
   {
     ssr: false,
   }
-);
+) as React.FC;
 
 export const PovertyMapView: React.VFC = () => {
   return <IzusanMap />;

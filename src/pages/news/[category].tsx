@@ -11,7 +11,7 @@ import { categories } from 'detect-categories-ja';
 
 const StaticMap = dynamic(() => import('../../components/leaflet/StaticMap'), {
   ssr: false,
-});
+}) as React.FC;
 
 export const getNewsPath = (category, checked, confirmed) => {
   const locationPath = '/news/' + category + '?';

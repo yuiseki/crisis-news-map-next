@@ -7,7 +7,7 @@ const ChildMap = dynamic(
   {
     ssr: false,
   }
-);
+) as React.FC;
 
 export const ChildMapView: React.VFC = () => {
   return <ChildMap />;

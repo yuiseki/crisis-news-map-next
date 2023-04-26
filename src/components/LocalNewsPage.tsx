@@ -15,7 +15,7 @@ import { categories } from 'detect-categories-ja';
 
 const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
   ssr: false,
-});
+}) as React.FC;
 
 export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
