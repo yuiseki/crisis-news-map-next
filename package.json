@@ -47,7 +47,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.3.0",
-    "@react-leaflet/core": "^1.1.0",
+    "@react-leaflet/core": "^2.0.0",
     "cheerio": "^1.0.0-rc.10",
     "csv-parse": "^4.16.0",
     "detect-categories-ja": "^0.0.8",
