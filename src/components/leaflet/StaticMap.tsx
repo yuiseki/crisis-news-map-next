@@ -32,6 +32,7 @@ const StaticMap: React.FC<{ center: LatLngTuple; zoom: number }> = ({
       <MapContainer
         center={center}
         zoom={zoom}
+        maxZoom={22}
         scrollWheelZoom={false}
         style={{ height: '100%', width: '100%' }}
       >
