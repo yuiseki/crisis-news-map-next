@@ -9,9 +9,12 @@ import { newsCategories } from '~/lib/constants/newsCategories';
 import { INews } from '~/models/News';
 import { categories } from 'detect-categories-ja';
 
-const StaticMap = dynamic(() => import('../../components/leaflet/StaticMap'), {
-  ssr: false,
-}) as React.FC;
+const StaticMap: React.FC<{ center: LatLngTuple; zoom: number }> = dynamic(
+  () => import('../../components/leaflet/StaticMap'),
+  {
+    ssr: false,
+  }
+) as React.FC<{ center: LatLngTuple; zoom: number }>;
 
 export const getNewsPath = (category, checked, confirmed) => {
   const locationPath = '/news/' + category + '?';

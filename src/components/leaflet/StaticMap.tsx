@@ -12,7 +12,7 @@ const ChangeView = ({ center, zoom }) => {
   return null;
 };
 
-const StaticMap: React.VFC<{ center: LatLngTuple; zoom: number }> = ({
+const StaticMap: React.FC<{ center: LatLngTuple; zoom: number }> = ({
   center,
   zoom,
 }: {
