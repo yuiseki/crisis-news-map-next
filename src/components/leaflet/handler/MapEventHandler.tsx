@@ -7,14 +7,23 @@ export const MapEventHandler = () => {
     const zoom = map.getZoom();
     // eslint-disable-next-line no-console
     console.log(center, zoom);
-    localStorage.setItem('leaflet-center-lat', center.lat);
-    localStorage.setItem('leaflet-center-lng', center.lng);
-    localStorage.setItem('leaflet-zoom', zoom);
+    try {
+      localStorage.setItem('leaflet-center-lat', center.lat);
+      localStorage.setItem('leaflet-center-lng', center.lng);
+      localStorage.setItem('leaflet-zoom', zoom);
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
   const saveOverlayState = useCallback((event) => {
-    let selectedOverlays = JSON.parse(
-      localStorage.getItem('leaflet-selected-overlays')
-    );
+    let selectedOverlays = null;
+    try {
+      selectedOverlays = JSON.parse(
+        localStorage.getItem('leaflet-selected-overlays')
+      );
+    } catch (error) {
+      console.error(error);
+    }
     if (selectedOverlays === null) {
       selectedOverlays = [];
     }

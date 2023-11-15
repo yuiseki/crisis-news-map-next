@@ -12,7 +12,7 @@ const ChangeView = ({ center, zoom }) => {
   return null;
 };
 
-const StaticMap: React.VFC<{ center: LatLngTuple; zoom: number }> = ({
+const StaticMap: React.FC<{ center: LatLngTuple; zoom: number }> = ({
   center,
   zoom,
 }: {
@@ -32,6 +32,7 @@ const StaticMap: React.VFC<{ center: LatLngTuple; zoom: number }> = ({
       <MapContainer
         center={center}
         zoom={zoom}
+        maxZoom={22}
         scrollWheelZoom={false}
         style={{ height: '100%', width: '100%' }}
       >

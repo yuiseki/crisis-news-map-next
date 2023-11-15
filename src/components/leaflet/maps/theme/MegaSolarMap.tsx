@@ -15,7 +15,7 @@ import { GSIHazardMapOverlayLayers } from '../../layers/OverlayLayers/GSIHazardM
 import { GSIReliefOverlayLayer } from '../../layers/OverlayLayers/GSIReliefOverlayLayer';
 import { BaseLayers } from '../../layers/BaseLayers';
 
-const MegaSolarMap = () => {
+export const MegaSolarMap: React.FC = () => {
   useEffect(() => {
     delete (Leaflet.Icon.Default.prototype as any)._getIconUrl;
     Leaflet.Icon.Default.mergeOptions({
@@ -46,6 +46,7 @@ const MegaSolarMap = () => {
         />
         <MapContainer
           scrollWheelZoom={true}
+          maxZoom={22}
           style={{ height: '100%', width: '100%' }}
         >
           <MapInitializer />
@@ -69,5 +70,3 @@ const MegaSolarMap = () => {
     </>
   );
 };
-
-export default MegaSolarMap;

@@ -39,6 +39,7 @@ const CrisisMap = () => {
         />
         <MapContainer
           scrollWheelZoom={true}
+          maxZoom={22}
           style={{ height: '100%', width: '100%' }}
         >
           <MapInitializer />

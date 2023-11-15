@@ -12,10 +12,14 @@ import { getPlacePath, LocalNewsTitleView } from './LocalNewsTitleView';
 import dynamic from 'next/dynamic';
 import { getPlaceCenter } from '~/lib/getPlaceCenter';
 import { categories } from 'detect-categories-ja';
+import { LatLngTuple } from 'leaflet';
 
-const StaticMap = dynamic(() => import('./leaflet/StaticMap'), {
-  ssr: false,
-});
+const StaticMap: React.FC<{ center: LatLngTuple; zoom: number }> = dynamic(
+  () => import('./leaflet/StaticMap'),
+  {
+    ssr: false,
+  }
+) as React.FC<{ center: LatLngTuple; zoom: number }>;
 
 export const LocalNewsPage: React.VFC = () => {
   const router = useRouter();
