@@ -1,5 +1,5 @@
 
-all: river dispatch weather massmedia hatebu
+all: river dispatch weather massmedia
 
 river:
 	npm run job:river
