@@ -4,5 +4,29 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "extensions.ignoreRecommendations": false
+  "extensions.ignoreRecommendations": false,
+  "cSpell.words": [
+    "Abema",
+    "afpbb",
+    "afpbbcom",
+    "asahi",
+    "basetime",
+    "bbcnewsjapan",
+    "bengo",
+    "buzzfeed",
+    "inund",
+    "jiji",
+    "jijicom",
+    "kiji",
+    "kyodo",
+    "mainichi",
+    "newsdigest",
+    "Nowcast",
+    "sakigake",
+    "sankei",
+    "shimbun",
+    "toonippo",
+    "validtime",
+    "yomiuri"
+  ]
 }
