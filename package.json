@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "20.x",
-    "npm": "8.x"
+    "npm": "11.x"
   },
   "scripts": {
     "dev": "next dev",
