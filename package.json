@@ -79,7 +79,7 @@
     "@types/leaflet.heat": "^0.2.0",
     "@types/node": "^20.0.0",
     "@types/react": "^17.0.1",
-    "@types/react-leaflet": "^2.8.1",
+    "@types/react-leaflet": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "autoprefixer": "^10.2.5",
