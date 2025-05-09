@@ -96,7 +96,7 @@
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^15.0.0",
     "postcss": "^8.2.13",
-    "prettier": "^2.0.2",
+    "prettier": "^3.0.0",
     "tailwindcss": "^2.1.2",
     "twin.macro": "^2.4.1"
   }
