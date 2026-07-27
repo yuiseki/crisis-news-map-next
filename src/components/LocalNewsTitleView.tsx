@@ -23,7 +23,7 @@ export const getPlacePath = (
   return locationPath;
 };
 
-export const LocalNewsTitleView: React.VFC<LocalNewsTitleProp> = ({
+export const LocalNewsTitleView: React.FC<LocalNewsTitleProp> = ({
   country,
   pref,
   city,

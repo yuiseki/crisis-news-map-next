@@ -2,7 +2,7 @@ interface PieChartIconProps {
   percentage: number;
 }
 
-export const PieChartIcon: React.VFC<PieChartIconProps> = ({
+export const PieChartIcon: React.FC<PieChartIconProps> = ({
   percentage,
 }: PieChartIconProps) => {
   return (

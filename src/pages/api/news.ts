@@ -1,9 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { dbConnect } from '~/lib/dbConnect';
-import { News } from '~/models/News';
+import { getDb } from '~/lib/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await dbConnect();
+  const db = await getDb();
   const {
     category,
     confirmed,
@@ -23,41 +22,50 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // @ts-ignore
   const page = parseInt(pageStr);
   const skip = limit * (page - 1);
-  const condition = {};
+
+  const clauses: string[] = [];
+  const params: unknown[] = [];
   if (category) {
-    Object.assign(condition, {
-      $or: [{ category: category }, { tags: category }],
-    });
+    clauses.push('(category = ? OR tags LIKE ?)');
+    params.push(category, `%"${category}"%`);
   }
   if (confirmed === 'true') {
-    Object.assign(condition, { sourceConfirmed: true });
+    clauses.push('sourceConfirmed = 1');
   }
   if (hasLocation === 'true') {
-    Object.assign(condition, {
-      latitude: { $ne: null },
-      longitude: { $ne: null },
-    });
+    clauses.push('latitude IS NOT NULL AND longitude IS NOT NULL');
   }
   if (hasDetailLocation === 'true') {
-    Object.assign(condition, {
-      placeCountry: { $ne: null },
-      placePref: { $ne: null },
-    });
+    clauses.push('placeCountry IS NOT NULL AND placePref IS NOT NULL');
   }
   if (country) {
-    Object.assign(condition, { placeCountry: country });
+    clauses.push('placeCountry = ?');
+    params.push(country);
   }
   if (pref) {
-    Object.assign(condition, { placePref: pref });
+    clauses.push('placePref = ?');
+    params.push(pref);
   }
   if (city) {
-    Object.assign(condition, { placeCity: city });
+    clauses.push('placeCity = ?');
+    params.push(city);
   }
-  const json = await News.find(condition, null, {
-    sort: { createdAt: -1 },
-    skip: skip,
-    limit: limit,
-  });
+
+  const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+  const sql = `SELECT * FROM news ${where} ORDER BY createdAt DESC LIMIT ? OFFSET ?`;
+  const { results } = await db
+    .prepare(sql)
+    .bind(...params, limit, skip)
+    .all();
+
+  const json = (results as any[]).map((row) => ({
+    ...row,
+    sourceConfirmed: !!row.sourceConfirmed,
+    factConfirmed: !!row.factConfirmed,
+    fakeConfirmed: !!row.fakeConfirmed,
+    tags: row.tags ? JSON.parse(row.tags as string) : [],
+  }));
+
   res.status(200).json(json);
 };
 

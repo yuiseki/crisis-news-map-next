@@ -6,7 +6,7 @@ const CrisisMap = dynamic(() => import('../components/leaflet/CrisisMap'), {
   ssr: false,
 }) as React.FC;
 
-export const Home: React.VFC = () => {
+export const Home: React.FC = () => {
   return <CrisisMap />;
 };
 

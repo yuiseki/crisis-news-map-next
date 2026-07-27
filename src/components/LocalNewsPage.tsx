@@ -21,7 +21,7 @@ const StaticMap: React.FC<{ center: LatLngTuple; zoom: number }> = dynamic(
   }
 ) as React.FC<{ center: LatLngTuple; zoom: number }>;
 
-export const LocalNewsPage: React.VFC = () => {
+export const LocalNewsPage: React.FC = () => {
   const router = useRouter();
   const { country, pref, city, category } = router.query;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');

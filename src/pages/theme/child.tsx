@@ -9,7 +9,7 @@ const ChildMap = dynamic(
   }
 ) as React.FC;
 
-export const ChildMapView: React.VFC = () => {
+export const ChildMapView: React.FC = () => {
   return <ChildMap />;
 };
 

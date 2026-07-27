@@ -1,9 +1,7 @@
-import { dbConnect } from '../lib/dbConnect';
 import { fetchFeedArticles } from '~/lib/crawl';
 import { categories } from 'detect-categories-ja';
 
 const crawl = async () => {
-  await dbConnect();
   for (const category of categories) {
     if (
       category.id !== 'crisis' &&

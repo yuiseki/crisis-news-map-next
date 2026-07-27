@@ -17,7 +17,7 @@ interface AbstractMarkerLayerProps {
   markers: MarkerProps[];
 }
 
-const AbstractMarkerLayer: React.VFC<AbstractMarkerLayerProps> = ({
+const AbstractMarkerLayer: React.FC<AbstractMarkerLayerProps> = ({
   id,
   title,
   markers,

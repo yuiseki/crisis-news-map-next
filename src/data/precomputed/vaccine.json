@@ -1,0 +1,378 @@
+[
+  {
+    "pref": "北海道",
+    "people": "1,673,000",
+    "finished": "77,797",
+    "percentage": 4.65,
+    "latitude": 43.06411,
+    "longitude": 141.34702
+  },
+  {
+    "pref": "青森県",
+    "people": "415,000",
+    "finished": "33,641",
+    "percentage": 8.11,
+    "latitude": 40.82516,
+    "longitude": 140.73976
+  },
+  {
+    "pref": "岩手県",
+    "people": "406,000",
+    "finished": "29,535",
+    "percentage": 7.27,
+    "latitude": 39.70304,
+    "longitude": 141.15271
+  },
+  {
+    "pref": "宮城県",
+    "people": "652,000",
+    "finished": "23,223",
+    "percentage": 3.56,
+    "latitude": 38.26839,
+    "longitude": 140.87212
+  },
+  {
+    "pref": "秋田県",
+    "people": "359,000",
+    "finished": "37,212",
+    "percentage": 10.37,
+    "latitude": 39.71817,
+    "longitude": 140.10284
+  },
+  {
+    "pref": "山形県",
+    "people": "360,000",
+    "finished": "36,992",
+    "percentage": 10.28,
+    "latitude": 38.24067,
+    "longitude": 140.3634
+  },
+  {
+    "pref": "福島県",
+    "people": "582,000",
+    "finished": "50,036",
+    "percentage": 8.6,
+    "latitude": 37.75091,
+    "longitude": 140.46786
+  },
+  {
+    "pref": "茨城県",
+    "people": "843,000",
+    "finished": "38,172",
+    "percentage": 4.53,
+    "latitude": 36.34404,
+    "longitude": 140.44547
+  },
+  {
+    "pref": "栃木県",
+    "people": "554,000",
+    "finished": "25,661",
+    "percentage": 4.63,
+    "latitude": 36.56458,
+    "longitude": 139.88339
+  },
+  {
+    "pref": "群馬県",
+    "people": "580,000",
+    "finished": "34,036",
+    "percentage": 5.87,
+    "latitude": 36.39119,
+    "longitude": 139.06169
+  },
+  {
+    "pref": "埼玉県",
+    "people": "1,961,000",
+    "finished": "85,885",
+    "percentage": 4.38,
+    "latitude": 35.85718,
+    "longitude": 139.65079
+  },
+  {
+    "pref": "千葉県",
+    "people": "1,743,000",
+    "finished": "80,514",
+    "percentage": 4.62,
+    "latitude": 35.60456,
+    "longitude": 140.12311
+  },
+  {
+    "pref": "東京都",
+    "people": "3,209,000",
+    "finished": "190,542",
+    "percentage": 5.94,
+    "latitude": 35.6895,
+    "longitude": 139.69164
+  },
+  {
+    "pref": "神奈川県",
+    "people": "2,329,000",
+    "finished": "116,262",
+    "percentage": 4.99,
+    "latitude": 35.44771,
+    "longitude": 139.64256
+  },
+  {
+    "pref": "新潟県",
+    "people": "720,000",
+    "finished": "50,267",
+    "percentage": 6.98,
+    "latitude": 37.90246,
+    "longitude": 139.02341
+  },
+  {
+    "pref": "富山県",
+    "people": "337,000",
+    "finished": "16,827",
+    "percentage": 4.99,
+    "latitude": 36.69682,
+    "longitude": 137.21103
+  },
+  {
+    "pref": "石川県",
+    "people": "337,000",
+    "finished": "34,605",
+    "percentage": 10.27,
+    "latitude": 36.59524,
+    "longitude": 136.62567
+  },
+  {
+    "pref": "福井県",
+    "people": "235,000",
+    "finished": "21,150",
+    "percentage": 9,
+    "latitude": 36.06484,
+    "longitude": 136.22145
+  },
+  {
+    "pref": "山梨県",
+    "people": "250,000",
+    "finished": "19,218",
+    "percentage": 7.69,
+    "latitude": 35.6647,
+    "longitude": 138.569
+  },
+  {
+    "pref": "長野県",
+    "people": "653,000",
+    "finished": "50,559",
+    "percentage": 7.74,
+    "latitude": 36.65086,
+    "longitude": 138.18292
+  },
+  {
+    "pref": "岐阜県",
+    "people": "599,000",
+    "finished": "39,161",
+    "percentage": 6.54,
+    "latitude": 35.39128,
+    "longitude": 136.72394
+  },
+  {
+    "pref": "静岡県",
+    "people": "1,089,000",
+    "finished": "53,360",
+    "percentage": 4.9,
+    "latitude": 34.97683,
+    "longitude": 138.38315
+  },
+  {
+    "pref": "愛知県",
+    "people": "1,892,000",
+    "finished": "112,062",
+    "percentage": 5.92,
+    "latitude": 35.18094,
+    "longitude": 136.90654
+  },
+  {
+    "pref": "三重県",
+    "people": "530,000",
+    "finished": "31,802",
+    "percentage": 6,
+    "latitude": 34.73018,
+    "longitude": 136.50851
+  },
+  {
+    "pref": "滋賀県",
+    "people": "368,000",
+    "finished": "33,915",
+    "percentage": 9.22,
+    "latitude": 35.00379,
+    "longitude": 135.86783
+  },
+  {
+    "pref": "京都府",
+    "people": "753,000",
+    "finished": "50,378",
+    "percentage": 6.69,
+    "latitude": 35.02207,
+    "longitude": 135.75571
+  },
+  {
+    "pref": "大阪府",
+    "people": "2,434,000",
+    "finished": "108,791",
+    "percentage": 4.47,
+    "latitude": 34.68635,
+    "longitude": 135.52043
+  },
+  {
+    "pref": "兵庫県",
+    "people": "1,591,000",
+    "finished": "77,463",
+    "percentage": 4.87,
+    "latitude": 34.69119,
+    "longitude": 135.18311
+  },
+  {
+    "pref": "奈良県",
+    "people": "417,000",
+    "finished": "26,875",
+    "percentage": 6.44,
+    "latitude": 34.68505,
+    "longitude": 135.83284
+  },
+  {
+    "pref": "和歌山県",
+    "people": "306,000",
+    "finished": "55,252",
+    "percentage": 18.06,
+    "latitude": 34.22486,
+    "longitude": 135.16808
+  },
+  {
+    "pref": "鳥取県",
+    "people": "178,000",
+    "finished": "22,079",
+    "percentage": 12.4,
+    "latitude": 35.50348,
+    "longitude": 134.23827
+  },
+  {
+    "pref": "島根県",
+    "people": "231,000",
+    "finished": "14,881",
+    "percentage": 6.44,
+    "latitude": 35.47345,
+    "longitude": 133.05087
+  },
+  {
+    "pref": "岡山県",
+    "people": "573,000",
+    "finished": "42,180",
+    "percentage": 7.36,
+    "latitude": 34.66148,
+    "longitude": 133.93532
+  },
+  {
+    "pref": "広島県",
+    "people": "823,000",
+    "finished": "40,097",
+    "percentage": 4.87,
+    "latitude": 34.3966,
+    "longitude": 132.45833
+  },
+  {
+    "pref": "山口県",
+    "people": "466,000",
+    "finished": "67,853",
+    "percentage": 14.56,
+    "latitude": 34.18435,
+    "longitude": 131.47095
+  },
+  {
+    "pref": "徳島県",
+    "people": "245,000",
+    "finished": "20,246",
+    "percentage": 8.26,
+    "latitude": 34.06549,
+    "longitude": 134.56003
+  },
+  {
+    "pref": "香川県",
+    "people": "305,000",
+    "finished": "30,364",
+    "percentage": 9.96,
+    "latitude": 34.34018,
+    "longitude": 134.04439
+  },
+  {
+    "pref": "愛媛県",
+    "people": "442,000",
+    "finished": "20,543",
+    "percentage": 4.65,
+    "latitude": 33.84174,
+    "longitude": 132.76622
+  },
+  {
+    "pref": "高知県",
+    "people": "246,000",
+    "finished": "17,308",
+    "percentage": 7.04,
+    "latitude": 33.56089,
+    "longitude": 133.5313
+  },
+  {
+    "pref": "福岡県",
+    "people": "246,000",
+    "finished": "62,269",
+    "percentage": 25.31,
+    "latitude": 33.60648,
+    "longitude": 130.41812
+  },
+  {
+    "pref": "佐賀県",
+    "people": "246,000",
+    "finished": "26,710",
+    "percentage": 10.86,
+    "latitude": 33.24995,
+    "longitude": 130.29948
+  },
+  {
+    "pref": "長崎県",
+    "people": "433,000",
+    "finished": "23,284",
+    "percentage": 5.38,
+    "latitude": 32.74506,
+    "longitude": 129.8741
+  },
+  {
+    "pref": "熊本県",
+    "people": "543,000",
+    "finished": "35,914",
+    "percentage": 6.61,
+    "latitude": 32.78922,
+    "longitude": 130.74203
+  },
+  {
+    "pref": "大分県",
+    "people": "373,000",
+    "finished": "30,309",
+    "percentage": 8.13,
+    "latitude": 33.23737,
+    "longitude": 131.61205
+  },
+  {
+    "pref": "宮崎県",
+    "people": "346,000",
+    "finished": "36,485",
+    "percentage": 10.54,
+    "latitude": 31.91092,
+    "longitude": 131.42365
+  },
+  {
+    "pref": "鹿児島県",
+    "people": "512,000",
+    "finished": "42,834",
+    "percentage": 8.37,
+    "latitude": 31.55965,
+    "longitude": 130.5575
+  },
+  {
+    "pref": "沖縄県",
+    "people": "322,000",
+    "finished": "29,110",
+    "percentage": 9.04,
+    "latitude": 26.2133,
+    "longitude": 127.67963
+  }
+]

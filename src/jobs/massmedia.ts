@@ -1,9 +1,7 @@
-import { dbConnect } from '../lib/dbConnect';
 import massMediaList from '../data/yuiseki.net/mass_media_japan.json';
 import { fetchFeedArticles } from '~/lib/crawl';
 
 const crawl = async () => {
-  await dbConnect();
   for (const massMedia of massMediaList) {
     // eslint-disable-next-line no-console
     console.log(massMedia.name);

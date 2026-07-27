@@ -5,7 +5,7 @@ import { INews } from '~/models/News';
 import { newsCategories } from '~/lib/constants/newsCategories';
 import { LocalNewsTitleView } from './LocalNewsTitleView';
 
-export const NewsView: React.VFC<{ news: INews }> = ({
+export const NewsView: React.FC<{ news: INews }> = ({
   news,
 }: {
   news: INews;

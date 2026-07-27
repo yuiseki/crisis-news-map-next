@@ -36,3 +36,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+.env*
+
+# cloudflare
+.open-next/
+.wrangler/
+.dev.vars*
+worker-configuration.d.ts

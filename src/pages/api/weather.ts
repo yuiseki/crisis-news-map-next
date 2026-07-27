@@ -1,18 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { dbConnect } from '~/lib/dbConnect';
-import { WeatherAlert } from '~/models/WeatherAlert';
+import { getDb } from '~/lib/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await dbConnect();
-  const today = new Date();
-  const yesterday = today.setDate(today.getDate() - 1);
-  const condition = { updatedAt: { $gt: yesterday.toString() } };
+  const db = await getDb();
+  const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
-  const alerts = await WeatherAlert.find(condition, null, {
-    sort: { updatedAt: -1 },
-    limit: 200,
-  });
-  res.status(200).json(alerts);
+  const { results } = await db
+    .prepare(
+      `SELECT * FROM weather_alerts WHERE updatedAt > ? ORDER BY updatedAt DESC LIMIT 200`
+    )
+    .bind(yesterday)
+    .all();
+  res.status(200).json(results);
 };
 
 export default handler;

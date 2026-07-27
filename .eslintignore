@@ -1,3 +1,6 @@
 **/node_modules/*
 **/out/*
 **/.next/*
+next-env.d.ts
+scripts/*
+src/jobs/twitter.ts

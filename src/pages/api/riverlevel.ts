@@ -1,13 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { dbConnect } from '~/lib/dbConnect';
-import { RiverLevel } from '~/models/RiverLevel';
+import { getDb } from '~/lib/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await dbConnect();
-  const riverLevels = await RiverLevel.find({ isFlood: true }, null, {
-    sort: { updatedAt: -1 },
-    limit: 200,
-  });
+  const db = await getDb();
+  const { results } = await db
+    .prepare(
+      `SELECT * FROM river_levels WHERE isFlood = 1 ORDER BY updatedAt DESC LIMIT 200`
+    )
+    .all();
+  const riverLevels = (results as any[]).map((row) => ({
+    ...row,
+    isFlood: !!row.isFlood,
+  }));
   res.status(200).json(riverLevels);
 };
 

@@ -9,7 +9,7 @@ const IzusanMap = dynamic(
   }
 ) as React.FC;
 
-export const PovertyMapView: React.VFC = () => {
+export const PovertyMapView: React.FC = () => {
   return <IzusanMap />;
 };
 

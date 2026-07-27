@@ -1,14 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { dbConnect } from '~/lib/dbConnect';
-import { Dispatch } from '~/models/Dispatch';
+import { getDb } from '~/lib/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await dbConnect();
-  const riverLevels = await Dispatch.find({}, null, {
-    sort: { updatedAt: -1 },
-    limit: 200,
-  });
-  res.status(200).json(riverLevels);
+  const db = await getDb();
+  const { results } = await db
+    .prepare(`SELECT * FROM dispatches ORDER BY updatedAt DESC LIMIT 200`)
+    .all();
+  res.status(200).json(results);
 };
 
 export default handler;

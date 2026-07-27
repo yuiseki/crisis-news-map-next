@@ -9,7 +9,7 @@ export interface HeatMapLayerProps {
   points: LatLng[];
 }
 
-const HeatMapLayer: React.VFC<HeatMapLayerProps> = ({
+const HeatMapLayer: React.FC<HeatMapLayerProps> = ({
   points,
 }: HeatMapLayerProps) => {
   const map = useMap();

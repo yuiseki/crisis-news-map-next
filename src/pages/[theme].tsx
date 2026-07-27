@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-export const CrisisMapView: React.VFC = () => {
+export const CrisisMapView: React.FC = () => {
   const router = useRouter();
   const { theme } = router.query;
   const content = `0;URL=/theme/${theme}`;

@@ -11,7 +11,7 @@ interface AbstractOverlayLayerProps {
   opacity?: number;
 }
 
-const AbstractOverlayLayer: React.VFC<AbstractOverlayLayerProps> = ({
+const AbstractOverlayLayer: React.FC<AbstractOverlayLayerProps> = ({
   id,
   name,
   attribution,

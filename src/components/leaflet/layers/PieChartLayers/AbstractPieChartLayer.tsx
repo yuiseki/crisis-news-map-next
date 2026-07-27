@@ -18,7 +18,7 @@ interface AbstractPieChartLayerProps {
   markers: PieChartMarkerProps[];
 }
 
-const AbstractPieChartLayer: React.VFC<AbstractPieChartLayerProps> = ({
+const AbstractPieChartLayer: React.FC<AbstractPieChartLayerProps> = ({
   id,
   title,
   attribution,

@@ -9,7 +9,7 @@ const Covid19Map = dynamic(
   }
 ) as React.FC;
 
-export const Covid19MapView: React.VFC = () => {
+export const Covid19MapView: React.FC = () => {
   return <Covid19Map />;
 };
 

@@ -15,7 +15,7 @@ interface AbstractGeoJSONLayerProps {
   pointToLayer?: (point, latlng) => Layer | undefined;
 }
 
-const AbstractGeoJSONTileLayer: React.VFC<AbstractGeoJSONLayerProps> = ({
+const AbstractGeoJSONTileLayer: React.FC<AbstractGeoJSONLayerProps> = ({
   id,
   name,
   url,

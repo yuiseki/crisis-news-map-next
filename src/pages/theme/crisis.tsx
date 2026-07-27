@@ -2,7 +2,7 @@
 import Head from 'next/head';
 import React from 'react';
 
-export const CrisisMapView: React.VFC = () => {
+export const CrisisMapView: React.FC = () => {
   return (
     <Head>
       <meta httpEquiv='refresh' content='0;URL=/' />

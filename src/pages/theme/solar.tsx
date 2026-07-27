@@ -12,7 +12,7 @@ const MegaSolarMap = dynamic(
   }
 ) as React.FC;
 
-export const View: React.VFC = () => {
+export const View: React.FC = () => {
   return <MegaSolarMap />;
 };
 

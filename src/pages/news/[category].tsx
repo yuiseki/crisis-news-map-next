@@ -28,7 +28,7 @@ export const getNewsPath = (category, checked, confirmed) => {
   return locationPath + params.toString();
 };
 
-const NewsListView: React.VFC = () => {
+const NewsListView: React.FC = () => {
   const router = useRouter();
   const { category, japan, confirmed } = router.query;
   const [words, setWords] = useState(['']);

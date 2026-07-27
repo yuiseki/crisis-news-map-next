@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "crisis-news-map-next",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-07-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "crisis-news",
+      "database_id": "8c6c1947-c6ac-4e8a-9946-b50f94a3640d"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,11 +1,9 @@
 import fetch from 'node-fetch';
-import { dbConnect } from '../lib/dbConnect';
-import { RiverLevel } from '~/models/RiverLevel';
+import { d1Upsert } from '~/lib/d1Client';
 import prefList from '../data/k.river.go.jp/pref.json';
 import cityList from '../data/k.river.go.jp/twn.json';
 
 const crawl = async () => {
-  await dbConnect();
   for (const pref of prefList.prefs) {
     // eslint-disable-next-line no-console
     console.log(pref.name + ': ' + pref.code);
@@ -21,13 +19,7 @@ const crawl = async () => {
     const json = await res.json();
     const riverLevels = await convertJson(json);
     for await (const riverLevel of riverLevels) {
-      const query = {
-        code: riverLevel.code,
-        observedAt: riverLevel.observedAt,
-      };
-      await RiverLevel.findOneAndUpdate(query, riverLevel, {
-        upsert: true,
-      });
+      await d1Upsert('river_levels', ['code', 'observedAt'], riverLevel);
     }
   }
   process.exit(0);

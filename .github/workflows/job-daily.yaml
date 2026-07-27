@@ -8,10 +8,9 @@ jobs:
   daily-jobs:
     runs-on: ubuntu-latest
     env:
-      MONGODB_URI: ${{ secrets.MONGODB_URI }}
-      MONGODB_DB: ${{ secrets.MONGODB_DB }}
-      MONGODB_USER: ${{ secrets.MONGODB_USER }}
-      MONGODB_PASS: ${{ secrets.MONGODB_PASS }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_D1_DATABASE_ID: ${{ secrets.CLOUDFLARE_D1_DATABASE_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     strategy:
       matrix:
         job-name:
