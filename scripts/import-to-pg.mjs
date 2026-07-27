@@ -1,30 +1,29 @@
-// Bulk-loads the JSONL dumps written by dump_mongo.mjs into D1 via the REST
-// API, in batched multi-row INSERTs. Resumable: writes a `.progress` file
-// with the last completed line number per collection, and skips already-done
-// lines on restart (so an interrupted run - or a rate limit - just picks up
-// where it left off instead of re-inserting from zero).
+// Bulk-loads the JSONL dumps written by dump-mongo.mjs into the self-hosted
+// Postgres (k8s) via `pg`, in large batched multi-row INSERTs with
+// parameterized values. Resumable via per-collection `.pgprogress` files.
 import fs from "fs";
 import readline from "readline";
+import pg from "pg";
 
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
-const DATABASE_ID = process.env.CLOUDFLARE_D1_DATABASE_ID;
-const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+const { Pool } = pg;
 
 const BACKUP_DIR = "/home/yuiseki/mongo-backups/crisis-news-map-next";
-const BATCH_SIZE = 400;
+const BATCH_SIZE = 2000;
 
-const esc = (v) => {
-  if (v === null || v === undefined) return "NULL";
-  if (typeof v === "number") return String(v);
-  if (typeof v === "boolean") return v ? "1" : "0";
-  return `'${String(v).replace(/'/g, "''")}'`;
+// A handful of source documents have pathologically large text fields (a
+// scraper apparently captured full page content into ogDesc/content instead
+// of just the meta description in some cases). Cap defensively.
+const MAX_STRING_LEN = 20000;
+const clamp = (v) => {
+  if (typeof v !== "string") return v;
+  return v.length > MAX_STRING_LEN ? v.slice(0, MAX_STRING_LEN) : v;
 };
 
 const toIso = (v) => {
   if (!v) return null;
   if (typeof v === "object" && v.$date) return new Date(v.$date).toISOString();
   const d = new Date(v);
-  return isNaN(d.getTime()) ? String(v) : d.toISOString();
+  return isNaN(d.getTime()) ? null : d.toISOString();
 };
 
 const oid = (v) => {
@@ -33,26 +32,7 @@ const oid = (v) => {
   return String(v);
 };
 
-const d1Query = async (sql) => {
-  const res = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/d1/database/${DATABASE_ID}/query`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ sql }),
-    }
-  );
-  const body = await res.json();
-  if (!body.success) {
-    throw new Error(`D1 query failed: ${JSON.stringify(body.errors)}`);
-  }
-  return body;
-};
-
-const progressPath = (name) => `${BACKUP_DIR}/${name}.progress`;
+const progressPath = (name) => `${BACKUP_DIR}/${name}.pgprogress`;
 
 const loadProgress = (name) => {
   try {
@@ -78,13 +58,13 @@ const toNewsRow = (doc) => ({
   id: oid(doc._id),
   createdAt: toIso(doc.createdAt),
   updatedAt: toIso(doc.updatedAt),
-  url: doc.url,
-  domain: doc.domain,
-  title: doc.title,
-  ogTitle: doc.ogTitle,
-  ogDesc: doc.ogDesc,
-  ogImage: doc.ogImage,
-  ogUrl: doc.ogUrl,
+  url: clamp(doc.url),
+  domain: clamp(doc.domain),
+  title: clamp(doc.title),
+  ogTitle: clamp(doc.ogTitle),
+  ogDesc: clamp(doc.ogDesc),
+  ogImage: clamp(doc.ogImage),
+  ogUrl: clamp(doc.ogUrl),
   sourceType: doc.sourceType,
   sourceName: doc.sourceName,
   sourceConfirmed: !!doc.sourceConfirmed,
@@ -149,7 +129,7 @@ const toDispatchRow = (doc) => ({
   originId: doc.originId,
   category: doc.category,
   unit: doc.unit,
-  detail: doc.detail,
+  detail: clamp(doc.detail),
   division: doc.division,
   status: doc.status,
   time_str: doc.time_str,
@@ -172,8 +152,8 @@ const toWeatherRow = (doc) => ({
   createdAt: toIso(doc.createdAt),
   updatedAt: toIso(doc.updatedAt),
   originId: doc.originId,
-  title: doc.title,
-  content: doc.content,
+  title: clamp(doc.title),
+  content: clamp(doc.content),
   warnLevel: doc.warnLevel ?? null,
   observedAt: toIso(doc.observedAt),
   placeCountry: doc.placeCountry,
@@ -183,13 +163,21 @@ const toWeatherRow = (doc) => ({
 });
 
 const COLLECTIONS = [
-  { name: "news", table: "news", columns: NEWS_COLUMNS, toRow: toNewsRow },
-  { name: "riverlevels", table: "river_levels", columns: RIVER_COLUMNS, toRow: toRiverRow },
-  { name: "dispatches", table: "dispatches", columns: DISPATCH_COLUMNS, toRow: toDispatchRow },
-  { name: "weatheralerts", table: "weather_alerts", columns: WEATHER_COLUMNS, toRow: toWeatherRow },
+  { name: "news", table: "news", columns: NEWS_COLUMNS, toRow: toNewsRow, conflictCol: "id" },
+  { name: "riverlevels", table: "river_levels", columns: RIVER_COLUMNS, toRow: toRiverRow, conflictCol: "id" },
+  { name: "dispatches", table: "dispatches", columns: DISPATCH_COLUMNS, toRow: toDispatchRow, conflictCol: "id" },
+  { name: "weatheralerts", table: "weather_alerts", columns: WEATHER_COLUMNS, toRow: toWeatherRow, conflictCol: "id" },
 ];
 
-const importCollection = async ({ name, table, columns, toRow }) => {
+const pool = new Pool({
+  host: process.env.PGHOST || "localhost",
+  port: parseInt(process.env.PGPORT || "5432", 10),
+  user: process.env.PGUSER || "crisis",
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE || "crisis_news",
+});
+
+const importCollection = async ({ name, table, columns, toRow, conflictCol }) => {
   const filePath = `${BACKUP_DIR}/${name}.jsonl`;
   if (!fs.existsSync(filePath)) {
     console.log(`skip ${name}: ${filePath} not found`);
@@ -207,13 +195,24 @@ const importCollection = async ({ name, table, columns, toRow }) => {
   let batch = [];
   let inserted = 0;
 
+  const insertRows = async (rows) => {
+    if (rows.length === 0) return;
+    const params = [];
+    const valueGroups = rows.map((row) => {
+      const placeholders = columns.map((c) => {
+        params.push(row[c]);
+        return `$${params.length}`;
+      });
+      return `(${placeholders.join(", ")})`;
+    });
+    const quotedCols = columns.map((c) => `"${c}"`).join(", ");
+    const sql = `INSERT INTO ${table} (${quotedCols}) VALUES ${valueGroups.join(", ")} ON CONFLICT DO NOTHING;`;
+    await pool.query(sql, params);
+  };
+
   const flush = async () => {
     if (batch.length === 0) return;
-    const values = batch
-      .map((row) => `(${columns.map((c) => esc(row[c])).join(", ")})`)
-      .join(",\n");
-    const sql = `INSERT OR IGNORE INTO ${table} (${columns.join(", ")}) VALUES\n${values};`;
-    await d1Query(sql);
+    await insertRows(batch);
     inserted += batch.length;
     saveProgress(name, lineNo);
     batch = [];
@@ -227,7 +226,7 @@ const importCollection = async ({ name, table, columns, toRow }) => {
     batch.push(toRow(doc));
     if (batch.length >= BATCH_SIZE) {
       await flush();
-      if (inserted % 20000 < BATCH_SIZE) {
+      if (inserted % 50000 < BATCH_SIZE) {
         console.log(`${name}: ${inserted} rows imported (line ${lineNo})...`);
       }
     }
@@ -237,15 +236,11 @@ const importCollection = async ({ name, table, columns, toRow }) => {
 };
 
 const main = async () => {
-  if (!ACCOUNT_ID || !DATABASE_ID || !API_TOKEN) {
-    throw new Error(
-      "Missing CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_D1_DATABASE_ID / CLOUDFLARE_API_TOKEN"
-    );
-  }
   for (const col of COLLECTIONS) {
     await importCollection(col);
   }
   console.log("All collections imported.");
+  await pool.end();
 };
 
 main().catch((e) => {

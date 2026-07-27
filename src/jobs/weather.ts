@@ -1,15 +1,20 @@
 import Parser from 'rss-parser';
 import { detectLocation } from 'detect-location-jp';
-import { d1Upsert } from '~/lib/d1Client';
+import { pgUpsert } from '~/lib/pgClient';
 
 const rssParser = new Parser();
+
+const WEATHER_COLUMNS = [
+  'originId', 'title', 'content', 'warnLevel', 'observedAt', 'placeCountry',
+  'placePref', 'latitude', 'longitude',
+];
 
 const crawl = async () => {
   const feedUrl = 'http://www.data.jma.go.jp/developer/xml/feed/extra.xml';
   const feed = await rssParser.parseURL(feedUrl);
   const alerts = await convertFeed(feed);
   for await (const alert of alerts) {
-    await d1Upsert('weather_alerts', ['originId'], alert);
+    await pgUpsert('weather_alerts', ['originId'], alert, WEATHER_COLUMNS);
   }
   process.exit(0);
 };

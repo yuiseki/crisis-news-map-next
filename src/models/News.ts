@@ -1,5 +1,5 @@
 // Plain type definition - the mongoose Model this file used to export was
-// dropped as part of the MongoDB -> D1 migration (see src/lib/d1Client.ts
+// dropped as part of the MongoDB -> Postgres migration (see src/lib/pgClient.ts
 // and src/lib/db.ts). Kept as a type-only export since several components
 // still import INews for prop typing.
 export interface INews {

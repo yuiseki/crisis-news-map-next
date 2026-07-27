@@ -1,7 +1,13 @@
 import fetch from 'node-fetch';
-import { d1Upsert } from '~/lib/d1Client';
+import { pgUpsert } from '~/lib/pgClient';
 import { detectCategories } from 'detect-categories-ja';
 import { detectLocation } from 'detect-location-jp';
+
+const DISPATCH_COLUMNS = [
+  'originId', 'category', 'unit', 'detail', 'division', 'status',
+  'time_str', 'observedAt', 'placeCountry', 'placePref', 'placeCity',
+  'latitude', 'longitude',
+];
 
 const crawl = async () => {
   const res = await fetch('https://www.mk-mode.com/rails/disaster.json');
@@ -10,7 +16,7 @@ const crawl = async () => {
   for await (const dispatch of dispatches) {
     // eslint-disable-next-line no-console
     console.log(dispatch);
-    await d1Upsert('dispatches', ['originId'], dispatch);
+    await pgUpsert('dispatches', ['originId'], dispatch, DISPATCH_COLUMNS);
   }
   process.exit(0);
 };

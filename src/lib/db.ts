@@ -1,11 +1,18 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { Pool } from "pg";
 
-// D1's binding is only available per-request (via Workers' `env` param), not
-// at module load time, so callers must fetch it inside each request handler
-// rather than caching a module-level singleton (see the retryer.js /
-// getPrisma() cold-start timing issue hit in the other migrations in this
-// batch for why).
-export const getDb = async () => {
-  const { env } = await getCloudflareContext({ async: true });
-  return env.DB;
+// Plain Node runtime (k8s), not Workers, so a module-level singleton pool is
+// fine here - no per-request binding dance needed.
+let pool: Pool | undefined;
+
+export const getDb = () => {
+  if (!pool) {
+    pool = new Pool({
+      host: process.env.PGHOST,
+      port: parseInt(process.env.PGPORT || "5432", 10),
+      user: process.env.PGUSER,
+      password: process.env.PGPASSWORD,
+      database: process.env.PGDATABASE,
+    });
+  }
+  return pool;
 };

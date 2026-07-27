@@ -1,7 +1,14 @@
 import fetch from 'node-fetch';
-import { d1Upsert } from '~/lib/d1Client';
+import { pgUpsert } from '~/lib/pgClient';
 import prefList from '../data/k.river.go.jp/pref.json';
 import cityList from '../data/k.river.go.jp/twn.json';
+
+const RIVER_COLUMNS = [
+  'code', 'name', 'point', 'level', 'townCode', 'prefCode', 'over',
+  'startLevel', 'warnLevel', 'fladLevel', 'isFlood', 'category', 'obsTime',
+  'observedAt', 'placeCountry', 'placePref', 'placeRiver', 'latitude',
+  'longitude',
+];
 
 const crawl = async () => {
   for (const pref of prefList.prefs) {
@@ -19,7 +26,7 @@ const crawl = async () => {
     const json = await res.json();
     const riverLevels = await convertJson(json);
     for await (const riverLevel of riverLevels) {
-      await d1Upsert('river_levels', ['code', 'observedAt'], riverLevel);
+      await pgUpsert('river_levels', ['code', 'observedAt'], riverLevel, RIVER_COLUMNS);
     }
   }
   process.exit(0);

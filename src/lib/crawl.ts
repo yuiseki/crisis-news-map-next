@@ -3,12 +3,20 @@ import Parser from 'rss-parser';
 import * as cheerio from 'cheerio';
 import sleep from '~/lib/sleep';
 import { INews } from '~/models/News';
-import { d1Upsert } from '~/lib/d1Client';
+import { pgUpsert } from '~/lib/pgClient';
 import massMediaList from '../data/yuiseki.net/mass_media_japan.json';
 import { detectCategories } from 'detect-categories-ja';
 import { detectLocation } from 'detect-location-jp';
 
 const rssParser = new Parser();
+
+const NEWS_COLUMNS = [
+  'url', 'domain', 'title', 'ogTitle', 'ogDesc', 'ogImage', 'ogUrl',
+  'sourceType', 'sourceName', 'sourceConfirmed', 'factConfirmed',
+  'fakeConfirmed', 'category', 'tags', 'placeCountry', 'placePref',
+  'placeCity', 'placeRiver', 'placeMountain', 'placeStation', 'placeAirport',
+  'placePolice', 'latitude', 'longitude',
+];
 
 interface Source {
   domain: string;
@@ -43,7 +51,7 @@ export const fetchFeedArticles = async (feedUrl, source: Source = null) => {
       }
       // eslint-disable-next-line no-console
       console.log(news);
-      await d1Upsert('news', ['url'], news as unknown as Record<string, unknown>);
+      await pgUpsert('news', ['url'], news as unknown as Record<string, unknown>, NEWS_COLUMNS);
     } catch (e) {
       console.error(e);
     } finally {

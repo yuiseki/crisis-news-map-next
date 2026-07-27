@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getDb } from '~/lib/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const db = await getDb();
+  const db = getDb();
   const {
     category,
     confirmed,
@@ -25,45 +25,45 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const clauses: string[] = [];
   const params: unknown[] = [];
+  // Array.push returns the new length, which is exactly the 1-indexed
+  // Postgres placeholder position of the value just pushed.
+  const push = (v: unknown) => `$${params.push(v)}`;
   if (category) {
-    clauses.push('(category = ? OR tags LIKE ?)');
-    params.push(category, `%"${category}"%`);
+    const catIdx = push(category);
+    const tagsIdx = push(`%"${category}"%`);
+    clauses.push(`(category = ${catIdx} OR tags::text LIKE ${tagsIdx})`);
   }
   if (confirmed === 'true') {
-    clauses.push('sourceConfirmed = 1');
+    clauses.push('"sourceConfirmed" = true');
   }
   if (hasLocation === 'true') {
     clauses.push('latitude IS NOT NULL AND longitude IS NOT NULL');
   }
   if (hasDetailLocation === 'true') {
-    clauses.push('placeCountry IS NOT NULL AND placePref IS NOT NULL');
+    clauses.push('"placeCountry" IS NOT NULL AND "placePref" IS NOT NULL');
   }
   if (country) {
-    clauses.push('placeCountry = ?');
-    params.push(country);
+    clauses.push(`"placeCountry" = ${push(country)}`);
   }
   if (pref) {
-    clauses.push('placePref = ?');
-    params.push(pref);
+    clauses.push(`"placePref" = ${push(pref)}`);
   }
   if (city) {
-    clauses.push('placeCity = ?');
-    params.push(city);
+    clauses.push(`"placeCity" = ${push(city)}`);
   }
 
   const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
-  const sql = `SELECT * FROM news ${where} ORDER BY createdAt DESC LIMIT ? OFFSET ?`;
-  const { results } = await db
-    .prepare(sql)
-    .bind(...params, limit, skip)
-    .all();
+  const limitIdx = push(limit);
+  const offsetIdx = push(skip);
+  const sql = `SELECT * FROM news ${where} ORDER BY "createdAt" DESC LIMIT ${limitIdx}::int OFFSET ${offsetIdx}::int`;
+  const { rows } = await db.query(sql, params);
 
-  const json = (results as any[]).map((row) => ({
+  const json = rows.map((row) => ({
     ...row,
     sourceConfirmed: !!row.sourceConfirmed,
     factConfirmed: !!row.factConfirmed,
     fakeConfirmed: !!row.fakeConfirmed,
-    tags: row.tags ? JSON.parse(row.tags as string) : [],
+    tags: row.tags ?? [],
   }));
 
   res.status(200).json(json);
