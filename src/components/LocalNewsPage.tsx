@@ -79,6 +79,19 @@ export const LocalNewsPage: React.VFC = () => {
 
   const { data } = useSWR<INews[]>(url);
 
+  const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    if (data) {
+      const counts: Record<string, number> = {};
+      data.forEach((news) => {
+        const cat = news.category || 'unknown';
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+      setCategoryCounts(counts);
+    }
+  }, [data]);
+
   return (
     <>
       <Head>
@@ -122,7 +135,9 @@ export const LocalNewsPage: React.VFC = () => {
                       router.push(path);
                     }}
                   />
-                  <label htmlFor={cat}>{newsCategories[cat]}</label>
+                  <label htmlFor={cat}>
+                    {newsCategories[cat]} {categoryCounts[cat] !== undefined && ` (${categoryCounts[cat]})`}
+                  </label>
                 </div>
               </>
             );
